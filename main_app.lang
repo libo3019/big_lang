@@ -1,0 +1,20 @@
+Main
+{
+	main(int argc, cstr[] argv, cstr[] envp) static ->none
+	{
+		printany "argc = ", argc, '\n';
+		int idx;
+		idx = 0;
+		while (argv[idx] != null)
+		{
+			printany "argv[", idx, "]=", argv[idx], '\n';
+			idx = idx + 1;
+		}
+		idx = 0;
+		while (envp[idx] != null)
+		{
+			printany "envp[", idx, "]=", envp[idx], '\n';
+			idx = idx + 1;
+		}
+	}
+}

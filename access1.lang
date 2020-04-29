@@ -1,0 +1,16 @@
+
+Main {
+	main() -> none
+	{
+	try
+	{
+	printany "#############################\n";
+	}
+	catch(...)
+	{
+		//printany "\n", e.get_msg(), '\n';
+		printany "A exception!\n";
+	}
+   }
+
+}

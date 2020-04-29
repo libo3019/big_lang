@@ -1,0 +1,71 @@
+import "sys_thread.lang"
+import "sys_critical_section.lang"
+Thread1 extends sys_thread
+{
+	int idx;
+	sys_critical_section sec;
+	Thread1(int idx, sys_critical_section sec)->none
+	{
+		this.sec = sec;
+		this.idx = idx;
+	}
+	run() virtual ->int
+	{
+		int n;
+		n = 1;
+		while (true)
+		{
+			sec.enter();
+			printany "\nthread", idx, ", n = ", n, '\n';
+			sec.leave();
+			sleep(300);
+			n = n + 1;
+		}
+	}
+}
+Main
+{
+	main()->none
+	{
+		try {
+		sys_critical_section sec1;
+		sec1 = new sys_critical_section();
+		Thread1[] thread_group;
+		int thread_num;
+		thread_num = 10;
+		thread_group = new Thread1[thread_num];
+		int idx;
+		idx = 0;
+		while (idx < thread_num)
+		{
+			thread_group[idx] = new Thread1(idx, sec1);
+			printany "thread_group[", idx, "]=", thread_group[idx].idx, '\n';
+			idx = idx + 1;
+		}
+		printany "sleep 3 second (Thread1.sleep)\n";
+		Thread1.sleep(3000);
+		printany "sleep 2 second (sys_thread.sleep)\n";
+		sys_thread.sleep(1000);
+		printany "#2\n";
+		idx = 0;
+		while (idx < thread_num)
+		{
+			thread_group[idx].start();
+			idx = idx + 1;
+		}
+		idx = 0;
+		while (idx < thread_num)
+		{
+			thread_group[idx].wait(-1);
+			idx = idx + 1;
+		}
+		sec1.delete();
+		printany "End\n";
+		
+	  } 
+	  catch(native_sys_exception e)
+	  {
+		printany e.get_msg(), '\n';
+	  }
+	}
+}

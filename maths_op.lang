@@ -1,0 +1,15 @@
+Main
+{
+	main() static ->int
+	{
+		float f1;
+		f1 = 1;
+		float f2;
+		f2 = 2;
+		int n;
+		n = 1;
+		printany "n=", n + n + n + n + n + n + n +n + n, '\n';
+		printany "f2=", f1 + f2 + f2 + f2 + f2 + f2, '\n';
+
+	}
+}

@@ -1,0 +1,35 @@
+_asm_extern _sys_exception_proxy_default_construct
+_asm_extern _sys_exception_proxy_construct
+_asm_extern _sys_exception_proxy_get_msg
+_asm_extern _printf
+
+sys_exception {
+	ref sys_exception_proxy;
+	sys_exception()->none
+	{
+	_asm
+	{
+		call _sys_exception_proxy_default_construct
+		mov %sys_exception_proxy, eax
+	}
+	}
+	sys_exception(cstr str)->none
+	{
+		_asm
+		{
+			push %str
+			call _sys_exception_proxy_construct
+			add esp, 4
+			mov %sys_exception_proxy, eax
+		}
+	}
+	get_msg() virtual ->cstr
+	{
+	_asm
+	{
+		push %sys_exception_proxy
+		call _sys_exception_proxy_get_msg
+		add esp, 4
+	}
+	}
+}

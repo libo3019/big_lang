@@ -1,0 +1,151 @@
+c1
+{
+	int member1;
+	c1(int member1)->none
+	{
+		this.member1 = member1;
+	}
+	func()->int
+	{
+		return member1;
+	}
+}
+Main
+{
+	main()->none
+	{
+		
+		printany "----------------------1----------------------\n";
+		int [] array1;
+		array1 = new integer[10];
+		int idx;
+		idx = 0;
+		while (idx < array1.size())
+		{
+			array1[idx] = idx * 3;
+			idx = idx + 1;
+		}
+		idx = 0;
+		while (idx < array1.size())
+		{
+			printany "array1[", idx, "]=", array1[idx], '\n';
+			idx = idx + 1;
+		}
+		printany "---------------------2-----------------------\n";
+		int idx;
+		int[][]array2;
+		array2 = new integer[3][];
+		int idx0;
+		idx0 = 0;
+		while (idx0 < array2.size())
+		{
+			array2[idx0] = new integer[10];
+			idx = 0;
+			while (idx < array2[idx0].size())
+			{
+				array2[idx0][idx] = idx * (idx0 + 1);
+				idx = idx + 1;
+			}
+			idx0 = idx0 + 1;
+		}
+		
+		idx0 = 0;
+		while (idx0 < array2.size())
+		{
+			idx = 0;
+			while (idx < array2[idx0].size())
+			{
+				printany "array2[", idx0, "][", idx, "]=", array2[idx0][idx], '\n';
+				idx = idx + 1;
+			}
+			idx0 = idx0 + 1;
+		}
+		
+
+		printany "------------------------3--------------------\n";
+		c1 [] objarray1;
+		objarray1 = new c1[10];
+		int idx;
+		int idx0;
+		idx = 0;
+		while (idx < objarray1.size())
+		{
+			objarray1[idx] = new c1(idx * 3);
+			idx = idx + 1;
+		}
+		idx = 0;
+		while (idx < objarray1.size())
+		{
+			printany "objarray1[", idx, "]=", objarray1[idx].member1, '\n';
+			printany "objarray1[", idx, "]func=", objarray1[idx].func(), '\n';
+			idx = idx + 1;
+		}
+		
+		printany "----------------------4----------------------\n";
+		c1[][]objarray2;
+		objarray2 = new c1[3][];
+		idx0 = 0;
+		while (idx0 < objarray2.size())
+		{
+			objarray2[idx0] = new c1[10];
+			idx = 0;
+			while (idx < objarray2[idx0].size())
+			{
+				objarray2[idx0][idx] = new c1(idx * (idx0 + 1));
+				idx = idx + 1;
+			}
+			idx0 = idx0 + 1;
+		}
+		idx0 = 0;
+		while (idx0 < objarray2.size())
+		{
+			idx = 0;
+			while (idx < objarray2[idx0].size())
+			{
+				printany "objarray2[", idx0, "][", idx, "]=", objarray2[idx0][idx].member1, '\n';
+				printany "objarray2[", idx0, "][", idx, "]func=", objarray2[idx0][idx].func(), '\n';
+				idx = idx + 1;
+			}
+			idx0 = idx0 + 1;
+		}
+		printany "-----------------objarray3---------------------------\n";
+		c1[][][]objarray3;
+		objarray3 = new c1[3][][];
+		idx0 = 0;
+		int idx3;
+		while (idx0 < objarray3.size())
+		{
+			objarray3[idx0] = new c1[9][];
+			idx = 0;
+			while (idx < objarray3[idx0].size())
+			{
+				objarray3[idx0][idx] = new c1[5];
+				idx3 = 0;
+				while (idx3 < objarray3[idx0][idx].size())
+				{
+					objarray3[idx0][idx][idx3] = new c1(idx * idx3 * idx0);
+					idx3 = idx3 + 1;
+				}
+				idx = idx + 1;
+			}
+			idx0 = idx0 + 1;
+		}
+		idx0 = 0;
+		while (idx0 < objarray3.size())
+		{
+			idx = 0;
+			while (idx < objarray3[idx0].size())
+			{
+				idx3 = 0;
+				while (idx3 < objarray3[idx0][idx].size())
+				{
+					printany "objarray3[", idx0, "][", idx, "][",idx3,"]=", objarray3[idx0][idx][idx3].member1, '\n';
+					printany "objarray3[", idx0, "][", idx, "][",idx3,"]=", objarray3[idx0][idx][idx3].func(), '\n';
+					idx3 = idx3 + 1;
+				}
+				idx = idx + 1;
+			}
+			idx0 = idx0 + 1;
+		}
+	}
+}

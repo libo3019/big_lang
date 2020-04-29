@@ -1,0 +1,143 @@
+c1
+{
+	cstr info;
+	c1(cstr msg)->none
+	{
+		info = msg;
+	}
+	getmsg()->cstr
+	{
+		printany "c1getmsg:", info, '\n';
+		return "c1::getmsg";
+	}
+}
+c3
+{
+	cstr info;
+	c3(cstr msg)->none
+	{
+		printany "c3::c3, msg = ", msg, '\n';
+		info = msg;
+		printany "c3::c3, info = ", info, '\n';
+	}
+	output()->none
+	{
+		printany "c3::output start\n";
+		printany $call_stack;
+		printany "c3::output, info=", info, '\n';
+		printany "c3::output end\n";
+	}
+	getmsg()->cstr
+	{
+		return info;
+	}
+	func1()->none
+	{
+		printany $call_stack;
+		throw new c1("a user exception");
+	}
+}
+
+c5
+{
+	cstr info;
+	c5(cstr msg) ->none
+	{
+	 info = msg;
+	 printany "c5::c5 info=", info, '\n';
+	}
+	func1()->none
+	{
+		printany "c5::func1 info=", info, '\n';
+		throw new c3(info);
+	}
+	func3()->c3
+	{
+		printany "c5::func3 info=", info, '\n';
+		return new c3(info);
+	}
+}
+
+c9
+{
+}
+Main {
+
+     main() -> none {
+		printany $call_stack;
+		try{
+		c3 obj3;
+		printany "#################1\n";
+		obj3 = new c3("try3obj");
+		printany "#################2\n";
+		obj3.output();
+		printany "#################3\n";
+		c5 obj5;
+		obj5 = new c5("Obj5Info");
+		printany "#################4\n";
+		obj3 = obj5.func3();
+		printany "#################5\n";
+		obj3.output();
+		printany "#################6\n";
+		}
+		catch(native_sys_exception e)
+		{
+			printany "sys exception, msg: ", e.get_msg(), '\n';
+		}
+		
+     	    try
+			{
+				 printany "try start1!\n";
+				 integer n;
+				 n = 1;
+				 try
+				 {
+					
+					try
+					{
+						c5 obj;
+						obj = new c5("try3obj");
+						obj.func1();
+					}
+					catch(c3 e)
+					{
+					
+						printany "*****c5 exception is captured: ", e.getmsg(), '\n';
+						
+					}
+					//$debug_mem;
+					c5 obj;
+					obj = new c5("try2obj");
+					//$debug_mem;
+					obj.func1();
+					$debug_mem;
+					c3 c3obj;
+					c3obj = new c3("c3info");
+					c3obj.func1();
+					//$debug_mem;
+				 }
+				 catch(c1 e)
+				 {
+					printany "c1exception info: ", e.getmsg(), '\n';
+				 }
+				  catch(c3 e)
+				 {
+					printany "*************c3exception info: ", e.getmsg(), '\n';
+				 }
+
+				 printany "try start3!\n";
+				 n = n / 0;
+			 }
+			 catch(native_sys_exception e)
+			 {
+				printany "The try1's exception information: ", e.get_msg(), '\n';
+				throw new c9();
+			 }
+			 finally
+			 {
+				printany "finally is executed!\n";
+			 }
+
+     }    
+
+}

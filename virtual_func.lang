@@ -1,0 +1,240 @@
+class1 {
+	integer n;
+	func() ->none
+	{
+	  printany "func\n";
+	 }
+}
+base00 {
+	func00() virtual ->none
+	{
+		printany "base00, func00\n";
+	}
+}
+base0 extends base00 {
+	func0() virtual ->none
+	{
+		printany "base0, func0\n";
+	}
+	func9() virtual ->none
+	{
+		printany "base0, func9\n";
+	}
+}
+base1 extends base0 {
+     func1(integer x, integer y) virtual ->none
+	 {
+		printany "base1::func1, x = ", x, ", y = ", y, '\n';
+	 }
+	 func2(integer x, integer y) virtual ->none
+	 {
+		printany "base1::func2, x = ", x, ", y = ", y, '\n';
+	 }
+	 func3(integer x, integer y)  ->none
+	 {
+		printany "base1::func3, x = ", x, ", y = ", y, '\n';
+	 }
+	 func4(integer x, integer y)  ->none
+	 {
+		printany "base1::func4, x = ", x, ", y = ", y, '\n';
+	 }
+	 func5() virtual ->none
+	 {
+		printany "base1::func5\n";
+	 }
+}
+
+derive1 extends base1 {
+	func1(integer x, integer y) virtual ->none
+	 {
+		printany "derive1::func1, x = ", x, ", y = ", y, '\n';
+	 }
+	 func2(integer x, integer y) virtual ->none
+	 {
+		printany "derive1::func2, x = ", x, ", y = ", y, '\n';
+	 }
+	 func3(integer x, integer y)  ->none
+	 {
+		printany "derive1::func3, x = ", x, ", y = ", y, '\n';
+	 }
+	 func4(integer x, integer y)  ->none
+	 {
+		printany "derive1::func4, x = ", x, ", y = ", y, '\n';
+	 }
+	 func5() ->none
+	 {
+		printany "derive1::func5\n";
+	 }
+}
+
+base2 extends base0 {
+	integer field1, field2;
+	base2(integer xv, integer yv) ->none
+	{
+		field1 = xv;
+		field2 = yv;
+	}
+     func1(integer x, integer y) virtual ->none
+	 {
+		printany "base2::func1, x = ", x, ", y = ", y, '\n';
+	 }
+	 func2(integer x, integer y) virtual ->none
+	 {
+		printany "base2::func2, x = ", x, ", y = ", y, '\n';
+	 }
+	 func3(integer x, integer y)  ->none
+	 {
+		printany "base2::func3, x = ", x, ", y = ", y, '\n';
+	 }
+	 func4(integer x, integer y)  ->none
+	 {
+		printany "base2::func4, x = ", x, ", y = ", y, '\n';
+	 }
+	 func5() virtual ->none
+	 {
+		printany "base2::func5\n";
+	 }
+	 output_field() -> none
+	 {
+		printany "base2, field1 = ", field1, ", field2 = ", field2, '\n';
+	 }
+}
+
+derive2 extends base2 {
+	integer field1, field2;
+	derive2(integer xv, integer yv) ->none
+	{
+	  field1 = xv;
+	  field2 = yv;
+	}
+	func1(integer x, integer y) virtual ->none
+	 {
+		printany "derive2::func1, x = ", x, ", y = ", y, '\n';
+	 }
+	 func2(integer x, integer y) virtual ->none
+	 {
+		printany "derive2::func2, x = ", x, ", y = ", y, '\n';
+	 }
+	 func3(integer x, integer y)  ->none
+	 {
+		printany "derive2::func3, x = ", x, ", y = ", y, '\n';
+	 }
+	 func4(integer x, integer y)  ->none
+	 {
+		printany "derive2::func4, x = ", x, ", y = ", y, '\n';
+	 }
+	 func5() ->none
+	 {
+		printany "derive2::func5\n";
+	 }
+	  func7() ->none
+	 {
+		printany "derive2::func7\n";
+	 }
+	 output_field() -> none
+	 {
+		printany "derive2, field1 = ", field1, ", field2 = ", field2, '\n';
+	 }
+	 func9() virtual ->none
+	{
+		printany "derive2, func9\n";
+	}
+}
+
+Main {
+
+     main() -> none {
+		
+     	base1 obj1;
+		printany "before new\n";
+		obj1 = new derive1();
+		printany "after new\n";
+		obj1.func1(9, 3);
+		printany "after 1\n";
+		obj1.func2(9, 3);
+		printany "after 2\n";
+		obj1.func3(9, 3);
+		obj1.func4(9, 3);
+		obj1.func0();
+		obj1.func00();
+		obj1.func5();
+		base2 obj2;
+		printany "after 3\n";
+		obj2 = new derive2(1, 9);
+		obj2.func1(19, 53);
+		obj2.func2(19, 53);
+		obj2.func3(19, 53);
+		obj2.func4(19, 53);
+		obj2.func0();
+		obj2.func00();
+		obj2.func5();
+		printany "---------------------------------------\n";
+		
+		derive1 obj3;
+		obj3 = new derive1;
+		obj3.base1::func1(30, 90);
+		
+		derive2 obj4;
+		obj4 = new derive2(1, 9);
+		
+		obj4.base2::func2(30, 90);
+		
+		printany "---------------------------------------\n";
+		
+		obj4.base2::field1 = 1;
+		obj4.base2::field2 = 2;
+		obj4.field1 = 3;
+		obj4.field2 = 4;
+		
+		obj4.base2::output_field();
+		
+		obj4.output_field();
+		printany "main, base2, obj4.base2::field1 = ", obj4.base2::field1, ", obj4.base2::field2 = ", obj4.base2::field2, '\n';
+		printany "main, derive2, obj4.field1 = ", obj4.field1, ", obj4.field2 = ", obj4.field2, '\n';
+		
+		base2 base222;
+		base222 = obj4;
+		base222.func1(1, 100);
+		//base222.func7();
+		derive2 obj333;
+		obj333 = dynamic_cast<derive2>(base222);
+		if (obj333 != null)
+		{
+			printany "OK\n";
+			obj333.func7();
+		}
+		else
+		{
+			printany "not cast\n";
+		}
+		printany "--------------------------------\n";
+			
+		base0 base000;
+		base000 = obj4;
+		derive2 obj333;
+		obj333 = dynamic_cast<derive2>(base000);
+		if (obj333 != null)
+		{
+			printany "base000 OK\n";
+			obj333.func7();
+		}
+		else
+		{
+			printany "base000 not cast\n";
+		}
+		printany "--------------------------------\n";
+		base2 base2obj;
+		base2obj = new base2(1, 3);
+		obj333 = dynamic_cast<derive2>(base2obj);
+		if (obj333 != null)
+		{
+			printany "OK\n";
+			obj333.func7();
+		}
+		else
+		{
+			printany "not cast\n";
+		}
+     }
+
+}

@@ -1,0 +1,50 @@
+_asm_extern _critical_section_proxy_construct
+_asm_extern _critical_section_proxy_enter
+_asm_extern _critical_section_proxy_try_enter
+_asm_extern _critical_section_proxy_leave
+_asm_extern _critical_section_proxy_delete
+
+sys_critical_section
+{
+	ref proxy;
+	sys_critical_section()->none
+	{
+		_asm
+		{
+			call _critical_section_proxy_construct
+			mov %proxy, eax
+		}
+	}
+	enter()->none
+	{
+		_asm
+		{
+			push %proxy
+			call _critical_section_proxy_enter
+		}
+	}
+	try_enter()->bool
+	{
+		_asm
+		{
+			push %proxy
+			call _critical_section_proxy_try_enter
+		}
+	}
+	leave()->none
+	{
+		_asm
+		{
+			push %proxy
+			call _critical_section_proxy_leave
+		}
+	}
+	delete()->none
+	{
+		_asm
+		{
+			push %proxy
+			call _critical_section_proxy_delete
+		}
+	}
+}

@@ -1,0 +1,46 @@
+_asm_extern _MessageBoxA@16
+_asm_extern _printf
+
+Main {
+	main()->none
+	{
+		int n;
+		n = 90;
+		cstr fmt;
+		fmt = "n = %d\n";
+		cstr str;
+		str = "hello world!\n";
+		int MB_ICONINFORMATION;
+		MB_ICONINFORMATION= 0x40;
+		cstr Caption;
+		Caption = "The Caption";
+		cstr Msg;
+		Msg = "This is a msg";
+
+		_asm {
+			%%define STACK_VARIABLE_SIZE 4
+			%%define operand -3 %%%% 9
+			push %str
+			call _printf
+			add esp, STACK_VARIABLE_SIZE
+			push %n
+			push %fmt
+			call _printf
+			add esp, 8
+			mov %n, eax
+			push %n
+			push %fmt
+			call _printf
+			add esp, 8
+			push operand
+			push %fmt
+			call _printf
+			add esp, 8
+			push	%MB_ICONINFORMATION
+			push 	%Caption
+			 push	%Msg
+			 push	0
+			 call	_MessageBoxA@16
+		}
+	}
+}

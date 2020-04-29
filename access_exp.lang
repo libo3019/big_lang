@@ -1,0 +1,50 @@
+c1{
+	int n1;
+	func() ->none
+	{
+		printany "c1::func, n1 = ", n1, '\n';
+	}
+}
+c2 {
+	c1 obj1;
+	c2() ->none
+	{
+		obj1 = new c1();
+	}
+}
+c3 {
+	c2 obj2;
+	c3()->none
+	{
+		obj2 = new c2();
+	}
+}
+
+Main {
+	main() -> none
+	{
+	try
+	{
+    c3 obj;
+	obj = new c3();
+	obj.obj2.obj1.n1 = 3;
+	printany "obj.obj2.obj1.n1 = ", obj.obj2.obj1.n1, '\n';
+	obj.obj2.obj1.func();
+	c1 obj1;
+	obj1 = new c1();
+	obj1.n1 = 9;
+	printany "obj1.n1 = ", obj1.n1, '\n';
+	obj1.func();
+	printany "#############################\n";
+	}
+	catch(native_sys_exception e)
+	{
+		printany "\n", e.get_msg(), '\n';
+	}
+	catch(...)
+	{
+		printany "##########Occurred an exception\n";
+	}
+   }
+
+}

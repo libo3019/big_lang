@@ -1,0 +1,139 @@
+_asm_extern _lang_string_proxy_construct
+_asm_extern _lang_string_proxy_construct_default
+_asm_extern _lang_string_proxy_set
+_asm_extern _lang_string_proxy_get
+_asm_extern _lang_string_proxy_append_char
+_asm_extern _lang_string_proxy_append_str
+_asm_extern _lang_string_proxy_assign_str
+_asm_extern _lang_string_proxy_assign_char
+_asm_extern _lang_string_proxy_clear
+_asm_extern _lang_string_proxy_size
+_asm_extern _lang_string_proxy_output
+_asm_extern _lang_string_proxy_c_str
+string  {
+	ref the_string_proxy;
+	string()->none
+	{
+		_asm
+		{
+			call _lang_string_proxy_construct_default
+			mov %the_string_proxy, eax
+		}
+	}
+	string(cstr str)->none
+	{
+		_asm
+		{
+			push %str
+			call _lang_string_proxy_construct
+			add esp, 4
+			mov %the_string_proxy, eax
+		}
+	}
+	set(integer idx, char ch)->string
+	{
+		_asm
+		{
+			push %ch
+			push %idx
+			push %the_string_proxy
+			call _lang_string_proxy_set
+			add esp, 12
+		}
+	}
+	get(integer idx)->char
+	{
+		_asm
+		{
+			push %idx
+			push %the_string_proxy
+			call _lang_string_proxy_get
+			add esp, 8
+		}
+	}
+	append(char ch)-> string
+	{
+		_asm
+		{
+			push %ch
+			push %the_string_proxy
+			call _lang_string_proxy_append_char
+			add esp, 8
+		}
+	}
+	append(cstr str)->string
+	{
+		_asm
+		{
+			push %str
+			push %the_string_proxy
+			call _lang_string_proxy_append_str
+			add esp, 8
+		}
+	}
+	assign(cstr str)->string
+	{
+		_asm
+		{
+			push %str
+			push %the_string_proxy
+			call _lang_string_proxy_assign_str
+			add esp, 8
+		}
+	}
+	assign(char ch)->string
+	{
+		_asm
+		{
+			push %ch
+			push %the_string_proxy
+			call _lang_string_proxy_assign_char
+			add esp, 8
+		}
+	}
+	clear()->none
+	{
+		_asm
+		{
+			push %the_string_proxy
+			call _lang_string_proxy_clear
+			add esp, 4
+		}
+	}
+	size()->integer
+	{
+		_asm
+		{
+			push %the_string_proxy
+			call _lang_string_proxy_size
+			add esp, 4
+		}
+	}
+	output() virtual ->integer
+	{
+		_asm
+		{
+			push %the_string_proxy
+			call _lang_string_proxy_output
+			add esp, 4
+		}
+	}
+	c_str()->cstr
+	{
+		_asm
+		{
+			push %the_string_proxy
+			call _lang_string_proxy_c_str
+			add esp, 4
+		}
+	}
+	length()->integer
+	{
+		_asm
+		{
+			push %this
+			call _string@size
+			add esp, 4
+		}
+	}
+}

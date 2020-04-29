@@ -1,0 +1,21 @@
+Main {
+
+     main() -> none {
+     	    
+				 printany "try start1!\n";
+				 try
+				 {
+					
+				 }
+				 catch(...)
+				 {
+					printany "*************exception info\n";
+				 }
+
+				 printany "try start3!\n";
+			 
+			
+
+     }    
+
+}

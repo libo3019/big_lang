@@ -1,0 +1,186 @@
+c1
+{
+	int n1, n2;
+	c1(float n1, float n2)->none
+	{
+		this.n1 = n1;
+		this.n2 = n2;
+	}
+	output()->none
+	{
+		printany "this.n1=", this.n1, ",this.n2=", this.n2,'\n';
+	}
+	func1(float n1, float n2)->float
+	{
+		return n1 + n2;
+	}
+	func2(float n1, float n2) static ->float
+	{
+		return n1 * n2;
+	}
+	func3(float n1) static->float
+	{
+		return n1;
+	}
+}
+
+c2
+{
+	int n1, n2;
+	c2(double n1, double n2)->none
+	{
+		this.n1 = n1;
+		this.n2 = n2;
+	}
+	output()->none
+	{
+		printany "this.n1=", this.n1, ",this.n2=", this.n2,'\n';
+	}
+	func1(double n1, double n2)->double
+	{
+		return n1 + n2;
+	}
+	func2(double n1, double n2) static ->double
+	{
+		return n1 * n2;
+	}
+	func3(double n1) static->double
+	{
+		return n1;
+	}
+}
+
+Main
+{
+	main() static->none
+	{
+	
+		if (1 > 2)
+		{
+			printany "1 > 2\n";
+		}
+		else
+		{
+		  printany "1 <= 2\n";
+		 }
+		int n;
+		n = 1;
+		int n1;
+		n1 = 9;
+		int[]ary;
+		ary = new int[9];
+		printany "ary.size=", ary.size(), '\n';
+		while (n < ary.size())
+		{
+			printany "n < n1\n";
+			n = n + 1;
+		}
+		if (n > 1.1)
+		{
+			printany n, ">1.1", '\n';
+		}
+		else
+		{
+			printany "not ",n, ">1.1", '\n';
+		}
+		if (n > 0.5f)
+		{
+			printany n, ">0.5", '\n';
+		}
+		else
+		{
+			printany "not ",n, ">0.5", '\n';
+		}
+		if (1.3 > 1.1)
+		{
+			printany "1.3 > 1.1\n";
+		}
+		if (1.3 >= 1.1)
+		{
+			printany "1.3 >= 1.1\n";
+		}
+		if (1.1 < 1.3)
+		{
+			printany "1.1 < 1.3\n";
+		}
+		if (1.1 <= 1.3)
+		{
+			printany "1.1 <= 1.3\n";
+		}
+		if (1.1 != 1.3)
+		{
+			printany "1.1 != 1.3\n";
+		}
+		if (3.1 == 3.1)
+		{
+			printany "3.1 == 3.1\n";
+		}
+		float f1, f2;
+		f1 = 1.3;
+		f2 = 1.1;
+		if (f1 > f2)
+		{
+			printany "f1 > f2\n";
+		}
+		if (f1 >= f2)
+		{
+			printany "f1 >= f2\n";
+		}
+		if (f2 < f1)
+		{
+			printany "f2 < f1\n";
+		}
+		if (f2 <= f1)
+		{
+			printany "f2 <= f1\n";
+		}
+		if (f2 != f1)
+		{
+			printany "f2 != f1\n";
+		}
+		
+		float f3, f4;
+		f3 = 3.1;
+		f4 = f3;
+		if (f3 == f4)
+		{
+			printany "f3 == f4\n";
+		}
+		
+		int n;
+		n = 1;
+		if (f1 > n)
+		{
+			printany "f1 > n\n";
+		}
+		if (f1 >= n)
+		{
+			printany "f1 >= n\n";
+		}
+		if (n < f1)
+		{
+			printany "n < f1\n";
+		}
+		if (n <= f1)
+		{
+			printany "n <= f1\n";
+		}
+		if (n != f1)
+		{
+			printany "n != f1\n";
+		}
+		c1 obj;
+		obj = new c1(1.1f, 3.1f);
+		obj.output();
+		printany "result=", obj.func1(1.3f, 6.2f), '\n';
+		printany "result=", c1.func2(1.3f, 6.2f), '\n';
+		printany "result=", c1.func3(1.3f), '\n';
+		c2 obj2;
+		obj2 = new c2(9.1, 3.1);
+		obj2.output();
+		printany "result=", obj2.func1(1.3, 6.2), '\n';
+		printany "result=", c2.func2(1.3, 6.2), '\n';
+		printany "result=", c2.func3(1.3), '\n';
+		
+	}
+}

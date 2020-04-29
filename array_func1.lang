@@ -1,0 +1,13 @@
+
+Main
+{
+	main(int argc, cstr[] argv, cstr[] envp) static ->int
+	{
+		int[][][] ary1;
+		ary1 = new int[2][3][10];
+		ary1[1][2][9] = 1;
+		printany "ary1[1][2][9]=",ary1[1][2][9],'\n';
+		printany "ary1.size()=", ary1.size(),",ary1[1].size()=", ary1[1].size(),",ary1[1][2].size()=", ary1[1][2].size(), '\n';
+		return 0;
+	}
+}
