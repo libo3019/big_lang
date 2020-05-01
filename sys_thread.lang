@@ -57,6 +57,7 @@ sys_thread
 		_asm
 		{
 			push %milliseconds
+			push %thread_handle
 			call _WaitForSingleObject@8
 		}
 	}
