@@ -13,70 +13,75 @@ del float_func.lang.exe
 del maths_op.lang.exe
 del array_func1.lang.exe
 del array_app1.lang.exe
+del winmain_app.lang.exe
 
 big_lang_cc_main.exe -i virtual_func.lang -o virtual_func.lang.asm -c Main
 nasm -f win32 virtual_func.lang.asm
-lld-link.exe /nologo /out:virtual_func.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin virtual_func.lang.obj  msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:virtual_func.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin virtual_func.lang.obj  msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 
 big_lang_cc_main.exe -i access_exp.lang -o access_exp.lang.asm -c Main
 nasm -f win32 access_exp.lang.asm
-lld-link.exe /nologo /out:access_exp.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin access_exp.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:access_exp.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin access_exp.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 big_lang_cc_main.exe -i catch1.lang -o catch1.lang.asm -c Main
 nasm -f win32 catch1.lang.asm
-lld-link.exe /nologo /out:catch1.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin catch1.lang.obj msvcrtd.lib legacy_stdio_definitions.lib gcmt-dll.lib user32.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:catch1.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin catch1.lang.obj msvcrtd.lib legacy_stdio_definitions.lib gcmt-dll.lib user32.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 big_lang_cc_main.exe -i try_catch_finally.lang -o try_catch_finally.lang.asm -c Main
 nasm -f win32 try_catch_finally.lang.asm
-lld-link.exe /nologo /out:try_catch_finally.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin try_catch_finally.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:try_catch_finally.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin try_catch_finally.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 big_lang_cc_main.exe -i access1.lang -o access1.lang.asm -c Main
 nasm -f win32 access1.lang.asm
-lld-link.exe /nologo /out:access1.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Debug /libpath:..\bin access1.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:access1.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Debug /libpath:..\bin access1.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 big_lang_cc_main.exe -i embbed_asm.lang -o embbed_asm.lang.asm -c Main
 nasm -f win32 embbed_asm.lang.asm
-lld-link.exe /nologo /out:embbed_asm.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin embbed_asm.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:embbed_asm.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin embbed_asm.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 big_lang_cc_main.exe -i main_app.lang -o main_app.lang.asm -c Main
 nasm -f win32 main_app.lang.asm
-lld-link.exe /nologo /out:main_app.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin main_app.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:main_app.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin main_app.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 
 big_lang_cc_main.exe -i print_double.lang -o print_double.lang.asm -c Main
 nasm -f win32 print_double.lang.asm
-lld-link.exe /nologo /out:print_double.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin print_double.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:print_double.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin print_double.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 
 big_lang_cc_main.exe -i maths_op.lang -o maths_op.lang.asm -c Main
 nasm -f win32 maths_op.lang.asm
-lld-link.exe /nologo /out:maths_op.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin maths_op.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:maths_op.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin maths_op.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 big_lang_cc_main.exe -i float_func.lang -o float_func.lang.asm -c Main
 nasm -f win32 float_func.lang.asm
-lld-link.exe /nologo /out:float_func.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin float_func.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:float_func.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin float_func.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 
 big_lang_cc_main.exe -i array_app.lang -o array_app.lang.asm -c Main
 nasm -f win32 array_app.lang.asm
-lld-link.exe /nologo /out:array_app.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin array_app.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:array_app.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin array_app.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 big_lang_cc_main.exe -i array_app1.lang -o array_app1.lang.asm -c Main
 nasm -f win32 array_app1.lang.asm
-lld-link.exe /nologo /out:array_app1.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin array_app1.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:array_app1.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin array_app1.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 big_lang_cc_main.exe -i array_func.lang -o array_func.lang.asm -c Main
 nasm -f win32 array_func.lang.asm
-lld-link.exe /nologo /out:array_func.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin array_func.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:array_func.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin array_func.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 big_lang_cc_main.exe -i array_func1.lang -o array_func1.lang.asm -c Main
 nasm -f win32 array_func1.lang.asm
-lld-link.exe /nologo /out:array_func1.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin array_func1.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:array_func1.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin array_func1.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 big_lang_cc_main.exe -i thread_app.lang -o thread_app.lang.asm -c Main
 nasm -f win32 thread_app.lang.asm
-lld-link.exe /nologo /out:thread_app.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin thread_app.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib
+lld-link.exe /nologo /out:thread_app.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin thread_app.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
+
+big_lang_cc_main.exe -i winmain_app.lang -o winmain_app.lang.asm -c Main
+nasm -f win32 winmain_app.lang.asm
+lld-link.exe /nologo /out:winmain_app.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin winmain_app.lang.obj msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
 array_func1.lang.exe
 array_func.lang.exe p1 p2 p3
@@ -92,4 +97,5 @@ try_catch_finally.lang.exe
 access1.exe
 embbed_asm.lang.exe
 main_app.lang.exe p1 p2 p3
+winmain_app.lang.exe p1 p2 p3
 thread_app.lang.exe

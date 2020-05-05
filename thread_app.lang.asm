@@ -5,12 +5,14 @@ global _main
 extern _CreateThread@24
 extern _GetMethodNameDeque
 extern _GetTryRuntimeCtxStackNode
+extern _MessageBoxA@16
 extern _PopMethodName
 extern _PushNativeMethodName
 extern _PushNonNativeMethodName
 extern _PushStaticMethodName
 extern _Sleep@4
 extern _WaitForSingleObject@8
+extern __get_argc_argv
 extern _bdwgc_malloc
 extern _c_deque_destroy
 extern _c_deque_pop_front
@@ -178,7 +180,7 @@ section .text
 _main: ;function _main
 push ebp
 mov ebp, esp
-sub esp, 8
+sub esp, 16
 finit
 call _save_unhandled_exception_filter
 mov [ebp-4], eax
@@ -200,10 +202,10 @@ call _restore_unhandled_exception_filter
 add esp, 4
 pop eax
 mov eax, 0
-add esp, 8
+add esp, 16
 mov esp, ebp
 pop ebp
-ret ;_main or _main$I?$A$S?$A$S
+ret ;_main
 
 globalfunc@$construct_vtable: ;The method of constructing all classes' virtual table
 push ebp
@@ -517,7 +519,23 @@ pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
 ;WhileNode start: L@$_WHILE_START_1
 L@$_WHILE_START_1:
+;Get the value of variable or field or type 'n' start
+mov eax, ebp ;Variable: n
+sub eax, 4 ;Variable: n
+;Get the value of variable or field 'n' end
+
+mov eax, [eax] ;get the right value of the left value
+push eax
+mov eax, 100
+mov ebx, eax ;get the right value of the left value
+pop eax
+cmp eax, ebx
+jle L@$_JLE_2
+mov eax, 0
+jmp L@$_JLE_END_2
+L@$_JLE_2:
 mov eax, 1
+L@$_JLE_END_2:
 cmp eax, 1
 jne L@$_WHILE_END_1
 sub esp, 12 ;3 variables space
@@ -778,8 +796,8 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_2
-L@$_WHILE_START_2:
+;WhileNode start: L@$_WHILE_START_3
+L@$_WHILE_START_3:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 24 ;Variable: idx
@@ -795,14 +813,14 @@ sub eax, 20 ;Variable: thread_num
 mov ebx, [eax] ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_3
+jl L@$_JL_4
 mov eax, 0
-jmp L@$_JL_END_3
-L@$_JL_3:
+jmp L@$_JL_END_4
+L@$_JL_4:
 mov eax, 1
-L@$_JL_END_3:
+L@$_JL_END_4:
 cmp eax, 1
-jne L@$_WHILE_END_2
+jne L@$_WHILE_END_3
 ;start generating array exp code
 ;Get the value of variable or field or type 'thread_group' start
 mov eax, ebp ;Variable: thread_group
@@ -960,9 +978,9 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_2
-L@$_WHILE_END_2:
-;WhileNode end: L@$_WHILE_START_2
+jmp L@$_WHILE_START_3
+L@$_WHILE_END_3:
+;WhileNode end: L@$_WHILE_START_3
 mov eax, Main@main@cstr_3
 push eax
 push _printstrstr
@@ -1034,8 +1052,8 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_4
-L@$_WHILE_START_4:
+;WhileNode start: L@$_WHILE_START_5
+L@$_WHILE_START_5:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 24 ;Variable: idx
@@ -1051,14 +1069,14 @@ sub eax, 20 ;Variable: thread_num
 mov ebx, [eax] ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_5
+jl L@$_JL_6
 mov eax, 0
-jmp L@$_JL_END_5
-L@$_JL_5:
+jmp L@$_JL_END_6
+L@$_JL_6:
 mov eax, 1
-L@$_JL_END_5:
+L@$_JL_END_6:
 cmp eax, 1
-jne L@$_WHILE_END_4
+jne L@$_WHILE_END_5
 sub esp, 12 ;3 variables space
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1124,9 +1142,9 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_4
-L@$_WHILE_END_4:
-;WhileNode end: L@$_WHILE_START_4
+jmp L@$_WHILE_START_5
+L@$_WHILE_END_5:
+;WhileNode end: L@$_WHILE_START_5
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 24 ;Variable: idx
@@ -1141,8 +1159,8 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_6
-L@$_WHILE_START_6:
+;WhileNode start: L@$_WHILE_START_7
+L@$_WHILE_START_7:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 24 ;Variable: idx
@@ -1158,14 +1176,14 @@ sub eax, 20 ;Variable: thread_num
 mov ebx, [eax] ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_7
+jl L@$_JL_8
 mov eax, 0
-jmp L@$_JL_END_7
-L@$_JL_7:
+jmp L@$_JL_END_8
+L@$_JL_8:
 mov eax, 1
-L@$_JL_END_7:
+L@$_JL_END_8:
 cmp eax, 1
-jne L@$_WHILE_END_6
+jne L@$_WHILE_END_7
 sub esp, 12 ;3 variables space
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1236,9 +1254,9 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_6
-L@$_WHILE_END_6:
-;WhileNode end: L@$_WHILE_START_6
+jmp L@$_WHILE_START_7
+L@$_WHILE_END_7:
+;WhileNode end: L@$_WHILE_START_7
 sub esp, 12 ;3 variables space
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1557,6 +1575,8 @@ _sys_thread@wait@$I:
 push ebp
 mov ebp, esp
 push dword [ebp+12]
+mov ecx, [ebp+8]
+push dword [ecx+4]
 call _WaitForSingleObject@8
 mov esp, ebp
 pop ebp

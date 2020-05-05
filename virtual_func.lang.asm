@@ -4,10 +4,12 @@ global _main
 ;All pseudo names from the language
 extern _GetMethodNameDeque
 extern _GetTryRuntimeCtxStackNode
+extern _MessageBoxA@16
 extern _PopMethodName
 extern _PushNativeMethodName
 extern _PushNonNativeMethodName
 extern _PushStaticMethodName
+extern __get_argc_argv
 extern _bdwgc_malloc
 extern _c_deque_destroy
 extern _c_deque_pop_front
@@ -240,7 +242,7 @@ section .text
 _main: ;function _main
 push ebp
 mov ebp, esp
-sub esp, 8
+sub esp, 16
 finit
 call _save_unhandled_exception_filter
 mov [ebp-4], eax
@@ -262,10 +264,10 @@ call _restore_unhandled_exception_filter
 add esp, 4
 pop eax
 mov eax, 0
-add esp, 8
+add esp, 16
 mov esp, ebp
 pop ebp
-ret ;_main or _main$I?$A$S?$A$S
+ret ;_main
 
 globalfunc@$construct_vtable: ;The method of constructing all classes' virtual table
 push ebp
@@ -1611,7 +1613,7 @@ ret ;_derive2@func9
 _Main@main:
 push ebp
 mov ebp, esp
-sub esp, 36
+sub esp, 32
 mov eax, Main@main@cstr_1
 push eax
 push _printstrstr
@@ -2682,7 +2684,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'base2obj' start
 mov eax, ebp ;Variable: base2obj
-sub eax, 36 ;Variable: base2obj
+sub eax, 32 ;Variable: base2obj
 ;Get the value of variable or field 'base2obj' end
 
 sub esp, 8 ;used as saving new's memory address and method deque
@@ -2713,7 +2715,7 @@ add esp, 8 ;used as restore the memory address
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'base2obj' start
 mov eax, ebp ;Variable: base2obj
-sub eax, 36 ;Variable: base2obj
+sub eax, 32 ;Variable: base2obj
 ;Get the value of variable or field 'base2obj' end
 
 pop ebx ;restore the right expression value
@@ -2723,7 +2725,7 @@ mov eax, ebp ;Variable: obj333
 sub eax, 24 ;Variable: obj333
 ;Get the value of variable or field 'obj333' end
 
-mov eax, [ebp-36] ;Variable: base2obj
+mov eax, [ebp-32] ;Variable: base2obj
 push eax
 sub eax, 4
 push dword [eax]
@@ -2803,7 +2805,7 @@ push _printstrstr
 call _printf
 add esp, 8
 L@$_IFELSE_END_5:
-add esp, 36
+add esp, 32
 mov esp, ebp
 pop ebp
 ret ;_Main@main

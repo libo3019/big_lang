@@ -4,10 +4,12 @@ global _main
 ;All pseudo names from the language
 extern _GetMethodNameDeque
 extern _GetTryRuntimeCtxStackNode
+extern _MessageBoxA@16
 extern _PopMethodName
 extern _PushNativeMethodName
 extern _PushNonNativeMethodName
 extern _PushStaticMethodName
+extern __get_argc_argv
 extern _bdwgc_malloc
 extern _c_deque_destroy
 extern _c_deque_pop_front
@@ -211,7 +213,7 @@ section .text
 _main: ;function _main
 push ebp
 mov ebp, esp
-sub esp, 8
+sub esp, 16
 finit
 call _save_unhandled_exception_filter
 mov [ebp-4], eax
@@ -233,10 +235,10 @@ call _restore_unhandled_exception_filter
 add esp, 4
 pop eax
 mov eax, 0
-add esp, 8
+add esp, 16
 mov esp, ebp
 pop ebp
-ret ;_main or _main$I?$A$S?$A$S
+ret ;_main
 
 globalfunc@$construct_vtable: ;The method of constructing all classes' virtual table
 push ebp
@@ -737,7 +739,7 @@ ret ;_c2@func3@$D
 _Main@main:
 push ebp
 mov ebp, esp
-sub esp, 40
+sub esp, 36
 mov eax, 1
 push eax
 mov eax, 2
@@ -1562,7 +1564,7 @@ jmp L@$_IFELSE_END_41
 L@$_IFELSE_END_41:
 ;Get the value of variable or field or type 'obj' start
 mov eax, ebp ;Variable: obj
-sub eax, 36 ;Variable: obj
+sub eax, 32 ;Variable: obj
 ;Get the value of variable or field 'obj' end
 
 sub esp, 8 ;used as saving new's memory address and method deque
@@ -1594,7 +1596,7 @@ add esp, 8 ;used as restore the memory address
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'obj' start
 mov eax, ebp ;Variable: obj
-sub eax, 36 ;Variable: obj
+sub eax, 32 ;Variable: obj
 ;Get the value of variable or field 'obj' end
 
 pop ebx ;restore the right expression value
@@ -1604,7 +1606,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'obj' start
 mov eax, ebp ;Variable: obj
-sub eax, 36 ;Variable: obj
+sub eax, 32 ;Variable: obj
 ;Get the value of variable or field 'obj' end
 
 mov ecx, [eax]
@@ -1634,7 +1636,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'obj' start
 mov eax, ebp ;Variable: obj
-sub eax, 36 ;Variable: obj
+sub eax, 32 ;Variable: obj
 ;Get the value of variable or field 'obj' end
 
 mov ecx, [eax]
@@ -1749,7 +1751,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'obj2' start
 mov eax, ebp ;Variable: obj2
-sub eax, 40 ;Variable: obj2
+sub eax, 36 ;Variable: obj2
 ;Get the value of variable or field 'obj2' end
 
 sub esp, 8 ;used as saving new's memory address and method deque
@@ -1781,7 +1783,7 @@ add esp, 8 ;used as restore the memory address
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'obj2' start
 mov eax, ebp ;Variable: obj2
-sub eax, 40 ;Variable: obj2
+sub eax, 36 ;Variable: obj2
 ;Get the value of variable or field 'obj2' end
 
 pop ebx ;restore the right expression value
@@ -1791,7 +1793,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'obj2' start
 mov eax, ebp ;Variable: obj2
-sub eax, 40 ;Variable: obj2
+sub eax, 36 ;Variable: obj2
 ;Get the value of variable or field 'obj2' end
 
 mov ecx, [eax]
@@ -1821,7 +1823,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'obj2' start
 mov eax, ebp ;Variable: obj2
-sub eax, 40 ;Variable: obj2
+sub eax, 36 ;Variable: obj2
 ;Get the value of variable or field 'obj2' end
 
 mov ecx, [eax]
@@ -1934,7 +1936,7 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-add esp, 40
+add esp, 36
 mov esp, ebp
 pop ebp
 ret ;_Main@main

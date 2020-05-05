@@ -4,10 +4,12 @@ global _main
 ;All pseudo names from the language
 extern _GetMethodNameDeque
 extern _GetTryRuntimeCtxStackNode
+extern _MessageBoxA@16
 extern _PopMethodName
 extern _PushNativeMethodName
 extern _PushNonNativeMethodName
 extern _PushStaticMethodName
+extern __get_argc_argv
 extern _bdwgc_malloc
 extern _c_deque_destroy
 extern _c_deque_pop_front
@@ -140,7 +142,7 @@ section .text
 _main: ;function _main
 push ebp
 mov ebp, esp
-sub esp, 8
+sub esp, 16
 finit
 call _save_unhandled_exception_filter
 mov [ebp-4], eax
@@ -180,10 +182,10 @@ push dword [ebp-4]
 call _restore_unhandled_exception_filter
 add esp, 4
 pop eax
-add esp, 8
+add esp, 16
 mov esp, ebp
 pop ebp
-ret ;_main or _main$I?$A$S?$A$S
+ret ;_main
 
 globalfunc@$construct_vtable: ;The method of constructing all classes' virtual table
 push ebp

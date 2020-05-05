@@ -32,7 +32,6 @@ Main
 			idx = idx + 1;
 		}
 		printany "---------------------2-----------------------\n";
-		int idx;
 		int[][]array2;
 		array2 = new integer[3][10];
 		int idx0;
@@ -65,8 +64,6 @@ Main
 		printany "------------------------3--------------------\n";
 		c1 [] objarray1;
 		objarray1 = new c1[10];
-		int idx;
-		int idx0;
 		idx = 0;
 		while (idx < objarray1.size())
 		{

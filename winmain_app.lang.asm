@@ -1,6 +1,6 @@
 ;Bit32 nasm code
 [bits 32]
-global _main
+global _WinMain@16
 ;All pseudo names from the language
 extern _GetMethodNameDeque
 extern _GetTryRuntimeCtxStackNode
@@ -78,8 +78,7 @@ none@$$classname_str db "none", 0
 null@$$classname_str db "null", 0
 string@$$classname_str db "string", 0
 ;All const string
-Main@main@cstr_1 db "#############################", 10, 0
-Main@main@cstr_2 db "A exception!", 10, 0
+Main@show_msg@$S@cstr_1 db "The Caption", 0
 ;All const double
 ;All const float
 ;All method signature
@@ -92,17 +91,15 @@ clear@$$signature_str db "clear", 0
 get@$I@$$signature_str db "get@$I", 0
 get_msg@$$signature_str db "get_msg", 0
 length@$$signature_str db "length", 0
-main@$$signature_str db "main", 0
 native_sys_exception@$$signature_str db "native_sys_exception", 0
 native_sys_exception@$S@$$signature_str db "native_sys_exception@$S", 0
 output@$$signature_str db "output", 0
 set@$I?$C@$$signature_str db "set@$I?$C", 0
+show_msg@$S@$$signature_str db "show_msg@$S", 0
 size@$$signature_str db "size", 0
 string@$$signature_str db "string", 0
 string@$S@$$signature_str db "string@$S", 0
-
-Main@@try_data_1:
-dd 0, 0, 0, 0
+winmain@$R?$R?$I?$A$S?$I@$$signature_str db "winmain@$R?$R?$I?$A$S?$I", 0
 
 section .bss
 ;The virtual table address of class string containing virtual methods
@@ -133,7 +130,7 @@ null@$$classdescriptor resd 2
 string@$$classdescriptor resd 2
 
 section .text
-_main: ;function _main
+_WinMain@16: ;function _WinMain
 push ebp
 mov ebp, esp
 sub esp, 16
@@ -144,12 +141,32 @@ call globalfunc@$construct_vtable ;call the method to construct all classes' vir
 call globalfunc@$construct_classdescriptors
 call _GetMethodNameDeque
 mov [ebp-8], eax ;save the method deque
-push main@$$signature_str
+push winmain@$R?$R?$I?$A$S?$I@$$signature_str
 push Main@$$classname_str
-push none@$$classname_str
+push integer@$$classname_str
 call _PushStaticMethodName
 add esp, 12
-call _Main@main
+mov eax, ebp
+sub eax, 12
+push eax
+call __get_argc_argv
+add esp, 4
+mov [ebp-16], eax
+push dword[ebp+20]
+push dword[ebp-16]
+push dword[ebp-12]
+push 4
+call _copy_c_array
+add esp, 12
+push eax
+push dword [ebp-12]
+push dword [ebp+12]
+push dword [ebp+8]
+call _Main@winmain@$R?$R?$I?$A$S?$I
+add esp, 20
+push dword[ebp-16]
+call _free
+add esp, 4
 push eax
 call _PopMethodName
 call globalfunc@$destroy_vtable ;call the method to destroy all classes' virtual table
@@ -157,11 +174,10 @@ push dword [ebp-4]
 call _restore_unhandled_exception_filter
 add esp, 4
 pop eax
-mov eax, 0
 add esp, 16
 mov esp, ebp
 pop ebp
-ret ;_main
+ret 16;_WinMain@16
 
 globalfunc@$construct_vtable: ;The method of constructing all classes' virtual table
 push ebp
@@ -386,66 +402,165 @@ mov esp, ebp
 pop ebp
 ret ;_string@length
 
-;Method: _Main@main
-_Main@main:
+;Method: _Main@winmain@$R?$R?$I?$A$S?$I
+_Main@winmain@$R?$R?$I?$A$S?$I:
+push ebp
+mov ebp, esp
+sub esp, 4
+;Get the value of variable or field or type 'idx' start
+mov eax, ebp ;Variable: idx
+sub eax, 4 ;Variable: idx
+;Get the value of variable or field 'idx' end
+
+mov eax, 0
+push eax ;save the right expression value
+;Get the value of variable or field or type 'idx' start
+mov eax, ebp ;Variable: idx
+sub eax, 4 ;Variable: idx
+;Get the value of variable or field 'idx' end
+
+pop ebx ;restore the right expression value
+mov [eax], ebx ;assign the right to the left value address
+;WhileNode start: L@$_WHILE_START_1
+L@$_WHILE_START_1:
+;Get the value of variable or field or type 'idx' start
+mov eax, ebp ;Variable: idx
+sub eax, 4 ;Variable: idx
+;Get the value of variable or field 'idx' end
+
+mov eax, [eax] ;get the right value of the left value
+push eax
+;Get the value of variable or field or type 'argc' start
+mov eax, ebp ;Parameter: argc
+add eax, 16 ;Parameter: argc
+;Get the value of variable or field 'argc' end
+
+mov ebx, [eax] ;get the right value of the left value
+pop eax
+cmp eax, ebx
+jl L@$_JL_2
+mov eax, 0
+jmp L@$_JL_END_2
+L@$_JL_2:
+mov eax, 1
+L@$_JL_END_2:
+cmp eax, 1
+jne L@$_WHILE_END_1
+sub esp, 8 ;static method call, 2 variables space
+call _GetMethodNameDeque
+mov [esp], eax
+push show_msg@$S@$$signature_str
+push Main@$$classname_str
+push none@$$classname_str
+call _PushStaticMethodName
+add esp, 12
+;start generating array exp code
+;Get the value of variable or field or type 'argv' start
+mov eax, ebp ;Parameter: argv
+add eax, 20 ;Parameter: argv
+;Get the value of variable or field 'argv' end
+
+push dword [eax]
+;Get the value of variable or field or type 'idx' start
+mov eax, ebp ;Variable: idx
+sub eax, 4 ;Variable: idx
+;Get the value of variable or field 'idx' end
+
+mov eax, [eax]
+pop ecx
+add ecx, 4
+mov ebx, 4
+mov edx ,0
+imul ebx
+add ecx, eax
+mov eax, ecx
+;end generating array exp code
+mov eax, [eax] ;left value to right value
+push eax
+;static call start
+call _Main@show_msg@$S
+add esp, 4 ;not stdcall
+mov [esp+4], eax
+call _PopMethodName
+mov eax, [esp+4]
+add esp, 8
+;static call end
+;Get the value of variable or field or type 'idx' start
+mov eax, ebp ;Variable: idx
+sub eax, 4 ;Variable: idx
+;Get the value of variable or field 'idx' end
+
+;Get the value of variable or field or type 'idx' start
+mov eax, ebp ;Variable: idx
+sub eax, 4 ;Variable: idx
+;Get the value of variable or field 'idx' end
+
+mov eax, [eax] ;get the right value of the left value
+push eax
+mov eax, 1
+mov ebx, eax ;get the right value of the left value
+pop eax
+add eax, ebx
+push eax ;save the right expression value
+;Get the value of variable or field or type 'idx' start
+mov eax, ebp ;Variable: idx
+sub eax, 4 ;Variable: idx
+;Get the value of variable or field 'idx' end
+
+pop ebx ;restore the right expression value
+mov [eax], ebx ;assign the right to the left value address
+jmp L@$_WHILE_START_1
+L@$_WHILE_END_1:
+;WhileNode end: L@$_WHILE_START_1
+mov eax, 0
+add esp, 4
+mov esp, ebp
+pop ebp
+ret
+add esp, 4
+mov esp, ebp
+pop ebp
+ret ;_Main@winmain@$R?$R?$I?$A$S?$I
+
+;Method: _Main@show_msg@$S
+_Main@show_msg@$S:
 push ebp
 mov ebp, esp
 sub esp, 8
-;Allocate TryRuntimeCtx memory
-push 36
-call _malloc
-add esp, 4
+;Get the value of variable or field or type 'MB_ICONINFORMATION' start
+mov eax, ebp ;Variable: MB_ICONINFORMATION
+sub eax, 4 ;Variable: MB_ICONINFORMATION
+;Get the value of variable or field 'MB_ICONINFORMATION' end
 
-mov [ebp-4] ,eax ;save TryRuntimeCtx address
-Main@@try_start_1:
-;Assign value to TryRuntimeCtx memory
-mov [eax+0], ebp
-mov [eax+4], esp
-mov [eax+8], esi
-mov [eax+12], edi
-mov [eax+16], ebx
-mov dword [eax+20], 0
-mov dword [eax+24], Main@@try_start_1_anycatch
-mov dword [eax+28], 0
+mov eax, 64
+push eax ;save the right expression value
+;Get the value of variable or field or type 'MB_ICONINFORMATION' start
+mov eax, ebp ;Variable: MB_ICONINFORMATION
+sub eax, 4 ;Variable: MB_ICONINFORMATION
+;Get the value of variable or field 'MB_ICONINFORMATION' end
 
-call _GetMethodNameDeque
-push eax
-call _c_deque_size
-add esp, 4
-mov ecx, [ebp-4]
-mov [ecx+32], eax
-;Get thread safe TryRuntimeCtx stack
-call _GetTryRuntimeCtxStackNode
-mov [ebp-8], eax ;ebx=stack top
-push dword [ebp-4] ;try runtime ctx
-push dword [ebp-8]; stack top
-call _c_stack_push
-add esp, 8
-;try 'Main@@try_start_1', block instructions start
-mov eax, Main@main@cstr_1
-push eax
-push _printstrstr
-call _printf
-add esp, 8
-push dword [ebp-8] ;push the stack top
-call _c_stack_pop
-add esp, 4
-;free the try run time
-push dword [ebp-4]
-call _free
-add esp, 4
-;try 'Main@@try_start_1', block instructions end
-jmp Main@@try_end_1 ;jum the try-end
-;try 'Main@@try_start_1' anycatch 'Main@@try_start_1_anycatch'start
-Main@@try_start_1_anycatch:
-mov eax, Main@main@cstr_2
-push eax
-push _printstrstr
-call _printf
-add esp, 8
-;try 'Main@@try_start_1' anycatch 'Main@@try_start_1_anycatch'end
-Main@@try_end_1:
+pop ebx ;restore the right expression value
+mov [eax], ebx ;assign the right to the left value address
+;Get the value of variable or field or type 'Caption' start
+mov eax, ebp ;Variable: Caption
+sub eax, 8 ;Variable: Caption
+;Get the value of variable or field 'Caption' end
+
+mov eax, Main@show_msg@$S@cstr_1
+push eax ;save the right expression value
+;Get the value of variable or field or type 'Caption' start
+mov eax, ebp ;Variable: Caption
+sub eax, 8 ;Variable: Caption
+;Get the value of variable or field 'Caption' end
+
+pop ebx ;restore the right expression value
+mov [eax], ebx ;assign the right to the left value address
+push	dword [ebp-4]
+push 	dword [ebp-8]
+push	dword [ebp+8]
+push	0
+call	_MessageBoxA@16
 add esp, 8
 mov esp, ebp
 pop ebp
-ret ;_Main@main
+ret ;_Main@show_msg@$S

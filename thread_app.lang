@@ -13,7 +13,7 @@ Thread1 extends sys_thread
 	{
 		int n;
 		n = 1;
-		while (n <= 300)
+		while (n <= 100)
 		{
 			sec.enter();
 			printany "\nthread", idx, ", n = ", n, '\n';

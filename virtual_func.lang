@@ -211,7 +211,6 @@ Main {
 			
 		base0 base000;
 		base000 = obj4;
-		derive2 obj333;
 		obj333 = dynamic_cast<derive2>(base000);
 		if (obj333 != null)
 		{

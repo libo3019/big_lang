@@ -4,10 +4,12 @@ global _main
 ;All pseudo names from the language
 extern _GetMethodNameDeque
 extern _GetTryRuntimeCtxStackNode
+extern _MessageBoxA@16
 extern _PopMethodName
 extern _PushNativeMethodName
 extern _PushNonNativeMethodName
 extern _PushStaticMethodName
+extern __get_argc_argv
 extern _bdwgc_malloc
 extern _c_deque_destroy
 extern _c_deque_pop_front
@@ -162,7 +164,7 @@ section .text
 _main: ;function _main
 push ebp
 mov ebp, esp
-sub esp, 8
+sub esp, 16
 finit
 call _save_unhandled_exception_filter
 mov [ebp-4], eax
@@ -184,10 +186,10 @@ call _restore_unhandled_exception_filter
 add esp, 4
 pop eax
 mov eax, 0
-add esp, 8
+add esp, 16
 mov esp, ebp
 pop ebp
-ret ;_main or _main$I?$A$S?$A$S
+ret ;_main
 
 globalfunc@$construct_vtable: ;The method of constructing all classes' virtual table
 push ebp
@@ -455,7 +457,7 @@ ret ;_c1@func
 _Main@main:
 push ebp
 mov ebp, esp
-sub esp, 44
+sub esp, 32
 mov eax, Main@main@cstr_1
 push eax
 push _printstrstr
@@ -769,7 +771,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'array2' start
 mov eax, ebp ;Variable: array2
-sub eax, 16 ;Variable: array2
+sub eax, 12 ;Variable: array2
 ;Get the value of variable or field 'array2' end
 
 ;start generating code for VisitNewPrimitiveArrayExpNode
@@ -785,21 +787,21 @@ add esp, 16
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'array2' start
 mov eax, ebp ;Variable: array2
-sub eax, 16 ;Variable: array2
+sub eax, 12 ;Variable: array2
 ;Get the value of variable or field 'array2' end
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -808,7 +810,7 @@ mov [eax], ebx ;assign the right to the left value address
 L@$_WHILE_START_5:
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -818,7 +820,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'array2' start
 mov eax, ebp ;Variable: array2
-sub eax, 16 ;Variable: array2
+sub eax, 12 ;Variable: array2
 ;Get the value of variable or field 'array2' end
 
 mov ecx, [eax]
@@ -878,13 +880,13 @@ mov [esp], eax
 ;start generating array exp code
 ;Get the value of variable or field or type 'array2' start
 mov eax, ebp ;Variable: array2
-sub eax, 16 ;Variable: array2
+sub eax, 12 ;Variable: array2
 ;Get the value of variable or field 'array2' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -928,13 +930,13 @@ jne L@$_WHILE_END_7
 ;start generating array exp code
 ;Get the value of variable or field or type 'array2' start
 mov eax, ebp ;Variable: array2
-sub eax, 16 ;Variable: array2
+sub eax, 12 ;Variable: array2
 ;Get the value of variable or field 'array2' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -970,7 +972,7 @@ mov eax, [eax] ;get the right value of the left value
 push eax
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -988,13 +990,13 @@ push eax ;save the right expression value
 ;start generating array exp code
 ;Get the value of variable or field or type 'array2' start
 mov eax, ebp ;Variable: array2
-sub eax, 16 ;Variable: array2
+sub eax, 12 ;Variable: array2
 ;Get the value of variable or field 'array2' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -1052,12 +1054,12 @@ L@$_WHILE_END_7:
 ;WhileNode end: L@$_WHILE_START_7
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -1069,7 +1071,7 @@ add eax, ebx
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -1079,14 +1081,14 @@ L@$_WHILE_END_5:
 ;WhileNode end: L@$_WHILE_START_5
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -1095,7 +1097,7 @@ mov [eax], ebx ;assign the right to the left value address
 L@$_WHILE_START_9:
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -1105,7 +1107,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'array2' start
 mov eax, ebp ;Variable: array2
-sub eax, 16 ;Variable: array2
+sub eax, 12 ;Variable: array2
 ;Get the value of variable or field 'array2' end
 
 mov ecx, [eax]
@@ -1165,13 +1167,13 @@ mov [esp], eax
 ;start generating array exp code
 ;Get the value of variable or field or type 'array2' start
 mov eax, ebp ;Variable: array2
-sub eax, 16 ;Variable: array2
+sub eax, 12 ;Variable: array2
 ;Get the value of variable or field 'array2' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -1218,7 +1220,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;print needs the right value
@@ -1250,13 +1252,13 @@ add esp, 8
 ;start generating array exp code
 ;Get the value of variable or field or type 'array2' start
 mov eax, ebp ;Variable: array2
-sub eax, 16 ;Variable: array2
+sub eax, 12 ;Variable: array2
 ;Get the value of variable or field 'array2' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -1322,12 +1324,12 @@ L@$_WHILE_END_11:
 ;WhileNode end: L@$_WHILE_START_11
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -1339,7 +1341,7 @@ add eax, ebx
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -1354,7 +1356,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'objarray1' start
 mov eax, ebp ;Variable: objarray1
-sub eax, 24 ;Variable: objarray1
+sub eax, 20 ;Variable: objarray1
 ;Get the value of variable or field 'objarray1' end
 
 ;start generating code for VisitNewObjectArrayExpNode
@@ -1368,7 +1370,7 @@ add esp, 12
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'objarray1' start
 mov eax, ebp ;Variable: objarray1
-sub eax, 24 ;Variable: objarray1
+sub eax, 20 ;Variable: objarray1
 ;Get the value of variable or field 'objarray1' end
 
 pop ebx ;restore the right expression value
@@ -1401,7 +1403,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'objarray1' start
 mov eax, ebp ;Variable: objarray1
-sub eax, 24 ;Variable: objarray1
+sub eax, 20 ;Variable: objarray1
 ;Get the value of variable or field 'objarray1' end
 
 mov ecx, [eax]
@@ -1435,7 +1437,7 @@ jne L@$_WHILE_END_13
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray1' start
 mov eax, ebp ;Variable: objarray1
-sub eax, 24 ;Variable: objarray1
+sub eax, 20 ;Variable: objarray1
 ;Get the value of variable or field 'objarray1' end
 
 push dword [eax]
@@ -1490,7 +1492,7 @@ push eax ;save the right expression value
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray1' start
 mov eax, ebp ;Variable: objarray1
-sub eax, 24 ;Variable: objarray1
+sub eax, 20 ;Variable: objarray1
 ;Get the value of variable or field 'objarray1' end
 
 push dword [eax]
@@ -1565,7 +1567,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'objarray1' start
 mov eax, ebp ;Variable: objarray1
-sub eax, 24 ;Variable: objarray1
+sub eax, 20 ;Variable: objarray1
 ;Get the value of variable or field 'objarray1' end
 
 mov ecx, [eax]
@@ -1619,7 +1621,7 @@ add esp, 8
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray1' start
 mov eax, ebp ;Variable: objarray1
-sub eax, 24 ;Variable: objarray1
+sub eax, 20 ;Variable: objarray1
 ;Get the value of variable or field 'objarray1' end
 
 push dword [eax]
@@ -1674,7 +1676,7 @@ mov [esp], eax
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray1' start
 mov eax, ebp ;Variable: objarray1
-sub eax, 24 ;Variable: objarray1
+sub eax, 20 ;Variable: objarray1
 ;Get the value of variable or field 'objarray1' end
 
 push dword [eax]
@@ -1752,7 +1754,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'objarray2' start
 mov eax, ebp ;Variable: objarray2
-sub eax, 36 ;Variable: objarray2
+sub eax, 24 ;Variable: objarray2
 ;Get the value of variable or field 'objarray2' end
 
 ;start generating code for VisitNewObjectArrayExpNode
@@ -1768,21 +1770,21 @@ add esp, 16
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'objarray2' start
 mov eax, ebp ;Variable: objarray2
-sub eax, 36 ;Variable: objarray2
+sub eax, 24 ;Variable: objarray2
 ;Get the value of variable or field 'objarray2' end
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -1791,7 +1793,7 @@ mov [eax], ebx ;assign the right to the left value address
 L@$_WHILE_START_17:
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -1801,7 +1803,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'objarray2' start
 mov eax, ebp ;Variable: objarray2
-sub eax, 36 ;Variable: objarray2
+sub eax, 24 ;Variable: objarray2
 ;Get the value of variable or field 'objarray2' end
 
 mov ecx, [eax]
@@ -1861,13 +1863,13 @@ mov [esp], eax
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray2' start
 mov eax, ebp ;Variable: objarray2
-sub eax, 36 ;Variable: objarray2
+sub eax, 24 ;Variable: objarray2
 ;Get the value of variable or field 'objarray2' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -1911,13 +1913,13 @@ jne L@$_WHILE_END_19
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray2' start
 mov eax, ebp ;Variable: objarray2
-sub eax, 36 ;Variable: objarray2
+sub eax, 24 ;Variable: objarray2
 ;Get the value of variable or field 'objarray2' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -1967,7 +1969,7 @@ mov eax, [eax] ;get the right value of the left value
 push eax
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -1992,13 +1994,13 @@ push eax ;save the right expression value
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray2' start
 mov eax, ebp ;Variable: objarray2
-sub eax, 36 ;Variable: objarray2
+sub eax, 24 ;Variable: objarray2
 ;Get the value of variable or field 'objarray2' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -2056,12 +2058,12 @@ L@$_WHILE_END_19:
 ;WhileNode end: L@$_WHILE_START_19
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -2073,7 +2075,7 @@ add eax, ebx
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -2083,14 +2085,14 @@ L@$_WHILE_END_17:
 ;WhileNode end: L@$_WHILE_START_17
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -2099,7 +2101,7 @@ mov [eax], ebx ;assign the right to the left value address
 L@$_WHILE_START_21:
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -2109,7 +2111,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'objarray2' start
 mov eax, ebp ;Variable: objarray2
-sub eax, 36 ;Variable: objarray2
+sub eax, 24 ;Variable: objarray2
 ;Get the value of variable or field 'objarray2' end
 
 mov ecx, [eax]
@@ -2169,13 +2171,13 @@ mov [esp], eax
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray2' start
 mov eax, ebp ;Variable: objarray2
-sub eax, 36 ;Variable: objarray2
+sub eax, 24 ;Variable: objarray2
 ;Get the value of variable or field 'objarray2' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -2222,7 +2224,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;print needs the right value
@@ -2254,13 +2256,13 @@ add esp, 8
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray2' start
 mov eax, ebp ;Variable: objarray2
-sub eax, 36 ;Variable: objarray2
+sub eax, 24 ;Variable: objarray2
 ;Get the value of variable or field 'objarray2' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -2305,7 +2307,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;print needs the right value
@@ -2340,13 +2342,13 @@ mov [esp], eax
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray2' start
 mov eax, ebp ;Variable: objarray2
-sub eax, 36 ;Variable: objarray2
+sub eax, 24 ;Variable: objarray2
 ;Get the value of variable or field 'objarray2' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -2428,12 +2430,12 @@ L@$_WHILE_END_23:
 ;WhileNode end: L@$_WHILE_START_23
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -2445,7 +2447,7 @@ add eax, ebx
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -2460,7 +2462,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 ;start generating code for VisitNewObjectArrayExpNode
@@ -2478,21 +2480,21 @@ add esp, 20
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -2501,7 +2503,7 @@ mov [eax], ebx ;assign the right to the left value address
 L@$_WHILE_START_25:
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -2511,7 +2513,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 mov ecx, [eax]
@@ -2571,13 +2573,13 @@ mov [esp], eax
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -2619,14 +2621,14 @@ cmp eax, 1
 jne L@$_WHILE_END_27
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 pop ebx ;restore the right expression value
@@ -2635,7 +2637,7 @@ mov [eax], ebx ;assign the right to the left value address
 L@$_WHILE_START_29:
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -2647,13 +2649,13 @@ mov [esp], eax
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -2713,13 +2715,13 @@ jne L@$_WHILE_END_29
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -2749,7 +2751,7 @@ mov eax, ecx
 push dword [eax]
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, [eax]
@@ -2784,7 +2786,7 @@ mov eax, [eax] ;get the right value of the left value
 push eax
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov ebx, [eax] ;get the right value of the left value
@@ -2794,7 +2796,7 @@ imul ebx
 push eax
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov ebx, [eax] ;get the right value of the left value
@@ -2814,13 +2816,13 @@ push eax ;save the right expression value
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -2850,7 +2852,7 @@ mov eax, ecx
 push dword [eax]
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, [eax]
@@ -2866,12 +2868,12 @@ pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -2883,7 +2885,7 @@ add eax, ebx
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 pop ebx ;restore the right expression value
@@ -2920,12 +2922,12 @@ L@$_WHILE_END_27:
 ;WhileNode end: L@$_WHILE_START_27
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -2937,7 +2939,7 @@ add eax, ebx
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -2947,14 +2949,14 @@ L@$_WHILE_END_25:
 ;WhileNode end: L@$_WHILE_START_25
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -2963,7 +2965,7 @@ mov [eax], ebx ;assign the right to the left value address
 L@$_WHILE_START_31:
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -2973,7 +2975,7 @@ call _GetMethodNameDeque
 mov [esp], eax
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 mov ecx, [eax]
@@ -3033,13 +3035,13 @@ mov [esp], eax
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -3081,14 +3083,14 @@ cmp eax, 1
 jne L@$_WHILE_END_33
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 pop ebx ;restore the right expression value
@@ -3097,7 +3099,7 @@ mov [eax], ebx ;assign the right to the left value address
 L@$_WHILE_START_35:
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -3109,13 +3111,13 @@ mov [esp], eax
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -3177,7 +3179,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;print needs the right value
@@ -3207,7 +3209,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, [eax] ;print needs the right value
@@ -3225,13 +3227,13 @@ add esp, 8
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -3261,7 +3263,7 @@ mov eax, ecx
 push dword [eax]
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, [eax]
@@ -3291,7 +3293,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;print needs the right value
@@ -3321,7 +3323,7 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, [eax] ;print needs the right value
@@ -3342,13 +3344,13 @@ mov [esp], eax
 ;start generating array exp code
 ;Get the value of variable or field or type 'objarray3' start
 mov eax, ebp ;Variable: objarray3
-sub eax, 40 ;Variable: objarray3
+sub eax, 28 ;Variable: objarray3
 ;Get the value of variable or field 'objarray3' end
 
 push dword [eax]
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax]
@@ -3378,7 +3380,7 @@ mov eax, ecx
 push dword [eax]
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, [eax]
@@ -3418,12 +3420,12 @@ call _printf
 add esp, 8
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -3435,7 +3437,7 @@ add eax, ebx
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx3' start
 mov eax, ebp ;Variable: idx3
-sub eax, 44 ;Variable: idx3
+sub eax, 32 ;Variable: idx3
 ;Get the value of variable or field 'idx3' end
 
 pop ebx ;restore the right expression value
@@ -3472,12 +3474,12 @@ L@$_WHILE_END_33:
 ;WhileNode end: L@$_WHILE_START_33
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 mov eax, [eax] ;get the right value of the left value
@@ -3489,7 +3491,7 @@ add eax, ebx
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx0' start
 mov eax, ebp ;Variable: idx0
-sub eax, 20 ;Variable: idx0
+sub eax, 16 ;Variable: idx0
 ;Get the value of variable or field 'idx0' end
 
 pop ebx ;restore the right expression value
@@ -3497,7 +3499,7 @@ mov [eax], ebx ;assign the right to the left value address
 jmp L@$_WHILE_START_31
 L@$_WHILE_END_31:
 ;WhileNode end: L@$_WHILE_START_31
-add esp, 44
+add esp, 32
 mov esp, ebp
 pop ebp
 ret ;_Main@main
