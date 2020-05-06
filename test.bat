@@ -97,5 +97,5 @@ try_catch_finally.lang.exe
 access1.exe
 embbed_asm.lang.exe
 main_app.lang.exe p1 p2 p3
-winmain_app.lang.exe p1 p2 p3
+winmain_app.lang.exe "p1 param" p2 p3
 thread_app.lang.exe
