@@ -6,7 +6,7 @@ _asm_extern _critical_section_proxy_delete
 
 sys_critical_section
 {
-	ref proxy;
+	reftype proxy;
 	sys_critical_section()->none
 	{
 		_asm

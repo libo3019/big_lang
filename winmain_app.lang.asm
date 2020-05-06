@@ -164,9 +164,6 @@ push dword [ebp+12]
 push dword [ebp+8]
 call _Main@winmain@$R?$R?$I?$A$S?$I
 add esp, 20
-push dword[ebp-16]
-call _free
-add esp, 4
 push eax
 call _PopMethodName
 call globalfunc@$destroy_vtable ;call the method to destroy all classes' virtual table

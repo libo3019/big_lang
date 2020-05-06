@@ -11,7 +11,7 @@ _asm_extern _lang_string_proxy_size
 _asm_extern _lang_string_proxy_output
 _asm_extern _lang_string_proxy_c_str
 string  {
-	ref the_string_proxy;
+	reftype the_string_proxy;
 	string()->none
 	{
 		_asm

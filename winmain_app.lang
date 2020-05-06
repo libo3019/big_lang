@@ -1,6 +1,6 @@
 Main
 {
-	winmain(ref instance, ref prev_instance, int argc, cstr[] argv, int cmd_show) static ->int
+	winmain(reftype instance, reftype prev_instance, int argc, cstr[] argv, int cmd_show) static ->int
 	{
 		int idx;
 		idx = 0;

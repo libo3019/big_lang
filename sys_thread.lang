@@ -4,7 +4,7 @@ _asm_extern _WaitForSingleObject@8
 
 sys_thread 
 {
-	ref thread_handle;
+	reftype thread_handle;
 	sys_thread()->none
 	{
 	}
