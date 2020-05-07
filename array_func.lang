@@ -1,38 +1,37 @@
 
 Main
 {
-	func1(int argc, cstr[][] argv, cstr[][][] envp) static ->int
+	func1(cstr[][] argv, cstr[][][] envp) static ->int
 	{
 		printany "argv.size()=", argv.size(), ",envp.size()=", envp.size(), '\n';
 		printany $call_stack;
 	}
-	func(int argc, cstr[] argv, cstr[] envp) static ->int
+	func(cstr[] argv, cstr[] envp) static ->int
 	{
 		cstr[][] arg;
 		arg	= new cstr[3][];
 		cstr[][][] env;
 		env = new cstr[5][][];
-		func1(0, arg, env);
+		func1(arg, env);
 		printany $call_stack;
-		printany "argc = ", argc, '\n';
 		printany "argv.size()=", argv.size(), ",envp.size()=", envp.size(), '\n';
 		int idx;
 		idx = 0;
-		while (argv[idx] != null)
+		while (idx < argv.size())
 		{
 			printany "argv[", idx, "]=", argv[idx], '\n';
 			idx = idx + 1;
 		}
 		idx = 0;
-		while (envp[idx] != null)
+		while (idx < envp.size())
 		{
 			printany "envp[", idx, "]=", envp[idx], '\n';
 			idx = idx + 1;
 		}
 		
 	}
-	main(int argc, cstr[] argv, cstr[] envp) static ->int
+	main(cstr[] argv, cstr[] envp) static ->int
 	{
-		return func(argc, argv, envp);
+		return func(argv, envp);
 	}
 }

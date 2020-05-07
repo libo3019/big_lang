@@ -1,17 +1,17 @@
 Main
 {
-	main(int argc, cstr[] argv, cstr[] envp) static ->none
+	main(cstr[] argv, cstr[] envp) static ->none
 	{
-		printany "argc = ", argc, '\n';
+		printany "argv.size = ", argv.size(), '\n';
 		int idx;
 		idx = 0;
-		while (argv[idx] != null)
+		while (idx < argv.size())
 		{
 			printany "argv[", idx, "]=", argv[idx], '\n';
 			idx = idx + 1;
 		}
 		idx = 0;
-		while (envp[idx] != null)
+		while (idx < envp.size())
 		{
 			printany "envp[", idx, "]=", envp[idx], '\n';
 			idx = idx + 1;

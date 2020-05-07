@@ -52,7 +52,7 @@ c2
 
 Main
 {
-	main() static->none
+	main() static static->none
 	{
 	
 		if (1 > 2)

@@ -143,7 +143,7 @@ derive2 extends base2 {
 
 Main {
 
-     main() -> none {
+     main() static -> none {
 		
      	base1 obj1;
 		printany "before new\n";

@@ -1,7 +1,7 @@
 
 Main
 {
-	main(int argc, cstr[] argv, cstr[] envp) static ->int
+	main(cstr[] argv, cstr[] envp) static ->int
 	{
 		int[][][] ary1;
 		ary1 = new int[2][3][10];

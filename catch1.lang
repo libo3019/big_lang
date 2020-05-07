@@ -1,6 +1,6 @@
 Main {
 
-     main() -> none {
+     main() static -> none {
      	    
 				 printany "try start1!\n";
 				 try

@@ -25,7 +25,7 @@ Thread1 extends sys_thread
 }
 Main
 {
-	main()->none
+	main() static->none
 	{
 		try {
 		sys_critical_section sec1;

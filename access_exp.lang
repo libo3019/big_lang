@@ -21,7 +21,7 @@ c3 {
 }
 
 Main {
-	main() -> none
+	main() static -> none
 	{
 	try
 	{

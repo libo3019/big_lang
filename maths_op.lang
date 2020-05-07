@@ -1,6 +1,6 @@
 Main
 {
-	main() static ->int
+	main() static static ->int
 	{
 		float f1;
 		f1 = 1;

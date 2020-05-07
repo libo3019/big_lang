@@ -78,11 +78,11 @@ none@$$classname_str db "none", 0
 null@$$classname_str db "null", 0
 string@$$classname_str db "string", 0
 ;All const string
-Main@main@$I?$A$S?$A$S@cstr_1 db "argc = ", 0
-Main@main@$I?$A$S?$A$S@cstr_2 db "argv[", 0
-Main@main@$I?$A$S?$A$S@cstr_3 db "]=", 0
-Main@main@$I?$A$S?$A$S@cstr_4 db "envp[", 0
-Main@main@$I?$A$S?$A$S@cstr_5 db "]=", 0
+Main@main@$A$S?$A$S@cstr_1 db "argv.size = ", 0
+Main@main@$A$S?$A$S@cstr_2 db "argv[", 0
+Main@main@$A$S?$A$S@cstr_3 db "]=", 0
+Main@main@$A$S?$A$S@cstr_4 db "envp[", 0
+Main@main@$A$S?$A$S@cstr_5 db "]=", 0
 ;All const double
 ;All const float
 ;All method signature
@@ -95,7 +95,7 @@ clear@$$signature_str db "clear", 0
 get@$I@$$signature_str db "get@$I", 0
 get_msg@$$signature_str db "get_msg", 0
 length@$$signature_str db "length", 0
-main@$I?$A$S?$A$S@$$signature_str db "main@$I?$A$S?$A$S", 0
+main@$A$S?$A$S@$$signature_str db "main@$A$S?$A$S", 0
 native_sys_exception@$$signature_str db "native_sys_exception", 0
 native_sys_exception@$S@$$signature_str db "native_sys_exception@$S", 0
 output@$$signature_str db "output", 0
@@ -144,7 +144,7 @@ call globalfunc@$construct_vtable ;call the method to construct all classes' vir
 call globalfunc@$construct_classdescriptors
 call _GetMethodNameDeque
 mov [ebp-8], eax ;save the method deque
-push main@$I?$A$S?$A$S@$$signature_str
+push main@$A$S?$A$S@$$signature_str
 push Main@$$classname_str
 push none@$$classname_str
 call _PushStaticMethodName
@@ -158,17 +158,14 @@ push 4
 call _copy_c_array
 add esp, 12
 push eax
-mov eax, dword [ebp+8]
-add eax, 1
 push dword[ebp + 12]
-push eax
+push dword [ebp+8]
 push 4
 call _copy_c_array
 add esp, 12
 push eax
-push dword [ebp+8]
-call _Main@main@$I?$A$S?$A$S
-add esp, 12
+call _Main@main@$A$S?$A$S
+add esp, 8
 push eax
 call _PopMethodName
 call globalfunc@$destroy_vtable ;call the method to destroy all classes' virtual table
@@ -404,22 +401,41 @@ mov esp, ebp
 pop ebp
 ret ;_string@length
 
-;Method: _Main@main@$I?$A$S?$A$S
-_Main@main@$I?$A$S?$A$S:
+;Method: _Main@main@$A$S?$A$S
+_Main@main@$A$S?$A$S:
 push ebp
 mov ebp, esp
 sub esp, 4
-mov eax, Main@main@$I?$A$S?$A$S@cstr_1
+mov eax, Main@main@$A$S?$A$S@cstr_1
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'argc' start
-mov eax, ebp ;Parameter: argc
-add eax, 8 ;Parameter: argc
-;Get the value of variable or field 'argc' end
+sub esp, 12 ;3 variables space
+call _GetMethodNameDeque
+mov [esp], eax
+;Get the value of variable or field or type 'argv' start
+mov eax, ebp ;Parameter: argv
+add eax, 8 ;Parameter: argv
+;Get the value of variable or field 'argv' end
 
-mov eax, [eax] ;print needs the right value
+mov ecx, [eax]
+mov [esp+8], ecx
+push size@$$signature_str
+push native_array@$$classname_str
+push integer@$$classname_str
+call _PushNativeMethodName
+add esp, 12
+mov ecx, [esp+8] ;this address value
+;general call start
+push ecx ;this address value
+call _native_array@size
+add esp, 4 ;not stdcall
+mov [esp+4], eax
+call _PopMethodName
+mov eax, [esp+4]
+add esp, 12
+;general call end
 push eax
 push _printintstr
 call _printf
@@ -445,42 +461,50 @@ pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
 ;WhileNode start: L@$_WHILE_START_1
 L@$_WHILE_START_1:
-;start generating array exp code
-;Get the value of variable or field or type 'argv' start
-mov eax, ebp ;Parameter: argv
-add eax, 12 ;Parameter: argv
-;Get the value of variable or field 'argv' end
-
-push dword [eax]
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 4 ;Variable: idx
 ;Get the value of variable or field 'idx' end
 
-mov eax, [eax]
-pop ecx
-add ecx, 4
-mov ebx, 4
-mov edx ,0
-imul ebx
-add ecx, eax
-mov eax, ecx
-;end generating array exp code
 mov eax, [eax] ;get the right value of the left value
 push eax
-mov eax, 0 ;null expression
+sub esp, 12 ;3 variables space
+call _GetMethodNameDeque
+mov [esp], eax
+;Get the value of variable or field or type 'argv' start
+mov eax, ebp ;Parameter: argv
+add eax, 8 ;Parameter: argv
+;Get the value of variable or field 'argv' end
+
+mov ecx, [eax]
+mov [esp+8], ecx
+push size@$$signature_str
+push native_array@$$classname_str
+push integer@$$classname_str
+call _PushNativeMethodName
+add esp, 12
+mov ecx, [esp+8] ;this address value
+;general call start
+push ecx ;this address value
+call _native_array@size
+add esp, 4 ;not stdcall
+mov [esp+4], eax
+call _PopMethodName
+mov eax, [esp+4]
+add esp, 12
+;general call end
 mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jne L@$_JNE_2
+jl L@$_JL_2
 mov eax, 0
-jmp L@$_JNE_END_2
-L@$_JNE_2:
+jmp L@$_JL_END_2
+L@$_JL_2:
 mov eax, 1
-L@$_JNE_END_2:
+L@$_JL_END_2:
 cmp eax, 1
 jne L@$_WHILE_END_1
-mov eax, Main@main@$I?$A$S?$A$S@cstr_2
+mov eax, Main@main@$A$S?$A$S@cstr_2
 push eax
 push _printstrstr
 call _printf
@@ -495,7 +519,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@$I?$A$S?$A$S@cstr_3
+mov eax, Main@main@$A$S?$A$S@cstr_3
 push eax
 push _printstrstr
 call _printf
@@ -503,7 +527,7 @@ add esp, 8
 ;start generating array exp code
 ;Get the value of variable or field or type 'argv' start
 mov eax, ebp ;Parameter: argv
-add eax, 12 ;Parameter: argv
+add eax, 8 ;Parameter: argv
 ;Get the value of variable or field 'argv' end
 
 push dword [eax]
@@ -574,42 +598,50 @@ pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
 ;WhileNode start: L@$_WHILE_START_3
 L@$_WHILE_START_3:
-;start generating array exp code
-;Get the value of variable or field or type 'envp' start
-mov eax, ebp ;Parameter: envp
-add eax, 16 ;Parameter: envp
-;Get the value of variable or field 'envp' end
-
-push dword [eax]
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 4 ;Variable: idx
 ;Get the value of variable or field 'idx' end
 
-mov eax, [eax]
-pop ecx
-add ecx, 4
-mov ebx, 4
-mov edx ,0
-imul ebx
-add ecx, eax
-mov eax, ecx
-;end generating array exp code
 mov eax, [eax] ;get the right value of the left value
 push eax
-mov eax, 0 ;null expression
+sub esp, 12 ;3 variables space
+call _GetMethodNameDeque
+mov [esp], eax
+;Get the value of variable or field or type 'envp' start
+mov eax, ebp ;Parameter: envp
+add eax, 12 ;Parameter: envp
+;Get the value of variable or field 'envp' end
+
+mov ecx, [eax]
+mov [esp+8], ecx
+push size@$$signature_str
+push native_array@$$classname_str
+push integer@$$classname_str
+call _PushNativeMethodName
+add esp, 12
+mov ecx, [esp+8] ;this address value
+;general call start
+push ecx ;this address value
+call _native_array@size
+add esp, 4 ;not stdcall
+mov [esp+4], eax
+call _PopMethodName
+mov eax, [esp+4]
+add esp, 12
+;general call end
 mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jne L@$_JNE_4
+jl L@$_JL_4
 mov eax, 0
-jmp L@$_JNE_END_4
-L@$_JNE_4:
+jmp L@$_JL_END_4
+L@$_JL_4:
 mov eax, 1
-L@$_JNE_END_4:
+L@$_JL_END_4:
 cmp eax, 1
 jne L@$_WHILE_END_3
-mov eax, Main@main@$I?$A$S?$A$S@cstr_4
+mov eax, Main@main@$A$S?$A$S@cstr_4
 push eax
 push _printstrstr
 call _printf
@@ -624,7 +656,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@$I?$A$S?$A$S@cstr_5
+mov eax, Main@main@$A$S?$A$S@cstr_5
 push eax
 push _printstrstr
 call _printf
@@ -632,7 +664,7 @@ add esp, 8
 ;start generating array exp code
 ;Get the value of variable or field or type 'envp' start
 mov eax, ebp ;Parameter: envp
-add eax, 16 ;Parameter: envp
+add eax, 12 ;Parameter: envp
 ;Get the value of variable or field 'envp' end
 
 push dword [eax]
@@ -690,4 +722,4 @@ L@$_WHILE_END_3:
 add esp, 4
 mov esp, ebp
 pop ebp
-ret ;_Main@main@$I?$A$S?$A$S
+ret ;_Main@main@$A$S?$A$S

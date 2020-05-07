@@ -1,6 +1,6 @@
 
 Main {
-	main() -> none
+	main() static -> none
 	{
 	try
 	{

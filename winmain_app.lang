@@ -1,10 +1,10 @@
 Main
 {
-	winmain(reftype instance, reftype prev_instance, int argc, cstr[] argv, int cmd_show) static ->int
+	winmain(reftype instance, reftype prev_instance, cstr[] argv, int cmd_show) static ->int
 	{
 		int idx;
 		idx = 0;
-		while (idx < argc)
+		while (idx < argv.size())
 		{
 			show_msg(argv[idx]);
 			idx = idx + 1;

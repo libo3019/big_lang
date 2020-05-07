@@ -63,7 +63,7 @@ c9
 }
 Main {
 
-     main() -> none {
+     main() static -> none {
 		printany $call_stack;
 		try{
 		c3 obj3;

@@ -99,7 +99,7 @@ show_msg@$S@$$signature_str db "show_msg@$S", 0
 size@$$signature_str db "size", 0
 string@$$signature_str db "string", 0
 string@$S@$$signature_str db "string@$S", 0
-winmain@$R?$R?$I?$A$S?$I@$$signature_str db "winmain@$R?$R?$I?$A$S?$I", 0
+winmain@$R?$R?$A$S?$I@$$signature_str db "winmain@$R?$R?$A$S?$I", 0
 
 section .bss
 ;The virtual table address of class string containing virtual methods
@@ -141,16 +141,17 @@ call globalfunc@$construct_vtable ;call the method to construct all classes' vir
 call globalfunc@$construct_classdescriptors
 call _GetMethodNameDeque
 mov [ebp-8], eax ;save the method deque
-push winmain@$R?$R?$I?$A$S?$I@$$signature_str
+push winmain@$R?$R?$A$S?$I@$$signature_str
 push Main@$$classname_str
 push integer@$$classname_str
 call _PushStaticMethodName
 add esp, 12
+push 0
 mov eax, ebp
 sub eax, 12
 push eax
 call __get_argc_argv
-add esp, 4
+add esp, 8
 mov [ebp-16], eax
 push dword[ebp+20]
 push dword[ebp-16]
@@ -159,11 +160,10 @@ push 4
 call _copy_c_array
 add esp, 12
 push eax
-push dword [ebp-12]
 push dword [ebp+12]
 push dword [ebp+8]
-call _Main@winmain@$R?$R?$I?$A$S?$I
-add esp, 20
+call _Main@winmain@$R?$R?$A$S?$I
+add esp, 16
 push eax
 call _PopMethodName
 call globalfunc@$destroy_vtable ;call the method to destroy all classes' virtual table
@@ -399,8 +399,8 @@ mov esp, ebp
 pop ebp
 ret ;_string@length
 
-;Method: _Main@winmain@$R?$R?$I?$A$S?$I
-_Main@winmain@$R?$R?$I?$A$S?$I:
+;Method: _Main@winmain@$R?$R?$A$S?$I
+_Main@winmain@$R?$R?$A$S?$I:
 push ebp
 mov ebp, esp
 sub esp, 4
@@ -427,12 +427,32 @@ sub eax, 4 ;Variable: idx
 
 mov eax, [eax] ;get the right value of the left value
 push eax
-;Get the value of variable or field or type 'argc' start
-mov eax, ebp ;Parameter: argc
-add eax, 16 ;Parameter: argc
-;Get the value of variable or field 'argc' end
+sub esp, 12 ;3 variables space
+call _GetMethodNameDeque
+mov [esp], eax
+;Get the value of variable or field or type 'argv' start
+mov eax, ebp ;Parameter: argv
+add eax, 16 ;Parameter: argv
+;Get the value of variable or field 'argv' end
 
-mov ebx, [eax] ;get the right value of the left value
+mov ecx, [eax]
+mov [esp+8], ecx
+push size@$$signature_str
+push native_array@$$classname_str
+push integer@$$classname_str
+call _PushNativeMethodName
+add esp, 12
+mov ecx, [esp+8] ;this address value
+;general call start
+push ecx ;this address value
+call _native_array@size
+add esp, 4 ;not stdcall
+mov [esp+4], eax
+call _PopMethodName
+mov eax, [esp+4]
+add esp, 12
+;general call end
+mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
 jl L@$_JL_2
@@ -454,7 +474,7 @@ add esp, 12
 ;start generating array exp code
 ;Get the value of variable or field or type 'argv' start
 mov eax, ebp ;Parameter: argv
-add eax, 20 ;Parameter: argv
+add eax, 16 ;Parameter: argv
 ;Get the value of variable or field 'argv' end
 
 push dword [eax]
@@ -517,7 +537,7 @@ ret
 add esp, 4
 mov esp, ebp
 pop ebp
-ret ;_Main@winmain@$R?$R?$I?$A$S?$I
+ret ;_Main@winmain@$R?$R?$A$S?$I
 
 ;Method: _Main@show_msg@$S
 _Main@show_msg@$S:
