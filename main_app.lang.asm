@@ -173,6 +173,7 @@ push dword [ebp-4]
 call _restore_unhandled_exception_filter
 add esp, 4
 pop eax
+mov eax, 0
 add esp, 16
 mov esp, ebp
 pop ebp
