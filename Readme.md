@@ -21,8 +21,9 @@ big_lang_cc is a a compiler for object-oriented language, it includes almost all
 20. Array expressions.
 21. Command line parameters.
 
-Running method:<br>
-1. Install nasm and llvm for windows.<br>
-2. Set nasm.exe and lld-link.exe in "path" environment variable.<br>
-3. Set LANG_SYS_DIR as the directory of "string.lang" and "sys_exception.lang".<br>
-4. Running the bat file: test.bat.<br>
+Running method:
+1. Install llvm for windows.<br>
+2. Install nasm for windows.<br>
+3. Set nasm.exe and lld-link.exe in "path" environment variable.<br>
+4. Set LANG_SYS_DIR as the directory of "string.lang" and "sys_exception.lang".<br>
+5. Running the bat file: test.bat.<br>
