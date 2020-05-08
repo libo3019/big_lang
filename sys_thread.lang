@@ -2,7 +2,7 @@ _asm_extern _CreateThread@24
 _asm_extern _Sleep@4
 _asm_extern _WaitForSingleObject@8
 
-sys_thread 
+class sys_thread 
 {
 	reftype thread_handle;
 	sys_thread():none

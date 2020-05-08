@@ -1,4 +1,4 @@
-Main
+class Main
 {
 	main() static :int
 	{

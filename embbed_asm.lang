@@ -1,7 +1,7 @@
 _asm_extern _MessageBoxA@16
 _asm_extern _printf
 
-Main {
+class Main {
 	main() static:none
 	{
 		int n;

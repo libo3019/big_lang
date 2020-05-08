@@ -1,18 +1,18 @@
-c1{
+class c1{
 	int n1;
 	func() :none
 	{
 		printany "c1::func, n1 = ", n1, '\n';
 	}
 }
-c2 {
+class c2 {
 	c1 obj1;
 	c2() :none
 	{
 		obj1 = new c1();
 	}
 }
-c3 {
+class c3 {
 	c2 obj2;
 	c3():none
 	{
@@ -20,7 +20,7 @@ c3 {
 	}
 }
 
-Main {
+class Main {
 	main() static : none
 	{
 	try

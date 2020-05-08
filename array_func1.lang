@@ -1,5 +1,5 @@
 
-Main
+class Main
 {
 	main(cstr[] argv, cstr[] envp) static :int
 	{

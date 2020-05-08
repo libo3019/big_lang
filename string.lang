@@ -10,7 +10,7 @@ _asm_extern _lang_string_proxy_clear
 _asm_extern _lang_string_proxy_size
 _asm_extern _lang_string_proxy_output
 _asm_extern _lang_string_proxy_c_str
-string  {
+class string  {
 	reftype the_string_proxy;
 	string():none
 	{

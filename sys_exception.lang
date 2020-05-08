@@ -3,7 +3,7 @@ _asm_extern _sys_exception_proxy_construct
 _asm_extern _sys_exception_proxy_get_msg
 _asm_extern _printf
 
-sys_exception {
+class sys_exception {
 	reftype sys_exception_proxy;
 	sys_exception():none
 	{

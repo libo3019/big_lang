@@ -1,4 +1,4 @@
-native_sys_exception native {
+class native_sys_exception native {
      native_sys_exception():none;
 	 native_sys_exception(cstr str):none;
 	 get_msg():cstr;

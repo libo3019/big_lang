@@ -1,4 +1,4 @@
-c1
+class c1
 {
 	cstr info;
 	c1(cstr msg):none
@@ -11,7 +11,7 @@ c1
 		return "c1::getmsg";
 	}
 }
-c3
+class c3
 {
 	cstr info;
 	c3(cstr msg):none
@@ -38,7 +38,7 @@ c3
 	}
 }
 
-c5
+class c5
 {
 	cstr info;
 	c5(cstr msg) :none
@@ -58,10 +58,10 @@ c5
 	}
 }
 
-c9
+class c9
 {
 }
-Main {
+class Main {
 
      main() static : none {
 		printany $call_stack;

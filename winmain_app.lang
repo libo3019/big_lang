@@ -1,4 +1,4 @@
-Main
+class Main
 {
 	winmain(reftype instance, reftype prev_instance, cstr[] argv, int cmd_show) static :int
 	{

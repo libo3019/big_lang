@@ -1,17 +1,17 @@
-class1 {
+class class1 {
 	integer n;
 	func() :none
 	{
 	  printany "func\n";
 	 }
 }
-base00 {
+class base00 {
 	func00() virtual :none
 	{
 		printany "base00, func00\n";
 	}
 }
-base0 extends base00 {
+class base0 extends base00 {
 	func0() virtual :none
 	{
 		printany "base0, func0\n";
@@ -21,7 +21,7 @@ base0 extends base00 {
 		printany "base0, func9\n";
 	}
 }
-base1 extends base0 {
+class base1 extends base0 {
      func1(integer x, integer y) virtual :none
 	 {
 		printany "base1::func1, x = ", x, ", y = ", y, '\n';
@@ -44,7 +44,7 @@ base1 extends base0 {
 	 }
 }
 
-derive1 extends base1 {
+class derive1 extends base1 {
 	func1(integer x, integer y) virtual :none
 	 {
 		printany "derive1::func1, x = ", x, ", y = ", y, '\n';
@@ -67,7 +67,7 @@ derive1 extends base1 {
 	 }
 }
 
-base2 extends base0 {
+class base2 extends base0 {
 	integer field1, field2;
 	base2(integer xv, integer yv) :none
 	{
@@ -100,7 +100,7 @@ base2 extends base0 {
 	 }
 }
 
-derive2 extends base2 {
+class derive2 extends base2 {
 	integer field1, field2;
 	derive2(integer xv, integer yv) :none
 	{
@@ -141,7 +141,7 @@ derive2 extends base2 {
 	}
 }
 
-Main {
+class Main {
 
      main() static : none {
 		

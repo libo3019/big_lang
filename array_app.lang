@@ -1,4 +1,4 @@
-c1
+class c1
 {
 	int member1;
 	c1(int member1):none
@@ -10,7 +10,7 @@ c1
 		return member1;
 	}
 }
-Main
+class Main
 {
 	main() static:none
 	{

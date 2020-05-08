@@ -1,4 +1,4 @@
-c1
+class c1
 {
 	int n1, n2;
 	c1(float n1, float n2):none
@@ -24,7 +24,7 @@ c1
 	}
 }
 
-c2
+class c2
 {
 	int n1, n2;
 	c2(double n1, double n2):none
@@ -50,7 +50,7 @@ c2
 	}
 }
 
-Main
+class Main
 {
 	main() static :none
 	{

@@ -1,5 +1,5 @@
 
-Main
+class Main
 {
 	func1(cstr[][] argv, cstr[][][] envp) static :int
 	{

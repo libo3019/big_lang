@@ -1,4 +1,4 @@
-native_string native {
+class native_string native {
      native_string():none;
 	 native_string(cstr str):none;
 	 set(integer idx, char ch):native_string;

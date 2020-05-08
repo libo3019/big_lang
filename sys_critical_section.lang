@@ -4,7 +4,7 @@ _asm_extern _critical_section_proxy_try_enter
 _asm_extern _critical_section_proxy_leave
 _asm_extern _critical_section_proxy_delete
 
-sys_critical_section
+class sys_critical_section
 {
 	reftype proxy;
 	sys_critical_section():none

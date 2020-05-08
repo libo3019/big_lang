@@ -1,6 +1,6 @@
 import "sys_thread.lang"
 import "sys_critical_section.lang"
-Thread1 extends sys_thread
+class Thread1 extends sys_thread
 {
 	int idx;
 	sys_critical_section sec;
@@ -23,7 +23,7 @@ Thread1 extends sys_thread
 		}
 	}
 }
-Main
+class Main
 {
 	main() static:none
 	{
