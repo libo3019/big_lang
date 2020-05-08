@@ -7,7 +7,7 @@ _asm_extern _critical_section_proxy_delete
 sys_critical_section
 {
 	reftype proxy;
-	sys_critical_section()->none
+	sys_critical_section():none
 	{
 		_asm
 		{
@@ -15,7 +15,7 @@ sys_critical_section
 			mov %proxy, eax
 		}
 	}
-	enter()->none
+	enter():none
 	{
 		_asm
 		{
@@ -23,7 +23,7 @@ sys_critical_section
 			call _critical_section_proxy_enter
 		}
 	}
-	try_enter()->bool
+	try_enter():bool
 	{
 		_asm
 		{
@@ -31,7 +31,7 @@ sys_critical_section
 			call _critical_section_proxy_try_enter
 		}
 	}
-	leave()->none
+	leave():none
 	{
 		_asm
 		{
@@ -39,7 +39,7 @@ sys_critical_section
 			call _critical_section_proxy_leave
 		}
 	}
-	delete()->none
+	delete():none
 	{
 		_asm
 		{

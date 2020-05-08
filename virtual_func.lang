@@ -1,67 +1,67 @@
 class1 {
 	integer n;
-	func() ->none
+	func() :none
 	{
 	  printany "func\n";
 	 }
 }
 base00 {
-	func00() virtual ->none
+	func00() virtual :none
 	{
 		printany "base00, func00\n";
 	}
 }
 base0 extends base00 {
-	func0() virtual ->none
+	func0() virtual :none
 	{
 		printany "base0, func0\n";
 	}
-	func9() virtual ->none
+	func9() virtual :none
 	{
 		printany "base0, func9\n";
 	}
 }
 base1 extends base0 {
-     func1(integer x, integer y) virtual ->none
+     func1(integer x, integer y) virtual :none
 	 {
 		printany "base1::func1, x = ", x, ", y = ", y, '\n';
 	 }
-	 func2(integer x, integer y) virtual ->none
+	 func2(integer x, integer y) virtual :none
 	 {
 		printany "base1::func2, x = ", x, ", y = ", y, '\n';
 	 }
-	 func3(integer x, integer y)  ->none
+	 func3(integer x, integer y)  :none
 	 {
 		printany "base1::func3, x = ", x, ", y = ", y, '\n';
 	 }
-	 func4(integer x, integer y)  ->none
+	 func4(integer x, integer y)  :none
 	 {
 		printany "base1::func4, x = ", x, ", y = ", y, '\n';
 	 }
-	 func5() virtual ->none
+	 func5() virtual :none
 	 {
 		printany "base1::func5\n";
 	 }
 }
 
 derive1 extends base1 {
-	func1(integer x, integer y) virtual ->none
+	func1(integer x, integer y) virtual :none
 	 {
 		printany "derive1::func1, x = ", x, ", y = ", y, '\n';
 	 }
-	 func2(integer x, integer y) virtual ->none
+	 func2(integer x, integer y) virtual :none
 	 {
 		printany "derive1::func2, x = ", x, ", y = ", y, '\n';
 	 }
-	 func3(integer x, integer y)  ->none
+	 func3(integer x, integer y)  :none
 	 {
 		printany "derive1::func3, x = ", x, ", y = ", y, '\n';
 	 }
-	 func4(integer x, integer y)  ->none
+	 func4(integer x, integer y)  :none
 	 {
 		printany "derive1::func4, x = ", x, ", y = ", y, '\n';
 	 }
-	 func5() ->none
+	 func5() :none
 	 {
 		printany "derive1::func5\n";
 	 }
@@ -69,32 +69,32 @@ derive1 extends base1 {
 
 base2 extends base0 {
 	integer field1, field2;
-	base2(integer xv, integer yv) ->none
+	base2(integer xv, integer yv) :none
 	{
 		field1 = xv;
 		field2 = yv;
 	}
-     func1(integer x, integer y) virtual ->none
+     func1(integer x, integer y) virtual :none
 	 {
 		printany "base2::func1, x = ", x, ", y = ", y, '\n';
 	 }
-	 func2(integer x, integer y) virtual ->none
+	 func2(integer x, integer y) virtual :none
 	 {
 		printany "base2::func2, x = ", x, ", y = ", y, '\n';
 	 }
-	 func3(integer x, integer y)  ->none
+	 func3(integer x, integer y)  :none
 	 {
 		printany "base2::func3, x = ", x, ", y = ", y, '\n';
 	 }
-	 func4(integer x, integer y)  ->none
+	 func4(integer x, integer y)  :none
 	 {
 		printany "base2::func4, x = ", x, ", y = ", y, '\n';
 	 }
-	 func5() virtual ->none
+	 func5() virtual :none
 	 {
 		printany "base2::func5\n";
 	 }
-	 output_field() -> none
+	 output_field() : none
 	 {
 		printany "base2, field1 = ", field1, ", field2 = ", field2, '\n';
 	 }
@@ -102,40 +102,40 @@ base2 extends base0 {
 
 derive2 extends base2 {
 	integer field1, field2;
-	derive2(integer xv, integer yv) ->none
+	derive2(integer xv, integer yv) :none
 	{
 	  field1 = xv;
 	  field2 = yv;
 	}
-	func1(integer x, integer y) virtual ->none
+	func1(integer x, integer y) virtual :none
 	 {
 		printany "derive2::func1, x = ", x, ", y = ", y, '\n';
 	 }
-	 func2(integer x, integer y) virtual ->none
+	 func2(integer x, integer y) virtual :none
 	 {
 		printany "derive2::func2, x = ", x, ", y = ", y, '\n';
 	 }
-	 func3(integer x, integer y)  ->none
+	 func3(integer x, integer y)  :none
 	 {
 		printany "derive2::func3, x = ", x, ", y = ", y, '\n';
 	 }
-	 func4(integer x, integer y)  ->none
+	 func4(integer x, integer y)  :none
 	 {
 		printany "derive2::func4, x = ", x, ", y = ", y, '\n';
 	 }
-	 func5() ->none
+	 func5() :none
 	 {
 		printany "derive2::func5\n";
 	 }
-	  func7() ->none
+	  func7() :none
 	 {
 		printany "derive2::func7\n";
 	 }
-	 output_field() -> none
+	 output_field() : none
 	 {
 		printany "derive2, field1 = ", field1, ", field2 = ", field2, '\n';
 	 }
-	 func9() virtual ->none
+	 func9() virtual :none
 	{
 		printany "derive2, func9\n";
 	}
@@ -143,7 +143,7 @@ derive2 extends base2 {
 
 Main {
 
-     main() static -> none {
+     main() static : none {
 		
      	base1 obj1;
 		printany "before new\n";

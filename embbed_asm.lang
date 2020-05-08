@@ -2,7 +2,7 @@ _asm_extern _MessageBoxA@16
 _asm_extern _printf
 
 Main {
-	main() static->none
+	main() static:none
 	{
 		int n;
 		n = 90;

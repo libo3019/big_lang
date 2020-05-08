@@ -1,6 +1,6 @@
 Main
 {
-	main(cstr[] argv, cstr[] envp) static ->none
+	main(cstr[] argv, cstr[] envp) static :none
 	{
 		printany "argv.size = ", argv.size(), '\n';
 		int idx;

@@ -1,6 +1,6 @@
 Main
 {
-	winmain(reftype instance, reftype prev_instance, cstr[] argv, int cmd_show) static ->int
+	winmain(reftype instance, reftype prev_instance, cstr[] argv, int cmd_show) static :int
 	{
 		int idx;
 		idx = 0;
@@ -11,7 +11,7 @@ Main
 		}
 		return 0;
 	}
-	show_msg(cstr msg) static ->none
+	show_msg(cstr msg) static :none
 	{
 		int MB_ICONINFORMATION;
 		MB_ICONINFORMATION= 0x40;

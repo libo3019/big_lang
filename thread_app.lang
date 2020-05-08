@@ -4,12 +4,12 @@ Thread1 extends sys_thread
 {
 	int idx;
 	sys_critical_section sec;
-	Thread1(int idx, sys_critical_section sec)->none
+	Thread1(int idx, sys_critical_section sec):none
 	{
 		this.sec = sec;
 		this.idx = idx;
 	}
-	run() virtual ->int
+	run() virtual :int
 	{
 		int n;
 		n = 1;
@@ -25,7 +25,7 @@ Thread1 extends sys_thread
 }
 Main
 {
-	main() static->none
+	main() static:none
 	{
 		try {
 		sys_critical_section sec1;

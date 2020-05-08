@@ -12,7 +12,7 @@ _asm_extern _lang_string_proxy_output
 _asm_extern _lang_string_proxy_c_str
 string  {
 	reftype the_string_proxy;
-	string()->none
+	string():none
 	{
 		_asm
 		{
@@ -20,7 +20,7 @@ string  {
 			mov %the_string_proxy, eax
 		}
 	}
-	string(cstr str)->none
+	string(cstr str):none
 	{
 		_asm
 		{
@@ -30,7 +30,7 @@ string  {
 			mov %the_string_proxy, eax
 		}
 	}
-	set(integer idx, char ch)->string
+	set(integer idx, char ch):string
 	{
 		_asm
 		{
@@ -41,7 +41,7 @@ string  {
 			add esp, 12
 		}
 	}
-	get(integer idx)->char
+	get(integer idx):char
 	{
 		_asm
 		{
@@ -51,7 +51,7 @@ string  {
 			add esp, 8
 		}
 	}
-	append(char ch)-> string
+	append(char ch): string
 	{
 		_asm
 		{
@@ -61,7 +61,7 @@ string  {
 			add esp, 8
 		}
 	}
-	append(cstr str)->string
+	append(cstr str):string
 	{
 		_asm
 		{
@@ -71,7 +71,7 @@ string  {
 			add esp, 8
 		}
 	}
-	assign(cstr str)->string
+	assign(cstr str):string
 	{
 		_asm
 		{
@@ -81,7 +81,7 @@ string  {
 			add esp, 8
 		}
 	}
-	assign(char ch)->string
+	assign(char ch):string
 	{
 		_asm
 		{
@@ -91,7 +91,7 @@ string  {
 			add esp, 8
 		}
 	}
-	clear()->none
+	clear():none
 	{
 		_asm
 		{
@@ -100,7 +100,7 @@ string  {
 			add esp, 4
 		}
 	}
-	size()->integer
+	size():integer
 	{
 		_asm
 		{
@@ -109,7 +109,7 @@ string  {
 			add esp, 4
 		}
 	}
-	output() virtual ->integer
+	output() virtual :integer
 	{
 		_asm
 		{
@@ -118,7 +118,7 @@ string  {
 			add esp, 4
 		}
 	}
-	c_str()->cstr
+	c_str():cstr
 	{
 		_asm
 		{
@@ -127,7 +127,7 @@ string  {
 			add esp, 4
 		}
 	}
-	length()->integer
+	length():integer
 	{
 		_asm
 		{

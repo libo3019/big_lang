@@ -5,7 +5,7 @@ _asm_extern _printf
 
 sys_exception {
 	reftype sys_exception_proxy;
-	sys_exception()->none
+	sys_exception():none
 	{
 	_asm
 	{
@@ -13,7 +13,7 @@ sys_exception {
 		mov %sys_exception_proxy, eax
 	}
 	}
-	sys_exception(cstr str)->none
+	sys_exception(cstr str):none
 	{
 		_asm
 		{
@@ -23,7 +23,7 @@ sys_exception {
 			mov %sys_exception_proxy, eax
 		}
 	}
-	get_msg() virtual ->cstr
+	get_msg() virtual :cstr
 	{
 	_asm
 	{

@@ -5,14 +5,14 @@ _asm_extern _WaitForSingleObject@8
 sys_thread 
 {
 	reftype thread_handle;
-	sys_thread()->none
+	sys_thread():none
 	{
 	}
-	run() virtual ->int
+	run() virtual :int
 	{
 		return 0;
 	}
-	thread_fun(sys_thread obj) static stdcall ->int
+	thread_fun(sys_thread obj) static stdcall :int
 	{
 		int ret;
 		try 
@@ -27,7 +27,7 @@ sys_thread
 		}
 		return ret;
 	}
-	start()->none
+	start():none
 	{
 		 
 		int CREATE_SUSPENDED;
@@ -44,7 +44,7 @@ sys_thread
 			mov %thread_handle, eax
 		}
 	}
-	sleep(int milliseconds) static ->none
+	sleep(int milliseconds) static :none
 	{
 		_asm
 		{
@@ -52,7 +52,7 @@ sys_thread
 			call _Sleep@4
 		}
 	}
-	wait(int milliseconds)->int
+	wait(int milliseconds):int
 	{
 		_asm
 		{

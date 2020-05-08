@@ -1,18 +1,18 @@
 c1
 {
 	int member1;
-	c1(int member1)->none
+	c1(int member1):none
 	{
 		this.member1 = member1;
 	}
-	func()->int
+	func():int
 	{
 		return member1;
 	}
 }
 Main
 {
-	main() static->none
+	main() static:none
 	{
 		
 		printany "----------------------1----------------------\n";

@@ -1,27 +1,27 @@
 c1{
 	int n1;
-	func() ->none
+	func() :none
 	{
 		printany "c1::func, n1 = ", n1, '\n';
 	}
 }
 c2 {
 	c1 obj1;
-	c2() ->none
+	c2() :none
 	{
 		obj1 = new c1();
 	}
 }
 c3 {
 	c2 obj2;
-	c3()->none
+	c3():none
 	{
 		obj2 = new c2();
 	}
 }
 
 Main {
-	main() static -> none
+	main() static : none
 	{
 	try
 	{

@@ -1,24 +1,24 @@
 c1
 {
 	int n1, n2;
-	c1(float n1, float n2)->none
+	c1(float n1, float n2):none
 	{
 		this.n1 = n1;
 		this.n2 = n2;
 	}
-	output()->none
+	output():none
 	{
 		printany "this.n1=", this.n1, ",this.n2=", this.n2,'\n';
 	}
-	func1(float n1, float n2)->float
+	func1(float n1, float n2):float
 	{
 		return n1 + n2;
 	}
-	func2(float n1, float n2) static ->float
+	func2(float n1, float n2) static :float
 	{
 		return n1 * n2;
 	}
-	func3(float n1) static->float
+	func3(float n1) static:float
 	{
 		return n1;
 	}
@@ -27,24 +27,24 @@ c1
 c2
 {
 	int n1, n2;
-	c2(double n1, double n2)->none
+	c2(double n1, double n2):none
 	{
 		this.n1 = n1;
 		this.n2 = n2;
 	}
-	output()->none
+	output():none
 	{
 		printany "this.n1=", this.n1, ",this.n2=", this.n2,'\n';
 	}
-	func1(double n1, double n2)->double
+	func1(double n1, double n2):double
 	{
 		return n1 + n2;
 	}
-	func2(double n1, double n2) static ->double
+	func2(double n1, double n2) static :double
 	{
 		return n1 * n2;
 	}
-	func3(double n1) static->double
+	func3(double n1) static:double
 	{
 		return n1;
 	}
@@ -52,7 +52,7 @@ c2
 
 Main
 {
-	main() static ->none
+	main() static :none
 	{
 	
 		if (1 > 2)

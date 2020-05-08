@@ -1,11 +1,11 @@
 c1
 {
 	cstr info;
-	c1(cstr msg)->none
+	c1(cstr msg):none
 	{
 		info = msg;
 	}
-	getmsg()->cstr
+	getmsg():cstr
 	{
 		printany "c1getmsg:", info, '\n';
 		return "c1::getmsg";
@@ -14,24 +14,24 @@ c1
 c3
 {
 	cstr info;
-	c3(cstr msg)->none
+	c3(cstr msg):none
 	{
 		printany "c3::c3, msg = ", msg, '\n';
 		info = msg;
 		printany "c3::c3, info = ", info, '\n';
 	}
-	output()->none
+	output():none
 	{
 		printany "c3::output start\n";
 		printany $call_stack;
 		printany "c3::output, info=", info, '\n';
 		printany "c3::output end\n";
 	}
-	getmsg()->cstr
+	getmsg():cstr
 	{
 		return info;
 	}
-	func1()->none
+	func1():none
 	{
 		printany $call_stack;
 		throw new c1("a user exception");
@@ -41,17 +41,17 @@ c3
 c5
 {
 	cstr info;
-	c5(cstr msg) ->none
+	c5(cstr msg) :none
 	{
 	 info = msg;
 	 printany "c5::c5 info=", info, '\n';
 	}
-	func1()->none
+	func1():none
 	{
 		printany "c5::func1 info=", info, '\n';
 		throw new c3(info);
 	}
-	func3()->c3
+	func3():c3
 	{
 		printany "c5::func3 info=", info, '\n';
 		return new c3(info);
@@ -63,7 +63,7 @@ c9
 }
 Main {
 
-     main() static -> none {
+     main() static : none {
 		printany $call_stack;
 		try{
 		c3 obj3;

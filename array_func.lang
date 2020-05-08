@@ -1,12 +1,12 @@
 
 Main
 {
-	func1(cstr[][] argv, cstr[][][] envp) static ->int
+	func1(cstr[][] argv, cstr[][][] envp) static :int
 	{
 		printany "argv.size()=", argv.size(), ",envp.size()=", envp.size(), '\n';
 		printany $call_stack;
 	}
-	func(cstr[] argv, cstr[] envp) static ->int
+	func(cstr[] argv, cstr[] envp) static :int
 	{
 		cstr[][] arg;
 		arg	= new cstr[3][];
@@ -30,7 +30,7 @@ Main
 		}
 		
 	}
-	main(cstr[] argv, cstr[] envp) static ->int
+	main(cstr[] argv, cstr[] envp) static :int
 	{
 		return func(argv, envp);
 	}

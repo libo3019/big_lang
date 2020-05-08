@@ -1,14 +1,14 @@
 native_string native {
-     native_string()->none;
-	 native_string(cstr str)->none;
-	 set(integer idx, char ch)->native_string;
-	 get(integer idx)->char;
-	 append(char ch)-> native_string;
-	 append(cstr str)->native_string;
-	 assign(cstr str)->native_string;
-	 assign(char ch)->native_string;
-	 clear()->none;
-	 size()->integer;
-	 output()->integer;
-	 c_str()->cstr;
+     native_string():none;
+	 native_string(cstr str):none;
+	 set(integer idx, char ch):native_string;
+	 get(integer idx):char;
+	 append(char ch): native_string;
+	 append(cstr str):native_string;
+	 assign(cstr str):native_string;
+	 assign(char ch):native_string;
+	 clear():none;
+	 size():integer;
+	 output():integer;
+	 c_str():cstr;
 }
