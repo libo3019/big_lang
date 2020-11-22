@@ -20,6 +20,10 @@ big_lang_cc is a a compiler for object-oriented language, it includes almost all
 19. Exception stack.
 20. Array expressions.
 21. Command line parameters.
+22. Static variables in a method.
+23. Static variables in a block.
+24. Static fields in a class.
+25. Static methods in a class.
 
 Running method:
 1. Install llvm for windows.<br>
