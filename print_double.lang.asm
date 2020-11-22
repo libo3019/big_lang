@@ -78,52 +78,52 @@ none@$$classname_str db "none", 0
 null@$$classname_str db "null", 0
 string@$$classname_str db "string", 0
 ;All const string
-Main@main@cstr_1 db "f1=", 0
-Main@main@cstr_10 db "-----------------------------------", 10, 0
-Main@main@cstr_11 db "idx=", 0
-Main@main@cstr_12 db ",f11 = ", 0
-Main@main@cstr_13 db "idx=", 0
-Main@main@cstr_14 db ",f11 = ", 0
-Main@main@cstr_15 db "-----------------------------------", 10, 0
-Main@main@cstr_16 db "idx=", 0
-Main@main@cstr_17 db ",f33 = ", 0
-Main@main@cstr_18 db "idx=", 0
-Main@main@cstr_19 db ",f33 = ", 0
-Main@main@cstr_2 db ",f2=", 0
-Main@main@cstr_20 db "-----------------------------------", 10, 0
-Main@main@cstr_21 db "idx=", 0
-Main@main@cstr_22 db ",new_df = ", 0
-Main@main@cstr_23 db "-----------------------------------", 10, 0
-Main@main@cstr_24 db "idx=", 0
-Main@main@cstr_25 db ",new_df1 = ", 0
-Main@main@cstr_26 db "idx=", 0
-Main@main@cstr_27 db ",new_df1 = ", 0
-Main@main@cstr_28 db "idx=", 0
-Main@main@cstr_29 db ",f       = ", 0
-Main@main@cstr_3 db "idx=", 0
-Main@main@cstr_30 db "idx=", 0
-Main@main@cstr_31 db ",new_df1 = ", 0
-Main@main@cstr_4 db ",f1 + f2 = ", 0
-Main@main@cstr_5 db "-----------------------------------", 10, 0
-Main@main@cstr_6 db "df1=", 0
-Main@main@cstr_7 db ",df2=", 0
-Main@main@cstr_8 db "idx=", 0
-Main@main@cstr_9 db ",df3 = ", 0
+Main@main$$cstr_1 db "f1=", 0
+Main@main$$cstr_10 db "-----------------------------------", 10, 0
+Main@main$$cstr_11 db "idx=", 0
+Main@main$$cstr_12 db ",f11 = ", 0
+Main@main$$cstr_13 db "idx=", 0
+Main@main$$cstr_14 db ",f11 = ", 0
+Main@main$$cstr_15 db "-----------------------------------", 10, 0
+Main@main$$cstr_16 db "idx=", 0
+Main@main$$cstr_17 db ",f33 = ", 0
+Main@main$$cstr_18 db "idx=", 0
+Main@main$$cstr_19 db ",f33 = ", 0
+Main@main$$cstr_2 db ",f2=", 0
+Main@main$$cstr_20 db "-----------------------------------", 10, 0
+Main@main$$cstr_21 db "idx=", 0
+Main@main$$cstr_22 db ",new_df = ", 0
+Main@main$$cstr_23 db "-----------------------------------", 10, 0
+Main@main$$cstr_24 db "idx=", 0
+Main@main$$cstr_25 db ",new_df1 = ", 0
+Main@main$$cstr_26 db "idx=", 0
+Main@main$$cstr_27 db ",new_df1 = ", 0
+Main@main$$cstr_28 db "idx=", 0
+Main@main$$cstr_29 db ",f       = ", 0
+Main@main$$cstr_3 db "idx=", 0
+Main@main$$cstr_30 db "idx=", 0
+Main@main$$cstr_31 db ",new_df1 = ", 0
+Main@main$$cstr_4 db ",f1 + f2 = ", 0
+Main@main$$cstr_5 db "-----------------------------------", 10, 0
+Main@main$$cstr_6 db "df1=", 0
+Main@main$$cstr_7 db ",df2=", 0
+Main@main$$cstr_8 db "idx=", 0
+Main@main$$cstr_9 db ",df3 = ", 0
 ;All const double
-Main@main@double_1 dq 1.530000
-Main@main@double_10 dq 3.400000
-Main@main@double_11 dq 1.300000
-Main@main@double_12 dq 3.900000
-Main@main@double_13 dq 1.300000
-Main@main@double_14 dq 3.900000
-Main@main@double_2 dq 2.300000
-Main@main@double_3 dq 3.530000
-Main@main@double_4 dq 1.300000
-Main@main@double_5 dq 1.300000
-Main@main@double_6 dq 3.300000
-Main@main@double_7 dq 1.300000
-Main@main@double_8 dq 3.400000
-Main@main@double_9 dq 1.300000
+Main@main$$double_1 dq 1.530000
+Main@main$$double_10 dq 3.400000
+Main@main$$double_11 dq 1.300000
+Main@main$$double_12 dq 3.900000
+Main@main$$double_13 dq 1.300000
+Main@main$$double_14 dq 3.900000
+Main@main$$double_2 dq 2.300000
+Main@main$$double_3 dq 3.530000
+Main@main$$double_4 dq 1.300000
+Main@main$$double_5 dq 1.300000
+Main@main$$double_6 dq 3.300000
+Main@main$$double_7 dq 1.300000
+Main@main$$double_8 dq 3.400000
+Main@main$$double_9 dq 1.300000
 ;All const float
 ;All method signature
 append@$C@$$signature_str db "append@$C", 0
@@ -146,7 +146,7 @@ string@$S@$$signature_str db "string@$S", 0
 
 section .bss
 ;The virtual table address of class string containing virtual methods
-string@$vtable resd 2
+string@$$vtable resd 2
 ;The descriptor table address of class Main
 Main@$$classdescriptor resd 2
 ;The descriptor table address of class boolean
@@ -180,8 +180,8 @@ sub esp, 16
 finit
 call _save_unhandled_exception_filter
 mov [ebp-4], eax
-call globalfunc@$construct_vtable ;call the method to construct all classes' virtual table
-call globalfunc@$construct_classdescriptors
+call globalfunc@$$construct_vtable ;call the method to construct all classes' virtual table
+call globalfunc@$$construct_classdescriptors
 call _GetMethodNameDeque
 mov [ebp-8], eax ;save the method deque
 push main@$$signature_str
@@ -192,7 +192,7 @@ add esp, 12
 call _Main@main
 push eax
 call _PopMethodName
-call globalfunc@$destroy_vtable ;call the method to destroy all classes' virtual table
+call globalfunc@$$destroy_vtable ;call the method to destroy all classes' virtual table
 push dword [ebp-4]
 call _restore_unhandled_exception_filter
 add esp, 4
@@ -203,7 +203,7 @@ mov esp, ebp
 pop ebp
 ret ;_main
 
-globalfunc@$construct_vtable: ;The method of constructing all classes' virtual table
+globalfunc@$$construct_vtable: ;The method of constructing all classes' virtual table
 push ebp
 mov ebp, esp
 ;construct the virtual table of class 'string' start.
@@ -213,14 +213,14 @@ add esp, 4
 ;class 'string', virtual method moving start
 mov dword [eax], _string@output
 ;class 'string', virtual method moving end
-mov [string@$vtable], eax ;the virtual table address of class 'string'
-mov dword [string@$vtable + 4], string@$$classname_str ;the virtual table address of class 'string'
+mov [string@$$vtable], eax ;the virtual table address of class 'string'
+mov dword [string@$$vtable + 4], string@$$classname_str ;the virtual table address of class 'string'
 ;construct the virtual table of class 'string' end.
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$construct_vtable
+ret ;globalfunc@$$construct_vtable
 
-globalfunc@$construct_classdescriptors: ;The method of constructing all classes' descriptor table
+globalfunc@$$construct_classdescriptors: ;The method of constructing all classes' descriptor table
 push ebp
 mov ebp, esp
 mov dword [Main@$$classdescriptor], Main@$$classname_str
@@ -250,18 +250,18 @@ mov dword [string@$$classdescriptor + 4], 0
 
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$construct_classdescriptors
+ret ;globalfunc@$$construct_classdescriptors
 
-globalfunc@$destroy_vtable: ;The method of destroying all classes' virtual table
+globalfunc@$$destroy_vtable: ;The method of destroying all classes' virtual table
 push ebp
 mov ebp, esp
 ;The virtual table address of class string containing virtual methods
-push dword [string@$vtable]
+push dword [string@$$vtable]
 call _free
 add esp, 4
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$destroy_vtable
+ret ;globalfunc@$$destroy_vtable
 
 
 ;Method: _string@string
@@ -431,11 +431,6 @@ _Main@main:
 push ebp
 mov ebp, esp
 sub esp, 80
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx' start
@@ -445,8 +440,8 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_1
-L@$_WHILE_START_1:
+;WhileNode start: L@$$_WHILE_START_1
+L@$$_WHILE_START_1:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
@@ -458,39 +453,29 @@ mov eax, 30
 mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_2
+jl L@$$_JL_2
 mov eax, 0
-jmp L@$_JL_END_2
-L@$_JL_2:
+jmp L@$$_JL_END_2
+L@$$_JL_2:
 mov eax, 1
-L@$_JL_END_2:
+L@$$_JL_END_2:
 cmp eax, 1
-jne L@$_WHILE_END_1
-;Get the value of variable or field or type 'f1' start
-mov eax, ebp ;Variable: f1
-sub eax, 4 ;Variable: f1
-;Get the value of variable or field 'f1' end
-
-fld qword [Main@main@double_1]
+jne L@$$_WHILE_END_1
+fld qword [Main@main$$double_1]
 ;Get the value of variable or field or type 'f1' start
 mov eax, ebp ;Variable: f1
 sub eax, 4 ;Variable: f1
 ;Get the value of variable or field 'f1' end
 
 fstp dword[eax]
-;Get the value of variable or field or type 'f2' start
-mov eax, ebp ;Variable: f2
-sub eax, 8 ;Variable: f2
-;Get the value of variable or field 'f2' end
-
-fld qword [Main@main@double_2]
+fld qword [Main@main$$double_2]
 ;Get the value of variable or field or type 'f2' start
 mov eax, ebp ;Variable: f2
 sub eax, 8 ;Variable: f2
 ;Get the value of variable or field 'f2' end
 
 fstp dword[eax]
-mov eax, Main@main@cstr_1
+mov eax, Main@main$$cstr_1
 push eax
 push _printstrstr
 call _printf
@@ -506,7 +491,7 @@ fstp qword [esp]
 push _printdoublestr
 call _printf
 add esp, 12
-mov eax, Main@main@cstr_2
+mov eax, Main@main$$cstr_2
 push eax
 push _printstrstr
 call _printf
@@ -527,7 +512,7 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_3
+mov eax, Main@main$$cstr_3
 push eax
 push _printstrstr
 call _printf
@@ -542,7 +527,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_4
+mov eax, Main@main$$cstr_4
 push eax
 push _printstrstr
 call _printf
@@ -576,11 +561,6 @@ mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
 ;Get the value of variable or field 'idx' end
 
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, [eax] ;get the right value of the left value
 push eax
 mov eax, 1
@@ -595,19 +575,14 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_1
-L@$_WHILE_END_1:
-;WhileNode end: L@$_WHILE_START_1
-mov eax, Main@main@cstr_5
+jmp L@$$_WHILE_START_1
+L@$$_WHILE_END_1:
+;WhileNode end: L@$$_WHILE_START_1
+mov eax, Main@main$$cstr_5
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx' start
@@ -617,8 +592,8 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_3
-L@$_WHILE_START_3:
+;WhileNode start: L@$$_WHILE_START_3
+L@$$_WHILE_START_3:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
@@ -630,43 +605,28 @@ mov eax, 30
 mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_4
+jl L@$$_JL_4
 mov eax, 0
-jmp L@$_JL_END_4
-L@$_JL_4:
+jmp L@$$_JL_END_4
+L@$$_JL_4:
 mov eax, 1
-L@$_JL_END_4:
+L@$$_JL_END_4:
 cmp eax, 1
-jne L@$_WHILE_END_3
-;Get the value of variable or field or type 'df1' start
-mov eax, ebp ;Variable: df1
-sub eax, 20 ;Variable: df1
-;Get the value of variable or field 'df1' end
-
-fld qword [Main@main@double_3]
+jne L@$$_WHILE_END_3
+fld qword [Main@main$$double_3]
 ;Get the value of variable or field or type 'df1' start
 mov eax, ebp ;Variable: df1
 sub eax, 20 ;Variable: df1
 ;Get the value of variable or field 'df1' end
 
 fstp dword[eax]
-;Get the value of variable or field or type 'df2' start
-mov eax, ebp ;Variable: df2
-sub eax, 24 ;Variable: df2
-;Get the value of variable or field 'df2' end
-
-fld qword [Main@main@double_4]
+fld qword [Main@main$$double_4]
 ;Get the value of variable or field or type 'df2' start
 mov eax, ebp ;Variable: df2
 sub eax, 24 ;Variable: df2
 ;Get the value of variable or field 'df2' end
 
 fstp dword[eax]
-;Get the value of variable or field or type 'df3' start
-mov eax, ebp ;Variable: df3
-sub eax, 28 ;Variable: df3
-;Get the value of variable or field 'df3' end
-
 ;Get the value of variable or field or type 'df1' start
 mov eax, ebp ;Variable: df1
 sub eax, 20 ;Variable: df1
@@ -687,7 +647,7 @@ sub eax, 28 ;Variable: df3
 ;Get the value of variable or field 'df3' end
 
 fstp dword[eax]
-mov eax, Main@main@cstr_6
+mov eax, Main@main$$cstr_6
 push eax
 push _printstrstr
 call _printf
@@ -703,7 +663,7 @@ fstp qword [esp]
 push _printdoublestr
 call _printf
 add esp, 12
-mov eax, Main@main@cstr_7
+mov eax, Main@main$$cstr_7
 push eax
 push _printstrstr
 call _printf
@@ -724,7 +684,7 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_8
+mov eax, Main@main$$cstr_8
 push eax
 push _printstrstr
 call _printf
@@ -739,7 +699,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_9
+mov eax, Main@main$$cstr_9
 push eax
 push _printstrstr
 call _printf
@@ -765,11 +725,6 @@ mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
 ;Get the value of variable or field 'idx' end
 
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, [eax] ;get the right value of the left value
 push eax
 mov eax, 1
@@ -784,19 +739,14 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_3
-L@$_WHILE_END_3:
-;WhileNode end: L@$_WHILE_START_3
-mov eax, Main@main@cstr_10
+jmp L@$$_WHILE_START_3
+L@$$_WHILE_END_3:
+;WhileNode end: L@$$_WHILE_START_3
+mov eax, Main@main$$cstr_10
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx' start
@@ -806,8 +756,8 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_5
-L@$_WHILE_START_5:
+;WhileNode start: L@$$_WHILE_START_5
+L@$$_WHILE_START_5:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
@@ -819,27 +769,22 @@ mov eax, 30
 mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_6
+jl L@$$_JL_6
 mov eax, 0
-jmp L@$_JL_END_6
-L@$_JL_6:
+jmp L@$$_JL_END_6
+L@$$_JL_6:
 mov eax, 1
-L@$_JL_END_6:
+L@$$_JL_END_6:
 cmp eax, 1
-jne L@$_WHILE_END_5
-;Get the value of variable or field or type 'f11' start
-mov eax, ebp ;Variable: f11
-sub eax, 32 ;Variable: f11
-;Get the value of variable or field 'f11' end
-
-fld qword [Main@main@double_5]
+jne L@$$_WHILE_END_5
+fld qword [Main@main$$double_5]
 ;Get the value of variable or field or type 'f11' start
 mov eax, ebp ;Variable: f11
 sub eax, 32 ;Variable: f11
 ;Get the value of variable or field 'f11' end
 
 fstp dword[eax]
-mov eax, Main@main@cstr_11
+mov eax, Main@main$$cstr_11
 push eax
 push _printstrstr
 call _printf
@@ -854,7 +799,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_12
+mov eax, Main@main$$cstr_12
 push eax
 push _printstrstr
 call _printf
@@ -875,11 +820,6 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'n' start
-mov eax, ebp ;Variable: n
-sub eax, 36 ;Variable: n
-;Get the value of variable or field 'n' end
-
 mov eax, 1
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'n' start
@@ -889,11 +829,6 @@ sub eax, 36 ;Variable: n
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;Get the value of variable or field or type 'f11' start
-mov eax, ebp ;Variable: f11
-sub eax, 32 ;Variable: f11
-;Get the value of variable or field 'f11' end
-
 ;Get the value of variable or field or type 'f11' start
 mov eax, ebp ;Variable: f11
 sub eax, 32 ;Variable: f11
@@ -914,7 +849,7 @@ sub eax, 32 ;Variable: f11
 ;Get the value of variable or field 'f11' end
 
 fstp dword[eax]
-mov eax, Main@main@cstr_13
+mov eax, Main@main$$cstr_13
 push eax
 push _printstrstr
 call _printf
@@ -929,7 +864,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_14
+mov eax, Main@main$$cstr_14
 push eax
 push _printstrstr
 call _printf
@@ -955,11 +890,6 @@ mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
 ;Get the value of variable or field 'idx' end
 
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, [eax] ;get the right value of the left value
 push eax
 mov eax, 1
@@ -974,19 +904,14 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_5
-L@$_WHILE_END_5:
-;WhileNode end: L@$_WHILE_START_5
-mov eax, Main@main@cstr_15
+jmp L@$$_WHILE_START_5
+L@$$_WHILE_END_5:
+;WhileNode end: L@$$_WHILE_START_5
+mov eax, Main@main$$cstr_15
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx' start
@@ -996,8 +921,8 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_7
-L@$_WHILE_START_7:
+;WhileNode start: L@$$_WHILE_START_7
+L@$$_WHILE_START_7:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
@@ -1009,27 +934,22 @@ mov eax, 30
 mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_8
+jl L@$$_JL_8
 mov eax, 0
-jmp L@$_JL_END_8
-L@$_JL_8:
+jmp L@$$_JL_END_8
+L@$$_JL_8:
 mov eax, 1
-L@$_JL_END_8:
+L@$$_JL_END_8:
 cmp eax, 1
-jne L@$_WHILE_END_7
-;Get the value of variable or field or type 'f33' start
-mov eax, ebp ;Variable: f33
-sub eax, 44 ;Variable: f33
-;Get the value of variable or field 'f33' end
-
-fld qword [Main@main@double_6]
+jne L@$$_WHILE_END_7
+fld qword [Main@main$$double_6]
 ;Get the value of variable or field or type 'f33' start
 mov eax, ebp ;Variable: f33
 sub eax, 44 ;Variable: f33
 ;Get the value of variable or field 'f33' end
 
 fstp qword[eax]
-mov eax, Main@main@cstr_16
+mov eax, Main@main$$cstr_16
 push eax
 push _printstrstr
 call _printf
@@ -1044,7 +964,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_17
+mov eax, Main@main$$cstr_17
 push eax
 push _printstrstr
 call _printf
@@ -1065,11 +985,6 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'n' start
-mov eax, ebp ;Variable: n
-sub eax, 36 ;Variable: n
-;Get the value of variable or field 'n' end
-
 mov eax, 1
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'n' start
@@ -1079,11 +994,6 @@ sub eax, 36 ;Variable: n
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;Get the value of variable or field or type 'f33' start
-mov eax, ebp ;Variable: f33
-sub eax, 44 ;Variable: f33
-;Get the value of variable or field 'f33' end
-
 ;Get the value of variable or field or type 'f33' start
 mov eax, ebp ;Variable: f33
 sub eax, 44 ;Variable: f33
@@ -1104,7 +1014,7 @@ sub eax, 44 ;Variable: f33
 ;Get the value of variable or field 'f33' end
 
 fstp qword[eax]
-mov eax, Main@main@cstr_18
+mov eax, Main@main$$cstr_18
 push eax
 push _printstrstr
 call _printf
@@ -1119,7 +1029,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_19
+mov eax, Main@main$$cstr_19
 push eax
 push _printstrstr
 call _printf
@@ -1145,11 +1055,6 @@ mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
 ;Get the value of variable or field 'idx' end
 
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, [eax] ;get the right value of the left value
 push eax
 mov eax, 1
@@ -1164,19 +1069,14 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_7
-L@$_WHILE_END_7:
-;WhileNode end: L@$_WHILE_START_7
-mov eax, Main@main@cstr_20
+jmp L@$$_WHILE_START_7
+L@$$_WHILE_END_7:
+;WhileNode end: L@$$_WHILE_START_7
+mov eax, Main@main$$cstr_20
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx' start
@@ -1186,8 +1086,8 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_9
-L@$_WHILE_START_9:
+;WhileNode start: L@$$_WHILE_START_9
+L@$$_WHILE_START_9:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
@@ -1199,19 +1099,14 @@ mov eax, 30
 mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_10
+jl L@$$_JL_10
 mov eax, 0
-jmp L@$_JL_END_10
-L@$_JL_10:
+jmp L@$$_JL_END_10
+L@$$_JL_10:
 mov eax, 1
-L@$_JL_END_10:
+L@$$_JL_END_10:
 cmp eax, 1
-jne L@$_WHILE_END_9
-;Get the value of variable or field or type 'new_n' start
-mov eax, ebp ;Variable: new_n
-sub eax, 48 ;Variable: new_n
-;Get the value of variable or field 'new_n' end
-
+jne L@$$_WHILE_END_9
 mov eax, 1
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'new_n' start
@@ -1221,35 +1116,20 @@ sub eax, 48 ;Variable: new_n
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;Get the value of variable or field or type 'new_f' start
-mov eax, ebp ;Variable: new_f
-sub eax, 52 ;Variable: new_f
-;Get the value of variable or field 'new_f' end
-
-fld qword [Main@main@double_7]
+fld qword [Main@main$$double_7]
 ;Get the value of variable or field or type 'new_f' start
 mov eax, ebp ;Variable: new_f
 sub eax, 52 ;Variable: new_f
 ;Get the value of variable or field 'new_f' end
 
 fstp dword[eax]
-;Get the value of variable or field or type 'new_df' start
-mov eax, ebp ;Variable: new_df
-sub eax, 60 ;Variable: new_df
-;Get the value of variable or field 'new_df' end
-
-fld qword [Main@main@double_8]
+fld qword [Main@main$$double_8]
 ;Get the value of variable or field or type 'new_df' start
 mov eax, ebp ;Variable: new_df
 sub eax, 60 ;Variable: new_df
 ;Get the value of variable or field 'new_df' end
 
 fstp qword[eax]
-;Get the value of variable or field or type 'new_df' start
-mov eax, ebp ;Variable: new_df
-sub eax, 60 ;Variable: new_df
-;Get the value of variable or field 'new_df' end
-
 ;Get the value of variable or field or type 'new_n' start
 mov eax, ebp ;Variable: new_n
 sub eax, 48 ;Variable: new_n
@@ -1278,7 +1158,7 @@ sub eax, 60 ;Variable: new_df
 ;Get the value of variable or field 'new_df' end
 
 fstp qword[eax]
-mov eax, Main@main@cstr_21
+mov eax, Main@main$$cstr_21
 push eax
 push _printstrstr
 call _printf
@@ -1293,7 +1173,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_22
+mov eax, Main@main$$cstr_22
 push eax
 push _printstrstr
 call _printf
@@ -1319,11 +1199,6 @@ mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
 ;Get the value of variable or field 'idx' end
 
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, [eax] ;get the right value of the left value
 push eax
 mov eax, 1
@@ -1338,19 +1213,14 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_9
-L@$_WHILE_END_9:
-;WhileNode end: L@$_WHILE_START_9
-mov eax, Main@main@cstr_23
+jmp L@$$_WHILE_START_9
+L@$$_WHILE_END_9:
+;WhileNode end: L@$$_WHILE_START_9
+mov eax, Main@main$$cstr_23
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx' start
@@ -1360,8 +1230,8 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_11
-L@$_WHILE_START_11:
+;WhileNode start: L@$$_WHILE_START_11
+L@$$_WHILE_START_11:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
@@ -1373,19 +1243,14 @@ mov eax, 30
 mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_12
+jl L@$$_JL_12
 mov eax, 0
-jmp L@$_JL_END_12
-L@$_JL_12:
+jmp L@$$_JL_END_12
+L@$$_JL_12:
 mov eax, 1
-L@$_JL_END_12:
+L@$$_JL_END_12:
 cmp eax, 1
-jne L@$_WHILE_END_11
-;Get the value of variable or field or type 'new_n1' start
-mov eax, ebp ;Variable: new_n1
-sub eax, 64 ;Variable: new_n1
-;Get the value of variable or field 'new_n1' end
-
+jne L@$$_WHILE_END_11
 mov eax, 1
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'new_n1' start
@@ -1395,35 +1260,20 @@ sub eax, 64 ;Variable: new_n1
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;Get the value of variable or field or type 'new_f1' start
-mov eax, ebp ;Variable: new_f1
-sub eax, 68 ;Variable: new_f1
-;Get the value of variable or field 'new_f1' end
-
-fld qword [Main@main@double_9]
+fld qword [Main@main$$double_9]
 ;Get the value of variable or field or type 'new_f1' start
 mov eax, ebp ;Variable: new_f1
 sub eax, 68 ;Variable: new_f1
 ;Get the value of variable or field 'new_f1' end
 
 fstp dword[eax]
-;Get the value of variable or field or type 'new_df1' start
-mov eax, ebp ;Variable: new_df1
-sub eax, 76 ;Variable: new_df1
-;Get the value of variable or field 'new_df1' end
-
-fld qword [Main@main@double_10]
+fld qword [Main@main$$double_10]
 ;Get the value of variable or field or type 'new_df1' start
 mov eax, ebp ;Variable: new_df1
 sub eax, 76 ;Variable: new_df1
 ;Get the value of variable or field 'new_df1' end
 
 fstp qword[eax]
-;Get the value of variable or field or type 'new_df1' start
-mov eax, ebp ;Variable: new_df1
-sub eax, 76 ;Variable: new_df1
-;Get the value of variable or field 'new_df1' end
-
 ;Get the value of variable or field or type 'new_n1' start
 mov eax, ebp ;Variable: new_n1
 sub eax, 64 ;Variable: new_n1
@@ -1452,7 +1302,7 @@ sub eax, 76 ;Variable: new_df1
 ;Get the value of variable or field 'new_df1' end
 
 fstp qword[eax]
-mov eax, Main@main@cstr_24
+mov eax, Main@main$$cstr_24
 push eax
 push _printstrstr
 call _printf
@@ -1467,7 +1317,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_25
+mov eax, Main@main$$cstr_25
 push eax
 push _printstrstr
 call _printf
@@ -1488,11 +1338,6 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'new_n1' start
-mov eax, ebp ;Variable: new_n1
-sub eax, 64 ;Variable: new_n1
-;Get the value of variable or field 'new_n1' end
-
 mov eax, 1
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'new_n1' start
@@ -1502,35 +1347,20 @@ sub eax, 64 ;Variable: new_n1
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;Get the value of variable or field or type 'new_f1' start
-mov eax, ebp ;Variable: new_f1
-sub eax, 68 ;Variable: new_f1
-;Get the value of variable or field 'new_f1' end
-
-fld qword [Main@main@double_11]
+fld qword [Main@main$$double_11]
 ;Get the value of variable or field or type 'new_f1' start
 mov eax, ebp ;Variable: new_f1
 sub eax, 68 ;Variable: new_f1
 ;Get the value of variable or field 'new_f1' end
 
 fstp dword[eax]
-;Get the value of variable or field or type 'new_df1' start
-mov eax, ebp ;Variable: new_df1
-sub eax, 76 ;Variable: new_df1
-;Get the value of variable or field 'new_df1' end
-
-fld qword [Main@main@double_12]
+fld qword [Main@main$$double_12]
 ;Get the value of variable or field or type 'new_df1' start
 mov eax, ebp ;Variable: new_df1
 sub eax, 76 ;Variable: new_df1
 ;Get the value of variable or field 'new_df1' end
 
 fstp qword[eax]
-;Get the value of variable or field or type 'new_df1' start
-mov eax, ebp ;Variable: new_df1
-sub eax, 76 ;Variable: new_df1
-;Get the value of variable or field 'new_df1' end
-
 ;Get the value of variable or field or type 'new_n1' start
 mov eax, ebp ;Variable: new_n1
 sub eax, 64 ;Variable: new_n1
@@ -1559,7 +1389,7 @@ sub eax, 76 ;Variable: new_df1
 ;Get the value of variable or field 'new_df1' end
 
 fstp qword[eax]
-mov eax, Main@main@cstr_26
+mov eax, Main@main$$cstr_26
 push eax
 push _printstrstr
 call _printf
@@ -1574,7 +1404,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_27
+mov eax, Main@main$$cstr_27
 push eax
 push _printstrstr
 call _printf
@@ -1595,11 +1425,6 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'new_n1' start
-mov eax, ebp ;Variable: new_n1
-sub eax, 64 ;Variable: new_n1
-;Get the value of variable or field 'new_n1' end
-
 mov eax, 19
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'new_n1' start
@@ -1609,35 +1434,20 @@ sub eax, 64 ;Variable: new_n1
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;Get the value of variable or field or type 'new_f1' start
-mov eax, ebp ;Variable: new_f1
-sub eax, 68 ;Variable: new_f1
-;Get the value of variable or field 'new_f1' end
-
-fld qword [Main@main@double_13]
+fld qword [Main@main$$double_13]
 ;Get the value of variable or field or type 'new_f1' start
 mov eax, ebp ;Variable: new_f1
 sub eax, 68 ;Variable: new_f1
 ;Get the value of variable or field 'new_f1' end
 
 fstp dword[eax]
-;Get the value of variable or field or type 'new_df1' start
-mov eax, ebp ;Variable: new_df1
-sub eax, 76 ;Variable: new_df1
-;Get the value of variable or field 'new_df1' end
-
-fld qword [Main@main@double_14]
+fld qword [Main@main$$double_14]
 ;Get the value of variable or field or type 'new_df1' start
 mov eax, ebp ;Variable: new_df1
 sub eax, 76 ;Variable: new_df1
 ;Get the value of variable or field 'new_df1' end
 
 fstp qword[eax]
-;Get the value of variable or field or type 'f' start
-mov eax, ebp ;Variable: f
-sub eax, 80 ;Variable: f
-;Get the value of variable or field 'f' end
-
 ;Get the value of variable or field or type 'new_df1' start
 mov eax, ebp ;Variable: new_df1
 sub eax, 76 ;Variable: new_df1
@@ -1655,11 +1465,6 @@ mov eax, ebp ;Variable: new_df1
 sub eax, 76 ;Variable: new_df1
 ;Get the value of variable or field 'new_df1' end
 
-;Get the value of variable or field or type 'new_df1' start
-mov eax, ebp ;Variable: new_df1
-sub eax, 76 ;Variable: new_df1
-;Get the value of variable or field 'new_df1' end
-
 fld qword [eax] ;get the right value of the left value
 fstp st1
 ;Get the value of variable or field or type 'new_f1' start
@@ -1683,7 +1488,7 @@ sub eax, 76 ;Variable: new_df1
 ;Get the value of variable or field 'new_df1' end
 
 fstp qword[eax]
-mov eax, Main@main@cstr_28
+mov eax, Main@main$$cstr_28
 push eax
 push _printstrstr
 call _printf
@@ -1698,7 +1503,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_29
+mov eax, Main@main$$cstr_29
 push eax
 push _printstrstr
 call _printf
@@ -1735,7 +1540,7 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_30
+mov eax, Main@main$$cstr_30
 push eax
 push _printstrstr
 call _printf
@@ -1750,7 +1555,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_31
+mov eax, Main@main$$cstr_31
 push eax
 push _printstrstr
 call _printf
@@ -1776,11 +1581,6 @@ mov eax, ebp ;Variable: idx
 sub eax, 16 ;Variable: idx
 ;Get the value of variable or field 'idx' end
 
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 16 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, [eax] ;get the right value of the left value
 push eax
 mov eax, 1
@@ -1795,9 +1595,9 @@ sub eax, 16 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_11
-L@$_WHILE_END_11:
-;WhileNode end: L@$_WHILE_START_11
+jmp L@$$_WHILE_START_11
+L@$$_WHILE_END_11:
+;WhileNode end: L@$$_WHILE_START_11
 add esp, 80
 mov esp, ebp
 pop ebp

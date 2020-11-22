@@ -89,14 +89,14 @@ string@$$classname_str db "string", 0
 sys_critical_section@$$classname_str db "sys_critical_section", 0
 sys_thread@$$classname_str db "sys_thread", 0
 ;All const string
-Main@main@cstr_1 db "thread_group[", 0
-Main@main@cstr_2 db "]=", 0
-Main@main@cstr_3 db "sleep 3 second (Thread1.sleep)", 10, 0
-Main@main@cstr_4 db "sleep 2 second (sys_thread.sleep)", 10, 0
-Main@main@cstr_5 db "#2", 10, 0
-Main@main@cstr_6 db "End", 10, 0
-Thread1@run@cstr_1 db 10, "thread", 0
-Thread1@run@cstr_2 db ", n = ", 0
+Main@main$$cstr_1 db "thread_group[", 0
+Main@main$$cstr_2 db "]=", 0
+Main@main$$cstr_3 db "sleep 3 second (Thread1.sleep)", 10, 0
+Main@main$$cstr_4 db "sleep 2 second (sys_thread.sleep)", 10, 0
+Main@main$$cstr_5 db "#2", 10, 0
+Main@main$$cstr_6 db "End", 10, 0
+Thread1@run$$cstr_1 db 10, "thread", 0
+Thread1@run$$cstr_2 db ", n = ", 0
 ;All const double
 ;All const float
 ;All method signature
@@ -130,21 +130,21 @@ thread_fun@sys_thread@$$signature_str db "thread_fun@sys_thread", 0
 try_enter@$$signature_str db "try_enter", 0
 wait@$I@$$signature_str db "wait@$I", 0
 
-Main@@try_data_1:
-dd native_sys_exception@$$classdescriptor, -4, 4, Main@@try_start_1_catch_1
+Main@$$try_data_1:
+dd native_sys_exception@$$classdescriptor, -4, 4, Main@$$try_start_1_catch_1
 dd 0, 0, 0, 0
 
-sys_thread@@try_data_1:
-dd native_sys_exception@$$classdescriptor, -8, 4, sys_thread@@try_start_1_catch_1
+sys_thread@$$try_data_1:
+dd native_sys_exception@$$classdescriptor, -8, 4, sys_thread@$$try_start_1_catch_1
 dd 0, 0, 0, 0
 
 section .bss
 ;The virtual table address of class Thread1 containing virtual methods
-Thread1@$vtable resd 2
+Thread1@$$vtable resd 2
 ;The virtual table address of class string containing virtual methods
-string@$vtable resd 2
+string@$$vtable resd 2
 ;The virtual table address of class sys_thread containing virtual methods
-sys_thread@$vtable resd 2
+sys_thread@$$vtable resd 2
 ;The descriptor table address of class Main
 Main@$$classdescriptor resd 2
 ;The descriptor table address of class Thread1
@@ -184,8 +184,8 @@ sub esp, 16
 finit
 call _save_unhandled_exception_filter
 mov [ebp-4], eax
-call globalfunc@$construct_vtable ;call the method to construct all classes' virtual table
-call globalfunc@$construct_classdescriptors
+call globalfunc@$$construct_vtable ;call the method to construct all classes' virtual table
+call globalfunc@$$construct_classdescriptors
 call _GetMethodNameDeque
 mov [ebp-8], eax ;save the method deque
 push main@$$signature_str
@@ -196,7 +196,7 @@ add esp, 12
 call _Main@main
 push eax
 call _PopMethodName
-call globalfunc@$destroy_vtable ;call the method to destroy all classes' virtual table
+call globalfunc@$$destroy_vtable ;call the method to destroy all classes' virtual table
 push dword [ebp-4]
 call _restore_unhandled_exception_filter
 add esp, 4
@@ -207,7 +207,7 @@ mov esp, ebp
 pop ebp
 ret ;_main
 
-globalfunc@$construct_vtable: ;The method of constructing all classes' virtual table
+globalfunc@$$construct_vtable: ;The method of constructing all classes' virtual table
 push ebp
 mov ebp, esp
 ;construct the virtual table of class 'Thread1' start.
@@ -217,8 +217,8 @@ add esp, 4
 ;class 'Thread1', virtual method moving start
 mov dword [eax], _Thread1@run
 ;class 'Thread1', virtual method moving end
-mov [Thread1@$vtable], eax ;the virtual table address of class 'Thread1'
-mov dword [Thread1@$vtable + 4], Thread1@$$classname_str ;the virtual table address of class 'Thread1'
+mov [Thread1@$$vtable], eax ;the virtual table address of class 'Thread1'
+mov dword [Thread1@$$vtable + 4], Thread1@$$classname_str ;the virtual table address of class 'Thread1'
 ;construct the virtual table of class 'Thread1' end.
 ;construct the virtual table of class 'string' start.
 push 4 ;total 1 virtual member
@@ -227,8 +227,8 @@ add esp, 4
 ;class 'string', virtual method moving start
 mov dword [eax], _string@output
 ;class 'string', virtual method moving end
-mov [string@$vtable], eax ;the virtual table address of class 'string'
-mov dword [string@$vtable + 4], string@$$classname_str ;the virtual table address of class 'string'
+mov [string@$$vtable], eax ;the virtual table address of class 'string'
+mov dword [string@$$vtable + 4], string@$$classname_str ;the virtual table address of class 'string'
 ;construct the virtual table of class 'string' end.
 ;construct the virtual table of class 'sys_thread' start.
 push 4 ;total 1 virtual member
@@ -237,14 +237,14 @@ add esp, 4
 ;class 'sys_thread', virtual method moving start
 mov dword [eax], _sys_thread@run
 ;class 'sys_thread', virtual method moving end
-mov [sys_thread@$vtable], eax ;the virtual table address of class 'sys_thread'
-mov dword [sys_thread@$vtable + 4], sys_thread@$$classname_str ;the virtual table address of class 'sys_thread'
+mov [sys_thread@$$vtable], eax ;the virtual table address of class 'sys_thread'
+mov dword [sys_thread@$$vtable + 4], sys_thread@$$classname_str ;the virtual table address of class 'sys_thread'
 ;construct the virtual table of class 'sys_thread' end.
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$construct_vtable
+ret ;globalfunc@$$construct_vtable
 
-globalfunc@$construct_classdescriptors: ;The method of constructing all classes' descriptor table
+globalfunc@$$construct_classdescriptors: ;The method of constructing all classes' descriptor table
 push ebp
 mov ebp, esp
 mov dword [Main@$$classdescriptor], Main@$$classname_str
@@ -280,26 +280,26 @@ mov dword [sys_thread@$$classdescriptor + 4], 0
 
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$construct_classdescriptors
+ret ;globalfunc@$$construct_classdescriptors
 
-globalfunc@$destroy_vtable: ;The method of destroying all classes' virtual table
+globalfunc@$$destroy_vtable: ;The method of destroying all classes' virtual table
 push ebp
 mov ebp, esp
 ;The virtual table address of class Thread1 containing virtual methods
-push dword [Thread1@$vtable]
+push dword [Thread1@$$vtable]
 call _free
 add esp, 4
 ;The virtual table address of class string containing virtual methods
-push dword [string@$vtable]
+push dword [string@$$vtable]
 call _free
 add esp, 4
 ;The virtual table address of class sys_thread containing virtual methods
-push dword [sys_thread@$vtable]
+push dword [sys_thread@$$vtable]
 call _free
 add esp, 4
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$destroy_vtable
+ret ;globalfunc@$$destroy_vtable
 
 
 ;Method: _string@string
@@ -468,8 +468,6 @@ ret ;_string@length
 _Thread1@Thread1@$I?sys_critical_section:
 push ebp
 mov ebp, esp
-mov eax, [ebp+8]
-add eax, 12
 ;Get the value of variable or field or type 'sec' start
 mov eax, ebp ;Parameter: sec
 add eax, 16 ;Parameter: sec
@@ -481,8 +479,6 @@ add eax, 12
 pop ebx ;restore the right expression value
 mov ebx, [ebx] ;get the right value of the left value
 mov [eax], ebx ;assign the right to the left value address
-mov eax, [ebp+8]
-add eax, 8
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Parameter: idx
 add eax, 12 ;Parameter: idx
@@ -503,11 +499,6 @@ _Thread1@run:
 push ebp
 mov ebp, esp
 sub esp, 4
-;Get the value of variable or field or type 'n' start
-mov eax, ebp ;Variable: n
-sub eax, 4 ;Variable: n
-;Get the value of variable or field 'n' end
-
 mov eax, 1
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'n' start
@@ -517,8 +508,8 @@ sub eax, 4 ;Variable: n
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_1
-L@$_WHILE_START_1:
+;WhileNode start: L@$$_WHILE_START_1
+L@$$_WHILE_START_1:
 ;Get the value of variable or field or type 'n' start
 mov eax, ebp ;Variable: n
 sub eax, 4 ;Variable: n
@@ -530,14 +521,14 @@ mov eax, 100
 mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jle L@$_JLE_2
+jle L@$$_JLE_2
 mov eax, 0
-jmp L@$_JLE_END_2
-L@$_JLE_2:
+jmp L@$$_JLE_END_2
+L@$$_JLE_2:
 mov eax, 1
-L@$_JLE_END_2:
+L@$$_JLE_END_2:
 cmp eax, 1
-jne L@$_WHILE_END_1
+jne L@$$_WHILE_END_1
 sub esp, 12 ;3 variables space
 call _GetMethodNameDeque
 mov [esp], eax
@@ -563,7 +554,7 @@ call _PopMethodName
 mov eax, [esp+4]
 add esp, 12
 ;general call end
-mov eax, Thread1@run@cstr_1
+mov eax, Thread1@run$$cstr_1
 push eax
 push _printstrstr
 call _printf
@@ -578,7 +569,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Thread1@run@cstr_2
+mov eax, Thread1@run$$cstr_2
 push eax
 push _printstrstr
 call _printf
@@ -646,11 +637,6 @@ mov eax, ebp ;Variable: n
 sub eax, 4 ;Variable: n
 ;Get the value of variable or field 'n' end
 
-;Get the value of variable or field or type 'n' start
-mov eax, ebp ;Variable: n
-sub eax, 4 ;Variable: n
-;Get the value of variable or field 'n' end
-
 mov eax, [eax] ;get the right value of the left value
 push eax
 mov eax, 1
@@ -665,9 +651,9 @@ sub eax, 4 ;Variable: n
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_1
-L@$_WHILE_END_1:
-;WhileNode end: L@$_WHILE_START_1
+jmp L@$$_WHILE_START_1
+L@$$_WHILE_END_1:
+;WhileNode end: L@$$_WHILE_START_1
 add esp, 4
 mov esp, ebp
 pop ebp
@@ -684,14 +670,14 @@ call _malloc
 add esp, 4
 
 mov [ebp-4] ,eax ;save TryRuntimeCtx address
-Main@@try_start_1:
+Main@$$try_start_1:
 ;Assign value to TryRuntimeCtx memory
 mov [eax+0], ebp
 mov [eax+4], esp
 mov [eax+8], esi
 mov [eax+12], edi
 mov [eax+16], ebx
-mov dword [eax+20], Main@@try_data_1
+mov dword [eax+20], Main@$$try_data_1
 mov dword [eax+24], 0
 mov dword [eax+28], 0
 
@@ -708,12 +694,7 @@ push dword [ebp-4] ;try runtime ctx
 push dword [ebp-8]; stack top
 call _c_stack_push
 add esp, 8
-;try 'Main@@try_start_1', block instructions start
-;Get the value of variable or field or type 'sec1' start
-mov eax, ebp ;Variable: sec1
-sub eax, 12 ;Variable: sec1
-;Get the value of variable or field 'sec1' end
-
+;try 'Main@$$try_start_1', block instructions start
 sub esp, 8 ;used as saving new's memory address and method deque
 call _GetMethodNameDeque
 mov [esp], eax
@@ -742,11 +723,6 @@ sub eax, 12 ;Variable: sec1
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;Get the value of variable or field or type 'thread_num' start
-mov eax, ebp ;Variable: thread_num
-sub eax, 20 ;Variable: thread_num
-;Get the value of variable or field 'thread_num' end
-
 mov eax, 10
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'thread_num' start
@@ -756,11 +732,6 @@ sub eax, 20 ;Variable: thread_num
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;Get the value of variable or field or type 'thread_group' start
-mov eax, ebp ;Variable: thread_group
-sub eax, 16 ;Variable: thread_group
-;Get the value of variable or field 'thread_group' end
-
 ;start generating code for VisitNewObjectArrayExpNode
 ;Get the value of variable or field or type 'thread_num' start
 mov eax, ebp ;Variable: thread_num
@@ -782,11 +753,6 @@ sub eax, 16 ;Variable: thread_group
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 24 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx' start
@@ -796,8 +762,8 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_3
-L@$_WHILE_START_3:
+;WhileNode start: L@$$_WHILE_START_3
+L@$$_WHILE_START_3:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 24 ;Variable: idx
@@ -813,35 +779,14 @@ sub eax, 20 ;Variable: thread_num
 mov ebx, [eax] ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_4
+jl L@$$_JL_4
 mov eax, 0
-jmp L@$_JL_END_4
-L@$_JL_4:
+jmp L@$$_JL_END_4
+L@$$_JL_4:
 mov eax, 1
-L@$_JL_END_4:
+L@$$_JL_END_4:
 cmp eax, 1
-jne L@$_WHILE_END_3
-;start generating array exp code
-;Get the value of variable or field or type 'thread_group' start
-mov eax, ebp ;Variable: thread_group
-sub eax, 16 ;Variable: thread_group
-;Get the value of variable or field 'thread_group' end
-
-push dword [eax]
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 24 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
-mov eax, [eax]
-pop ecx
-add ecx, 4
-mov ebx, 4
-mov edx ,0
-imul ebx
-add ecx, eax
-mov eax, ecx
-;end generating array exp code
+jne L@$$_WHILE_END_3
 sub esp, 8 ;used as saving new's memory address and method deque
 call _GetMethodNameDeque
 mov [esp], eax
@@ -850,7 +795,7 @@ call _bdwgc_malloc
 add esp, 4
 mov dword [eax], Thread1@$$classdescriptor ;mov the class descriptor item address to the object's start address
 add eax, 4
-mov dword [eax], Thread1@$vtable ;mov the virtual table address to the object's start address
+mov dword [eax], Thread1@$$vtable ;mov the virtual table address to the object's start address
 mov [esp+4], eax ;//save the new memory's address
 push Thread1@$I?sys_critical_section@$$signature_str
 push none@$$classname_str
@@ -901,7 +846,7 @@ mov eax, ecx
 ;end generating array exp code
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-mov eax, Main@main@cstr_1
+mov eax, Main@main$$cstr_1
 push eax
 push _printstrstr
 call _printf
@@ -916,7 +861,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_2
+mov eax, Main@main$$cstr_2
 push eax
 push _printstrstr
 call _printf
@@ -959,11 +904,6 @@ mov eax, ebp ;Variable: idx
 sub eax, 24 ;Variable: idx
 ;Get the value of variable or field 'idx' end
 
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 24 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, [eax] ;get the right value of the left value
 push eax
 mov eax, 1
@@ -978,10 +918,10 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_3
-L@$_WHILE_END_3:
-;WhileNode end: L@$_WHILE_START_3
-mov eax, Main@main@cstr_3
+jmp L@$$_WHILE_START_3
+L@$$_WHILE_END_3:
+;WhileNode end: L@$$_WHILE_START_3
+mov eax, Main@main$$cstr_3
 push eax
 push _printstrstr
 call _printf
@@ -1007,7 +947,7 @@ call _PopMethodName
 mov eax, [esp+4]
 add esp, 8
 ;static call end
-mov eax, Main@main@cstr_4
+mov eax, Main@main$$cstr_4
 push eax
 push _printstrstr
 call _printf
@@ -1033,16 +973,11 @@ call _PopMethodName
 mov eax, [esp+4]
 add esp, 8
 ;static call end
-mov eax, Main@main@cstr_5
+mov eax, Main@main$$cstr_5
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 24 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx' start
@@ -1052,8 +987,8 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_5
-L@$_WHILE_START_5:
+;WhileNode start: L@$$_WHILE_START_5
+L@$$_WHILE_START_5:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 24 ;Variable: idx
@@ -1069,14 +1004,14 @@ sub eax, 20 ;Variable: thread_num
 mov ebx, [eax] ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_6
+jl L@$$_JL_6
 mov eax, 0
-jmp L@$_JL_END_6
-L@$_JL_6:
+jmp L@$$_JL_END_6
+L@$$_JL_6:
 mov eax, 1
-L@$_JL_END_6:
+L@$$_JL_END_6:
 cmp eax, 1
-jne L@$_WHILE_END_5
+jne L@$$_WHILE_END_5
 sub esp, 12 ;3 variables space
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1123,11 +1058,6 @@ mov eax, ebp ;Variable: idx
 sub eax, 24 ;Variable: idx
 ;Get the value of variable or field 'idx' end
 
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 24 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, [eax] ;get the right value of the left value
 push eax
 mov eax, 1
@@ -1142,14 +1072,9 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_5
-L@$_WHILE_END_5:
-;WhileNode end: L@$_WHILE_START_5
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 24 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
+jmp L@$$_WHILE_START_5
+L@$$_WHILE_END_5:
+;WhileNode end: L@$$_WHILE_START_5
 mov eax, 0
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'idx' start
@@ -1159,8 +1084,8 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;WhileNode start: L@$_WHILE_START_7
-L@$_WHILE_START_7:
+;WhileNode start: L@$$_WHILE_START_7
+L@$$_WHILE_START_7:
 ;Get the value of variable or field or type 'idx' start
 mov eax, ebp ;Variable: idx
 sub eax, 24 ;Variable: idx
@@ -1176,14 +1101,14 @@ sub eax, 20 ;Variable: thread_num
 mov ebx, [eax] ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_8
+jl L@$$_JL_8
 mov eax, 0
-jmp L@$_JL_END_8
-L@$_JL_8:
+jmp L@$$_JL_END_8
+L@$$_JL_8:
 mov eax, 1
-L@$_JL_END_8:
+L@$$_JL_END_8:
 cmp eax, 1
-jne L@$_WHILE_END_7
+jne L@$$_WHILE_END_7
 sub esp, 12 ;3 variables space
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1235,11 +1160,6 @@ mov eax, ebp ;Variable: idx
 sub eax, 24 ;Variable: idx
 ;Get the value of variable or field 'idx' end
 
-;Get the value of variable or field or type 'idx' start
-mov eax, ebp ;Variable: idx
-sub eax, 24 ;Variable: idx
-;Get the value of variable or field 'idx' end
-
 mov eax, [eax] ;get the right value of the left value
 push eax
 mov eax, 1
@@ -1254,9 +1174,9 @@ sub eax, 24 ;Variable: idx
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_7
-L@$_WHILE_END_7:
-;WhileNode end: L@$_WHILE_START_7
+jmp L@$$_WHILE_START_7
+L@$$_WHILE_END_7:
+;WhileNode end: L@$$_WHILE_START_7
 sub esp, 12 ;3 variables space
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1282,7 +1202,7 @@ call _PopMethodName
 mov eax, [esp+4]
 add esp, 12
 ;general call end
-mov eax, Main@main@cstr_6
+mov eax, Main@main$$cstr_6
 push eax
 push _printstrstr
 call _printf
@@ -1294,10 +1214,10 @@ add esp, 4
 push dword [ebp-4]
 call _free
 add esp, 4
-;try 'Main@@try_start_1', block instructions end
-jmp Main@@try_end_1 ;jum the try-end
-;try 'Main@@try_start_1' catch 'Main@@try_start_1_catch_1'start
-Main@@try_start_1_catch_1:
+;try 'Main@$$try_start_1', block instructions end
+jmp Main@$$try_end_1 ;jum the try-end
+;try 'Main@$$try_start_1' catch 'Main@$$try_start_1_catch_1'start
+Main@$$try_start_1_catch_1:
 sub esp, 12 ;3 variables space
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1332,9 +1252,9 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-jmp Main@@try_end_1 ;jmp the try-end
-;try 'Main@@try_start_1' catch 'Main@@try_start_1_catch_1'end
-Main@@try_end_1:
+jmp Main@$$try_end_1 ;jmp the try-end
+;try 'Main@$$try_start_1' catch 'Main@$$try_start_1_catch_1'end
+Main@$$try_end_1:
 add esp, 24
 mov esp, ebp
 pop ebp
@@ -1372,14 +1292,14 @@ call _malloc
 add esp, 4
 
 mov [ebp-8] ,eax ;save TryRuntimeCtx address
-sys_thread@@try_start_1:
+sys_thread@$$try_start_1:
 ;Assign value to TryRuntimeCtx memory
 mov [eax+0], ebp
 mov [eax+4], esp
 mov [eax+8], esi
 mov [eax+12], edi
 mov [eax+16], ebx
-mov dword [eax+20], sys_thread@@try_data_1
+mov dword [eax+20], sys_thread@$$try_data_1
 mov dword [eax+24], 0
 mov dword [eax+28], 0
 
@@ -1396,12 +1316,7 @@ push dword [ebp-8] ;try runtime ctx
 push dword [ebp-12]; stack top
 call _c_stack_push
 add esp, 8
-;try 'sys_thread@@try_start_1', block instructions start
-;Get the value of variable or field or type 'ret' start
-mov eax, ebp ;Variable: ret
-sub eax, 4 ;Variable: ret
-;Get the value of variable or field 'ret' end
-
+;try 'sys_thread@$$try_start_1', block instructions start
 sub esp, 12 ;3 variables space
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1454,15 +1369,10 @@ add esp, 4
 push dword [ebp-8]
 call _free
 add esp, 4
-;try 'sys_thread@@try_start_1', block instructions end
-jmp sys_thread@@try_end_1 ;jum the try-end
-;try 'sys_thread@@try_start_1' catch 'sys_thread@@try_start_1_catch_1'start
-sys_thread@@try_start_1_catch_1:
-;Get the value of variable or field or type 'ret' start
-mov eax, ebp ;Variable: ret
-sub eax, 4 ;Variable: ret
-;Get the value of variable or field 'ret' end
-
+;try 'sys_thread@$$try_start_1', block instructions end
+jmp sys_thread@$$try_end_1 ;jum the try-end
+;try 'sys_thread@$$try_start_1' catch 'sys_thread@$$try_start_1_catch_1'start
+sys_thread@$$try_start_1_catch_1:
 mov eax, 1
 mov ecx, eax
 mov eax, 0
@@ -1509,9 +1419,9 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-jmp sys_thread@@try_end_1 ;jmp the try-end
-;try 'sys_thread@@try_start_1' catch 'sys_thread@@try_start_1_catch_1'end
-sys_thread@@try_end_1:
+jmp sys_thread@$$try_end_1 ;jmp the try-end
+;try 'sys_thread@$$try_start_1' catch 'sys_thread@$$try_start_1_catch_1'end
+sys_thread@$$try_end_1:
 ;Get the value of variable or field or type 'ret' start
 mov eax, ebp ;Variable: ret
 sub eax, 4 ;Variable: ret
@@ -1532,11 +1442,6 @@ _sys_thread@start:
 push ebp
 mov ebp, esp
 sub esp, 4
-;Get the value of variable or field or type 'CREATE_SUSPENDED' start
-mov eax, ebp ;Variable: CREATE_SUSPENDED
-sub eax, 4 ;Variable: CREATE_SUSPENDED
-;Get the value of variable or field 'CREATE_SUSPENDED' end
-
 mov eax, 4
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'CREATE_SUSPENDED' start

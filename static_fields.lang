@@ -1,0 +1,32 @@
+class class1 {
+	integer n;
+	static int s1;
+	class1(): none
+	{
+	 n = 1;
+	}
+	func1() static :none
+	{
+	  s1 = 3;	  
+    }
+	func2() static :none
+	{
+	  printany "s1 = ", s1, '\n';
+    }
+}
+
+class Main {
+
+     main() static : none {
+		
+		class1 obj1;
+		obj1 = new class1();
+		obj1.func1();
+		class1.func2(); //s1 = 3
+		obj1.s1 = 5;
+		printany "obj1.s1 = ", obj1.s1, '\n'; //s1 = 5
+		class1.s1 = 7;
+		printany "class1.s1 = ", class1.s1, '\n'; //s1 = 7
+     }
+
+}

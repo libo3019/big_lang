@@ -80,76 +80,76 @@ none@$$classname_str db "none", 0
 null@$$classname_str db "null", 0
 string@$$classname_str db "string", 0
 ;All const string
-Main@main@cstr_1 db "1 > 2", 10, 0
-Main@main@cstr_10 db ">0.5", 0
-Main@main@cstr_11 db "1.3 > 1.1", 10, 0
-Main@main@cstr_12 db "1.3 >= 1.1", 10, 0
-Main@main@cstr_13 db "1.1 < 1.3", 10, 0
-Main@main@cstr_14 db "1.1 <= 1.3", 10, 0
-Main@main@cstr_15 db "1.1 != 1.3", 10, 0
-Main@main@cstr_16 db "3.1 == 3.1", 10, 0
-Main@main@cstr_17 db "f1 > f2", 10, 0
-Main@main@cstr_18 db "f1 >= f2", 10, 0
-Main@main@cstr_19 db "f2 < f1", 10, 0
-Main@main@cstr_2 db "1 <= 2", 10, 0
-Main@main@cstr_20 db "f2 <= f1", 10, 0
-Main@main@cstr_21 db "f2 != f1", 10, 0
-Main@main@cstr_22 db "f3 == f4", 10, 0
-Main@main@cstr_23 db "f1 > n", 10, 0
-Main@main@cstr_24 db "f1 >= n", 10, 0
-Main@main@cstr_25 db "n < f1", 10, 0
-Main@main@cstr_26 db "n <= f1", 10, 0
-Main@main@cstr_27 db "n != f1", 10, 0
-Main@main@cstr_28 db "result=", 0
-Main@main@cstr_29 db "result=", 0
-Main@main@cstr_3 db "ary.size=", 0
-Main@main@cstr_30 db "result=", 0
-Main@main@cstr_31 db "result=", 0
-Main@main@cstr_32 db "result=", 0
-Main@main@cstr_33 db "result=", 0
-Main@main@cstr_4 db "n < n1", 10, 0
-Main@main@cstr_5 db ">1.1", 0
-Main@main@cstr_6 db "not ", 0
-Main@main@cstr_7 db ">1.1", 0
-Main@main@cstr_8 db ">0.5", 0
-Main@main@cstr_9 db "not ", 0
-c1@output@cstr_1 db "this.n1=", 0
-c1@output@cstr_2 db ",this.n2=", 0
-c2@output@cstr_1 db "this.n1=", 0
-c2@output@cstr_2 db ",this.n2=", 0
+Main@main$$cstr_1 db "1 > 2", 10, 0
+Main@main$$cstr_10 db ">0.5", 0
+Main@main$$cstr_11 db "1.3 > 1.1", 10, 0
+Main@main$$cstr_12 db "1.3 >= 1.1", 10, 0
+Main@main$$cstr_13 db "1.1 < 1.3", 10, 0
+Main@main$$cstr_14 db "1.1 <= 1.3", 10, 0
+Main@main$$cstr_15 db "1.1 != 1.3", 10, 0
+Main@main$$cstr_16 db "3.1 == 3.1", 10, 0
+Main@main$$cstr_17 db "f1 > f2", 10, 0
+Main@main$$cstr_18 db "f1 >= f2", 10, 0
+Main@main$$cstr_19 db "f2 < f1", 10, 0
+Main@main$$cstr_2 db "1 <= 2", 10, 0
+Main@main$$cstr_20 db "f2 <= f1", 10, 0
+Main@main$$cstr_21 db "f2 != f1", 10, 0
+Main@main$$cstr_22 db "f3 == f4", 10, 0
+Main@main$$cstr_23 db "f1 > n", 10, 0
+Main@main$$cstr_24 db "f1 >= n", 10, 0
+Main@main$$cstr_25 db "n < f1", 10, 0
+Main@main$$cstr_26 db "n <= f1", 10, 0
+Main@main$$cstr_27 db "n != f1", 10, 0
+Main@main$$cstr_28 db "result=", 0
+Main@main$$cstr_29 db "result=", 0
+Main@main$$cstr_3 db "ary.size=", 0
+Main@main$$cstr_30 db "result=", 0
+Main@main$$cstr_31 db "result=", 0
+Main@main$$cstr_32 db "result=", 0
+Main@main$$cstr_33 db "result=", 0
+Main@main$$cstr_4 db "n < n1", 10, 0
+Main@main$$cstr_5 db ">1.1", 0
+Main@main$$cstr_6 db "not ", 0
+Main@main$$cstr_7 db ">1.1", 0
+Main@main$$cstr_8 db ">0.5", 0
+Main@main$$cstr_9 db "not ", 0
+c1@output$$cstr_1 db "this.n1=", 0
+c1@output$$cstr_2 db ",this.n2=", 0
+c2@output$$cstr_1 db "this.n1=", 0
+c2@output$$cstr_2 db ",this.n2=", 0
 ;All const double
-Main@main@double_1 dq 1.100000
-Main@main@double_10 dq 1.100000
-Main@main@double_11 dq 1.300000
-Main@main@double_12 dq 3.100000
-Main@main@double_13 dq 3.100000
-Main@main@double_14 dq 1.300000
-Main@main@double_15 dq 1.100000
-Main@main@double_16 dq 3.100000
-Main@main@double_17 dq 9.100000
-Main@main@double_18 dq 3.100000
-Main@main@double_19 dq 1.300000
-Main@main@double_2 dq 1.300000
-Main@main@double_20 dq 6.200000
-Main@main@double_21 dq 1.300000
-Main@main@double_22 dq 6.200000
-Main@main@double_23 dq 1.300000
-Main@main@double_3 dq 1.100000
-Main@main@double_4 dq 1.300000
-Main@main@double_5 dq 1.100000
-Main@main@double_6 dq 1.100000
-Main@main@double_7 dq 1.300000
-Main@main@double_8 dq 1.100000
-Main@main@double_9 dq 1.300000
+Main@main$$double_1 dq 1.100000
+Main@main$$double_10 dq 1.100000
+Main@main$$double_11 dq 1.300000
+Main@main$$double_12 dq 3.100000
+Main@main$$double_13 dq 3.100000
+Main@main$$double_14 dq 1.300000
+Main@main$$double_15 dq 1.100000
+Main@main$$double_16 dq 3.100000
+Main@main$$double_17 dq 9.100000
+Main@main$$double_18 dq 3.100000
+Main@main$$double_19 dq 1.300000
+Main@main$$double_2 dq 1.300000
+Main@main$$double_20 dq 6.200000
+Main@main$$double_21 dq 1.300000
+Main@main$$double_22 dq 6.200000
+Main@main$$double_23 dq 1.300000
+Main@main$$double_3 dq 1.100000
+Main@main$$double_4 dq 1.300000
+Main@main$$double_5 dq 1.100000
+Main@main$$double_6 dq 1.100000
+Main@main$$double_7 dq 1.300000
+Main@main$$double_8 dq 1.100000
+Main@main$$double_9 dq 1.300000
 ;All const float
-Main@main@float_1 dd 0.500000
-Main@main@float_2 dd 1.100000
-Main@main@float_3 dd 3.100000
-Main@main@float_4 dd 1.300000
-Main@main@float_5 dd 6.200000
-Main@main@float_6 dd 1.300000
-Main@main@float_7 dd 6.200000
-Main@main@float_8 dd 1.300000
+Main@main$$float_1 dd 0.500000
+Main@main$$float_2 dd 1.100000
+Main@main$$float_3 dd 3.100000
+Main@main$$float_4 dd 1.300000
+Main@main$$float_5 dd 6.200000
+Main@main$$float_6 dd 1.300000
+Main@main$$float_7 dd 6.200000
+Main@main$$float_8 dd 1.300000
 ;All method signature
 append@$C@$$signature_str db "append@$C", 0
 append@$S@$$signature_str db "append@$S", 0
@@ -179,7 +179,7 @@ string@$S@$$signature_str db "string@$S", 0
 
 section .bss
 ;The virtual table address of class string containing virtual methods
-string@$vtable resd 2
+string@$$vtable resd 2
 ;The descriptor table address of class Main
 Main@$$classdescriptor resd 2
 ;The descriptor table address of class boolean
@@ -217,8 +217,8 @@ sub esp, 16
 finit
 call _save_unhandled_exception_filter
 mov [ebp-4], eax
-call globalfunc@$construct_vtable ;call the method to construct all classes' virtual table
-call globalfunc@$construct_classdescriptors
+call globalfunc@$$construct_vtable ;call the method to construct all classes' virtual table
+call globalfunc@$$construct_classdescriptors
 call _GetMethodNameDeque
 mov [ebp-8], eax ;save the method deque
 push main@$$signature_str
@@ -229,7 +229,7 @@ add esp, 12
 call _Main@main
 push eax
 call _PopMethodName
-call globalfunc@$destroy_vtable ;call the method to destroy all classes' virtual table
+call globalfunc@$$destroy_vtable ;call the method to destroy all classes' virtual table
 push dword [ebp-4]
 call _restore_unhandled_exception_filter
 add esp, 4
@@ -240,7 +240,7 @@ mov esp, ebp
 pop ebp
 ret ;_main
 
-globalfunc@$construct_vtable: ;The method of constructing all classes' virtual table
+globalfunc@$$construct_vtable: ;The method of constructing all classes' virtual table
 push ebp
 mov ebp, esp
 ;construct the virtual table of class 'string' start.
@@ -250,14 +250,14 @@ add esp, 4
 ;class 'string', virtual method moving start
 mov dword [eax], _string@output
 ;class 'string', virtual method moving end
-mov [string@$vtable], eax ;the virtual table address of class 'string'
-mov dword [string@$vtable + 4], string@$$classname_str ;the virtual table address of class 'string'
+mov [string@$$vtable], eax ;the virtual table address of class 'string'
+mov dword [string@$$vtable + 4], string@$$classname_str ;the virtual table address of class 'string'
 ;construct the virtual table of class 'string' end.
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$construct_vtable
+ret ;globalfunc@$$construct_vtable
 
-globalfunc@$construct_classdescriptors: ;The method of constructing all classes' descriptor table
+globalfunc@$$construct_classdescriptors: ;The method of constructing all classes' descriptor table
 push ebp
 mov ebp, esp
 mov dword [Main@$$classdescriptor], Main@$$classname_str
@@ -291,18 +291,18 @@ mov dword [string@$$classdescriptor + 4], 0
 
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$construct_classdescriptors
+ret ;globalfunc@$$construct_classdescriptors
 
-globalfunc@$destroy_vtable: ;The method of destroying all classes' virtual table
+globalfunc@$$destroy_vtable: ;The method of destroying all classes' virtual table
 push ebp
 mov ebp, esp
 ;The virtual table address of class string containing virtual methods
-push dword [string@$vtable]
+push dword [string@$$vtable]
 call _free
 add esp, 4
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$destroy_vtable
+ret ;globalfunc@$$destroy_vtable
 
 
 ;Method: _string@string
@@ -471,7 +471,6 @@ ret ;_string@length
 _c1@c1@$F?$F:
 push ebp
 mov ebp, esp
-mov eax, [ebp+8]
 ;Get the value of variable or field or type 'n1' start
 mov eax, ebp ;Parameter: n1
 add eax, 12 ;Parameter: n1
@@ -480,8 +479,6 @@ add eax, 12 ;Parameter: n1
 fld dword[eax] ;get the right value of the left value
 mov eax, [ebp+8]
 fistp dword[eax]
-mov eax, [ebp+8]
-add eax, 4
 ;Get the value of variable or field or type 'n2' start
 mov eax, ebp ;Parameter: n2
 add eax, 16 ;Parameter: n2
@@ -499,7 +496,7 @@ ret ;_c1@c1@$F?$F
 _c1@output:
 push ebp
 mov ebp, esp
-mov eax, c1@output@cstr_1
+mov eax, c1@output$$cstr_1
 push eax
 push _printstrstr
 call _printf
@@ -510,7 +507,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, c1@output@cstr_2
+mov eax, c1@output$$cstr_2
 push eax
 push _printstrstr
 call _printf
@@ -605,7 +602,6 @@ ret ;_c1@func3@$F
 _c2@c2@$D?$D:
 push ebp
 mov ebp, esp
-mov eax, [ebp+8]
 ;Get the value of variable or field or type 'n1' start
 mov eax, ebp ;Parameter: n1
 add eax, 12 ;Parameter: n1
@@ -614,8 +610,6 @@ add eax, 12 ;Parameter: n1
 fld qword[eax] ;get the right value of the left value
 mov eax, [ebp+8]
 fistp dword[eax]
-mov eax, [ebp+8]
-add eax, 4
 ;Get the value of variable or field or type 'n2' start
 mov eax, ebp ;Parameter: n2
 add eax, 20 ;Parameter: n2
@@ -633,7 +627,7 @@ ret ;_c2@c2@$D?$D
 _c2@output:
 push ebp
 mov ebp, esp
-mov eax, c2@output@cstr_1
+mov eax, c2@output$$cstr_1
 push eax
 push _printstrstr
 call _printf
@@ -644,7 +638,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, c2@output@cstr_2
+mov eax, c2@output$$cstr_2
 push eax
 push _printstrstr
 call _printf
@@ -746,32 +740,27 @@ mov eax, 2
 mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jg L@$_JG_2
+jg L@$$_JG_2
 mov eax, 0
-jmp L@$_JG_END_2
-L@$_JG_2:
+jmp L@$$_JG_END_2
+L@$$_JG_2:
 mov eax, 1
-L@$_JG_END_2:
+L@$$_JG_END_2:
 cmp eax, 1
-jne L@$_ELSE_1
-mov eax, Main@main@cstr_1
+jne L@$$_ELSE_1
+mov eax, Main@main$$cstr_1
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_1
-L@$_ELSE_1:
-mov eax, Main@main@cstr_2
+jmp L@$$_IFELSE_END_1
+L@$$_ELSE_1:
+mov eax, Main@main$$cstr_2
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-L@$_IFELSE_END_1:
-;Get the value of variable or field or type 'n' start
-mov eax, ebp ;Variable: n
-sub eax, 4 ;Variable: n
-;Get the value of variable or field 'n' end
-
+L@$$_IFELSE_END_1:
 mov eax, 1
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'n' start
@@ -781,11 +770,6 @@ sub eax, 4 ;Variable: n
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;Get the value of variable or field or type 'n1' start
-mov eax, ebp ;Variable: n1
-sub eax, 8 ;Variable: n1
-;Get the value of variable or field 'n1' end
-
 mov eax, 9
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'n1' start
@@ -795,11 +779,6 @@ sub eax, 8 ;Variable: n1
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-;Get the value of variable or field or type 'ary' start
-mov eax, ebp ;Variable: ary
-sub eax, 12 ;Variable: ary
-;Get the value of variable or field 'ary' end
-
 ;start generating code for VisitNewPrimitiveArrayExpNode
 mov eax, 9
 push eax
@@ -816,7 +795,7 @@ sub eax, 12 ;Variable: ary
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-mov eax, Main@main@cstr_3
+mov eax, Main@main$$cstr_3
 push eax
 push _printstrstr
 call _printf
@@ -855,8 +834,8 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-;WhileNode start: L@$_WHILE_START_3
-L@$_WHILE_START_3:
+;WhileNode start: L@$$_WHILE_START_3
+L@$$_WHILE_START_3:
 ;Get the value of variable or field or type 'n' start
 mov eax, ebp ;Variable: n
 sub eax, 4 ;Variable: n
@@ -892,24 +871,19 @@ add esp, 12
 mov ebx, eax ;get the right value of the left value
 pop eax
 cmp eax, ebx
-jl L@$_JL_4
+jl L@$$_JL_4
 mov eax, 0
-jmp L@$_JL_END_4
-L@$_JL_4:
+jmp L@$$_JL_END_4
+L@$$_JL_4:
 mov eax, 1
-L@$_JL_END_4:
+L@$$_JL_END_4:
 cmp eax, 1
-jne L@$_WHILE_END_3
-mov eax, Main@main@cstr_4
+jne L@$$_WHILE_END_3
+mov eax, Main@main$$cstr_4
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'n' start
-mov eax, ebp ;Variable: n
-sub eax, 4 ;Variable: n
-;Get the value of variable or field 'n' end
-
 ;Get the value of variable or field or type 'n' start
 mov eax, ebp ;Variable: n
 sub eax, 4 ;Variable: n
@@ -929,9 +903,9 @@ sub eax, 4 ;Variable: n
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-jmp L@$_WHILE_START_3
-L@$_WHILE_END_3:
-;WhileNode end: L@$_WHILE_START_3
+jmp L@$$_WHILE_START_3
+L@$$_WHILE_END_3:
+;WhileNode end: L@$$_WHILE_START_3
 ;Get the value of variable or field or type 'n' start
 mov eax, ebp ;Variable: n
 sub eax, 4 ;Variable: n
@@ -939,16 +913,16 @@ sub eax, 4 ;Variable: n
 
 fild dword[eax] ;get the right value of the left value
 fstp st1
-fld qword [Main@main@double_1]
+fld qword [Main@main$$double_1]
 fcomip st0, st1
-jb L@$_JG_6
+jb L@$$_JG_6
 mov eax, 0
-jmp L@$_JG_END_6
-L@$_JG_6:
+jmp L@$$_JG_END_6
+L@$$_JG_6:
 mov eax, 1
-L@$_JG_END_6:
+L@$$_JG_END_6:
 cmp eax, 1
-jne L@$_ELSE_5
+jne L@$$_ELSE_5
 ;Get the value of variable or field or type 'n' start
 mov eax, ebp ;Variable: n
 sub eax, 4 ;Variable: n
@@ -959,7 +933,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_5
+mov eax, Main@main$$cstr_5
 push eax
 push _printstrstr
 call _printf
@@ -969,9 +943,9 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_5
-L@$_ELSE_5:
-mov eax, Main@main@cstr_6
+jmp L@$$_IFELSE_END_5
+L@$$_ELSE_5:
+mov eax, Main@main$$cstr_6
 push eax
 push _printstrstr
 call _printf
@@ -986,7 +960,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_7
+mov eax, Main@main$$cstr_7
 push eax
 push _printstrstr
 call _printf
@@ -996,7 +970,7 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-L@$_IFELSE_END_5:
+L@$$_IFELSE_END_5:
 ;Get the value of variable or field or type 'n' start
 mov eax, ebp ;Variable: n
 sub eax, 4 ;Variable: n
@@ -1004,16 +978,16 @@ sub eax, 4 ;Variable: n
 
 fild dword[eax] ;get the right value of the left value
 fstp st1
-fld dword [Main@main@float_1]
+fld dword [Main@main$$float_1]
 fcomip st0, st1
-jb L@$_JG_8
+jb L@$$_JG_8
 mov eax, 0
-jmp L@$_JG_END_8
-L@$_JG_8:
+jmp L@$$_JG_END_8
+L@$$_JG_8:
 mov eax, 1
-L@$_JG_END_8:
+L@$$_JG_END_8:
 cmp eax, 1
-jne L@$_ELSE_7
+jne L@$$_ELSE_7
 ;Get the value of variable or field or type 'n' start
 mov eax, ebp ;Variable: n
 sub eax, 4 ;Variable: n
@@ -1024,7 +998,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_8
+mov eax, Main@main$$cstr_8
 push eax
 push _printstrstr
 call _printf
@@ -1034,9 +1008,9 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_7
-L@$_ELSE_7:
-mov eax, Main@main@cstr_9
+jmp L@$$_IFELSE_END_7
+L@$$_ELSE_7:
+mov eax, Main@main$$cstr_9
 push eax
 push _printstrstr
 call _printf
@@ -1051,7 +1025,7 @@ push eax
 push _printintstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_10
+mov eax, Main@main$$cstr_10
 push eax
 push _printstrstr
 call _printf
@@ -1061,139 +1035,129 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-L@$_IFELSE_END_7:
-fld qword [Main@main@double_2]
+L@$$_IFELSE_END_7:
+fld qword [Main@main$$double_2]
 fstp st1
-fld qword [Main@main@double_3]
+fld qword [Main@main$$double_3]
 fcomip st0, st1
-jb L@$_JG_10
+jb L@$$_JG_10
 mov eax, 0
-jmp L@$_JG_END_10
-L@$_JG_10:
+jmp L@$$_JG_END_10
+L@$$_JG_10:
 mov eax, 1
-L@$_JG_END_10:
+L@$$_JG_END_10:
 cmp eax, 1
-jne L@$_IFELSE_END_9
-mov eax, Main@main@cstr_11
+jne L@$$_IFELSE_END_9
+mov eax, Main@main$$cstr_11
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_9
-L@$_IFELSE_END_9:
-fld qword [Main@main@double_4]
+jmp L@$$_IFELSE_END_9
+L@$$_IFELSE_END_9:
+fld qword [Main@main$$double_4]
 fstp st1
-fld qword [Main@main@double_5]
+fld qword [Main@main$$double_5]
 fcomip st0, st1
-jbe L@$_JGE_12
+jbe L@$$_JGE_12
 mov eax, 0
-jmp L@$_JGE_END_12
-L@$_JGE_12:
+jmp L@$$_JGE_END_12
+L@$$_JGE_12:
 mov eax, 1
-L@$_JGE_END_12:
+L@$$_JGE_END_12:
 cmp eax, 1
-jne L@$_IFELSE_END_11
-mov eax, Main@main@cstr_12
+jne L@$$_IFELSE_END_11
+mov eax, Main@main$$cstr_12
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_11
-L@$_IFELSE_END_11:
-fld qword [Main@main@double_6]
+jmp L@$$_IFELSE_END_11
+L@$$_IFELSE_END_11:
+fld qword [Main@main$$double_6]
 fstp st1
-fld qword [Main@main@double_7]
+fld qword [Main@main$$double_7]
 fcomip st0, st1
-ja L@$_JL_14
+ja L@$$_JL_14
 mov eax, 0
-jmp L@$_JL_END_14
-L@$_JL_14:
+jmp L@$$_JL_END_14
+L@$$_JL_14:
 mov eax, 1
-L@$_JL_END_14:
+L@$$_JL_END_14:
 cmp eax, 1
-jne L@$_IFELSE_END_13
-mov eax, Main@main@cstr_13
+jne L@$$_IFELSE_END_13
+mov eax, Main@main$$cstr_13
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_13
-L@$_IFELSE_END_13:
-fld qword [Main@main@double_8]
+jmp L@$$_IFELSE_END_13
+L@$$_IFELSE_END_13:
+fld qword [Main@main$$double_8]
 fstp st1
-fld qword [Main@main@double_9]
+fld qword [Main@main$$double_9]
 fcomip st0, st1
-jae L@$_JLE_16
+jae L@$$_JLE_16
 mov eax, 0
-jmp L@$_JLE_END_16
-L@$_JLE_16:
+jmp L@$$_JLE_END_16
+L@$$_JLE_16:
 mov eax, 1
-L@$_JLE_END_16:
+L@$$_JLE_END_16:
 cmp eax, 1
-jne L@$_IFELSE_END_15
-mov eax, Main@main@cstr_14
+jne L@$$_IFELSE_END_15
+mov eax, Main@main$$cstr_14
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_15
-L@$_IFELSE_END_15:
-fld qword [Main@main@double_10]
+jmp L@$$_IFELSE_END_15
+L@$$_IFELSE_END_15:
+fld qword [Main@main$$double_10]
 fstp st1
-fld qword [Main@main@double_11]
+fld qword [Main@main$$double_11]
 fcomip st0, st1
-jne L@$_JNE_18
+jne L@$$_JNE_18
 mov eax, 0
-jmp L@$_JNE_END_18
-L@$_JNE_18:
+jmp L@$$_JNE_END_18
+L@$$_JNE_18:
 mov eax, 1
-L@$_JNE_END_18:
+L@$$_JNE_END_18:
 cmp eax, 1
-jne L@$_IFELSE_END_17
-mov eax, Main@main@cstr_15
+jne L@$$_IFELSE_END_17
+mov eax, Main@main$$cstr_15
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_17
-L@$_IFELSE_END_17:
-fld qword [Main@main@double_12]
+jmp L@$$_IFELSE_END_17
+L@$$_IFELSE_END_17:
+fld qword [Main@main$$double_12]
 fstp st1
-fld qword [Main@main@double_13]
+fld qword [Main@main$$double_13]
 fcomip st0, st1
-je L@$_JE_20
+je L@$$_JE_20
 mov eax, 0
-jmp L@$_JE_END_20
-L@$_JE_20:
+jmp L@$$_JE_END_20
+L@$$_JE_20:
 mov eax, 1
-L@$_JE_END_20:
+L@$$_JE_END_20:
 cmp eax, 1
-jne L@$_IFELSE_END_19
-mov eax, Main@main@cstr_16
+jne L@$$_IFELSE_END_19
+mov eax, Main@main$$cstr_16
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_19
-L@$_IFELSE_END_19:
-;Get the value of variable or field or type 'f1' start
-mov eax, ebp ;Variable: f1
-sub eax, 16 ;Variable: f1
-;Get the value of variable or field 'f1' end
-
-fld qword [Main@main@double_14]
+jmp L@$$_IFELSE_END_19
+L@$$_IFELSE_END_19:
+fld qword [Main@main$$double_14]
 ;Get the value of variable or field or type 'f1' start
 mov eax, ebp ;Variable: f1
 sub eax, 16 ;Variable: f1
 ;Get the value of variable or field 'f1' end
 
 fstp dword[eax]
-;Get the value of variable or field or type 'f2' start
-mov eax, ebp ;Variable: f2
-sub eax, 20 ;Variable: f2
-;Get the value of variable or field 'f2' end
-
-fld qword [Main@main@double_15]
+fld qword [Main@main$$double_15]
 ;Get the value of variable or field or type 'f2' start
 mov eax, ebp ;Variable: f2
 sub eax, 20 ;Variable: f2
@@ -1214,21 +1178,21 @@ sub eax, 20 ;Variable: f2
 
 fld dword [eax] ;get the right value of the left value
 fcomip st0, st1
-jb L@$_JG_22
+jb L@$$_JG_22
 mov eax, 0
-jmp L@$_JG_END_22
-L@$_JG_22:
+jmp L@$$_JG_END_22
+L@$$_JG_22:
 mov eax, 1
-L@$_JG_END_22:
+L@$$_JG_END_22:
 cmp eax, 1
-jne L@$_IFELSE_END_21
-mov eax, Main@main@cstr_17
+jne L@$$_IFELSE_END_21
+mov eax, Main@main$$cstr_17
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_21
-L@$_IFELSE_END_21:
+jmp L@$$_IFELSE_END_21
+L@$$_IFELSE_END_21:
 ;Get the value of variable or field or type 'f1' start
 mov eax, ebp ;Variable: f1
 sub eax, 16 ;Variable: f1
@@ -1243,21 +1207,21 @@ sub eax, 20 ;Variable: f2
 
 fld dword [eax] ;get the right value of the left value
 fcomip st0, st1
-jbe L@$_JGE_24
+jbe L@$$_JGE_24
 mov eax, 0
-jmp L@$_JGE_END_24
-L@$_JGE_24:
+jmp L@$$_JGE_END_24
+L@$$_JGE_24:
 mov eax, 1
-L@$_JGE_END_24:
+L@$$_JGE_END_24:
 cmp eax, 1
-jne L@$_IFELSE_END_23
-mov eax, Main@main@cstr_18
+jne L@$$_IFELSE_END_23
+mov eax, Main@main$$cstr_18
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_23
-L@$_IFELSE_END_23:
+jmp L@$$_IFELSE_END_23
+L@$$_IFELSE_END_23:
 ;Get the value of variable or field or type 'f2' start
 mov eax, ebp ;Variable: f2
 sub eax, 20 ;Variable: f2
@@ -1272,21 +1236,21 @@ sub eax, 16 ;Variable: f1
 
 fld dword [eax] ;get the right value of the left value
 fcomip st0, st1
-ja L@$_JL_26
+ja L@$$_JL_26
 mov eax, 0
-jmp L@$_JL_END_26
-L@$_JL_26:
+jmp L@$$_JL_END_26
+L@$$_JL_26:
 mov eax, 1
-L@$_JL_END_26:
+L@$$_JL_END_26:
 cmp eax, 1
-jne L@$_IFELSE_END_25
-mov eax, Main@main@cstr_19
+jne L@$$_IFELSE_END_25
+mov eax, Main@main$$cstr_19
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_25
-L@$_IFELSE_END_25:
+jmp L@$$_IFELSE_END_25
+L@$$_IFELSE_END_25:
 ;Get the value of variable or field or type 'f2' start
 mov eax, ebp ;Variable: f2
 sub eax, 20 ;Variable: f2
@@ -1301,21 +1265,21 @@ sub eax, 16 ;Variable: f1
 
 fld dword [eax] ;get the right value of the left value
 fcomip st0, st1
-jae L@$_JLE_28
+jae L@$$_JLE_28
 mov eax, 0
-jmp L@$_JLE_END_28
-L@$_JLE_28:
+jmp L@$$_JLE_END_28
+L@$$_JLE_28:
 mov eax, 1
-L@$_JLE_END_28:
+L@$$_JLE_END_28:
 cmp eax, 1
-jne L@$_IFELSE_END_27
-mov eax, Main@main@cstr_20
+jne L@$$_IFELSE_END_27
+mov eax, Main@main$$cstr_20
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_27
-L@$_IFELSE_END_27:
+jmp L@$$_IFELSE_END_27
+L@$$_IFELSE_END_27:
 ;Get the value of variable or field or type 'f2' start
 mov eax, ebp ;Variable: f2
 sub eax, 20 ;Variable: f2
@@ -1330,38 +1294,28 @@ sub eax, 16 ;Variable: f1
 
 fld dword [eax] ;get the right value of the left value
 fcomip st0, st1
-jne L@$_JNE_30
+jne L@$$_JNE_30
 mov eax, 0
-jmp L@$_JNE_END_30
-L@$_JNE_30:
+jmp L@$$_JNE_END_30
+L@$$_JNE_30:
 mov eax, 1
-L@$_JNE_END_30:
+L@$$_JNE_END_30:
 cmp eax, 1
-jne L@$_IFELSE_END_29
-mov eax, Main@main@cstr_21
+jne L@$$_IFELSE_END_29
+mov eax, Main@main$$cstr_21
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_29
-L@$_IFELSE_END_29:
-;Get the value of variable or field or type 'f3' start
-mov eax, ebp ;Variable: f3
-sub eax, 24 ;Variable: f3
-;Get the value of variable or field 'f3' end
-
-fld qword [Main@main@double_16]
+jmp L@$$_IFELSE_END_29
+L@$$_IFELSE_END_29:
+fld qword [Main@main$$double_16]
 ;Get the value of variable or field or type 'f3' start
 mov eax, ebp ;Variable: f3
 sub eax, 24 ;Variable: f3
 ;Get the value of variable or field 'f3' end
 
 fstp dword[eax]
-;Get the value of variable or field or type 'f4' start
-mov eax, ebp ;Variable: f4
-sub eax, 28 ;Variable: f4
-;Get the value of variable or field 'f4' end
-
 ;Get the value of variable or field or type 'f3' start
 mov eax, ebp ;Variable: f3
 sub eax, 24 ;Variable: f3
@@ -1388,26 +1342,21 @@ sub eax, 28 ;Variable: f4
 
 fld dword [eax] ;get the right value of the left value
 fcomip st0, st1
-je L@$_JE_32
+je L@$$_JE_32
 mov eax, 0
-jmp L@$_JE_END_32
-L@$_JE_32:
+jmp L@$$_JE_END_32
+L@$$_JE_32:
 mov eax, 1
-L@$_JE_END_32:
+L@$$_JE_END_32:
 cmp eax, 1
-jne L@$_IFELSE_END_31
-mov eax, Main@main@cstr_22
+jne L@$$_IFELSE_END_31
+mov eax, Main@main$$cstr_22
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_31
-L@$_IFELSE_END_31:
-;Get the value of variable or field or type 'n' start
-mov eax, ebp ;Variable: n
-sub eax, 4 ;Variable: n
-;Get the value of variable or field 'n' end
-
+jmp L@$$_IFELSE_END_31
+L@$$_IFELSE_END_31:
 mov eax, 1
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'n' start
@@ -1431,21 +1380,21 @@ sub eax, 4 ;Variable: n
 
 fild dword [eax] ;get the right value of the left value
 fcomip st0, st1
-jb L@$_JG_34
+jb L@$$_JG_34
 mov eax, 0
-jmp L@$_JG_END_34
-L@$_JG_34:
+jmp L@$$_JG_END_34
+L@$$_JG_34:
 mov eax, 1
-L@$_JG_END_34:
+L@$$_JG_END_34:
 cmp eax, 1
-jne L@$_IFELSE_END_33
-mov eax, Main@main@cstr_23
+jne L@$$_IFELSE_END_33
+mov eax, Main@main$$cstr_23
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_33
-L@$_IFELSE_END_33:
+jmp L@$$_IFELSE_END_33
+L@$$_IFELSE_END_33:
 ;Get the value of variable or field or type 'f1' start
 mov eax, ebp ;Variable: f1
 sub eax, 16 ;Variable: f1
@@ -1460,21 +1409,21 @@ sub eax, 4 ;Variable: n
 
 fild dword [eax] ;get the right value of the left value
 fcomip st0, st1
-jbe L@$_JGE_36
+jbe L@$$_JGE_36
 mov eax, 0
-jmp L@$_JGE_END_36
-L@$_JGE_36:
+jmp L@$$_JGE_END_36
+L@$$_JGE_36:
 mov eax, 1
-L@$_JGE_END_36:
+L@$$_JGE_END_36:
 cmp eax, 1
-jne L@$_IFELSE_END_35
-mov eax, Main@main@cstr_24
+jne L@$$_IFELSE_END_35
+mov eax, Main@main$$cstr_24
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_35
-L@$_IFELSE_END_35:
+jmp L@$$_IFELSE_END_35
+L@$$_IFELSE_END_35:
 ;Get the value of variable or field or type 'n' start
 mov eax, ebp ;Variable: n
 sub eax, 4 ;Variable: n
@@ -1489,21 +1438,21 @@ sub eax, 16 ;Variable: f1
 
 fld dword [eax] ;get the right value of the left value
 fcomip st0, st1
-ja L@$_JL_38
+ja L@$$_JL_38
 mov eax, 0
-jmp L@$_JL_END_38
-L@$_JL_38:
+jmp L@$$_JL_END_38
+L@$$_JL_38:
 mov eax, 1
-L@$_JL_END_38:
+L@$$_JL_END_38:
 cmp eax, 1
-jne L@$_IFELSE_END_37
-mov eax, Main@main@cstr_25
+jne L@$$_IFELSE_END_37
+mov eax, Main@main$$cstr_25
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_37
-L@$_IFELSE_END_37:
+jmp L@$$_IFELSE_END_37
+L@$$_IFELSE_END_37:
 ;Get the value of variable or field or type 'n' start
 mov eax, ebp ;Variable: n
 sub eax, 4 ;Variable: n
@@ -1518,21 +1467,21 @@ sub eax, 16 ;Variable: f1
 
 fld dword [eax] ;get the right value of the left value
 fcomip st0, st1
-jae L@$_JLE_40
+jae L@$$_JLE_40
 mov eax, 0
-jmp L@$_JLE_END_40
-L@$_JLE_40:
+jmp L@$$_JLE_END_40
+L@$$_JLE_40:
 mov eax, 1
-L@$_JLE_END_40:
+L@$$_JLE_END_40:
 cmp eax, 1
-jne L@$_IFELSE_END_39
-mov eax, Main@main@cstr_26
+jne L@$$_IFELSE_END_39
+mov eax, Main@main$$cstr_26
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_39
-L@$_IFELSE_END_39:
+jmp L@$$_IFELSE_END_39
+L@$$_IFELSE_END_39:
 ;Get the value of variable or field or type 'n' start
 mov eax, ebp ;Variable: n
 sub eax, 4 ;Variable: n
@@ -1547,26 +1496,21 @@ sub eax, 16 ;Variable: f1
 
 fld dword [eax] ;get the right value of the left value
 fcomip st0, st1
-jne L@$_JNE_42
+jne L@$$_JNE_42
 mov eax, 0
-jmp L@$_JNE_END_42
-L@$_JNE_42:
+jmp L@$$_JNE_END_42
+L@$$_JNE_42:
 mov eax, 1
-L@$_JNE_END_42:
+L@$$_JNE_END_42:
 cmp eax, 1
-jne L@$_IFELSE_END_41
-mov eax, Main@main@cstr_27
+jne L@$$_IFELSE_END_41
+mov eax, Main@main$$cstr_27
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-jmp L@$_IFELSE_END_41
-L@$_IFELSE_END_41:
-;Get the value of variable or field or type 'obj' start
-mov eax, ebp ;Variable: obj
-sub eax, 32 ;Variable: obj
-;Get the value of variable or field 'obj' end
-
+jmp L@$$_IFELSE_END_41
+L@$$_IFELSE_END_41:
 sub esp, 8 ;used as saving new's memory address and method deque
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1581,10 +1525,10 @@ push none@$$classname_str
 push dword [esp+12]
 call _PushNonNativeMethodName
 add esp, 12
-fld dword [Main@main@float_3]
+fld dword [Main@main$$float_3]
 sub esp, 4
 fstp dword[esp]
-fld dword [Main@main@float_2]
+fld dword [Main@main$$float_2]
 sub esp, 4
 fstp dword[esp]
 push dword [esp+12]
@@ -1626,7 +1570,7 @@ call _PopMethodName
 mov eax, [esp+4]
 add esp, 12
 ;general call end
-mov eax, Main@main@cstr_28
+mov eax, Main@main$$cstr_28
 push eax
 push _printstrstr
 call _printf
@@ -1646,10 +1590,10 @@ push float@$$classname_str
 push ecx
 call _PushNonNativeMethodName
 add esp, 12
-fld dword [Main@main@float_5]
+fld dword [Main@main$$float_5]
 sub esp, 4
 fstp dword[esp]
-fld dword [Main@main@float_4]
+fld dword [Main@main$$float_4]
 sub esp, 4
 fstp dword[esp]
 mov ecx, [esp+16] ;this address value
@@ -1672,7 +1616,7 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_29
+mov eax, Main@main$$cstr_29
 push eax
 push _printstrstr
 call _printf
@@ -1688,10 +1632,10 @@ push c1@$$classname_str
 push float@$$classname_str
 call _PushStaticMethodName
 add esp, 12
-fld dword [Main@main@float_7]
+fld dword [Main@main$$float_7]
 sub esp, 4
 fstp dword[esp]
-fld dword [Main@main@float_6]
+fld dword [Main@main$$float_6]
 sub esp, 4
 fstp dword[esp]
 ;static call start
@@ -1712,7 +1656,7 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_30
+mov eax, Main@main$$cstr_30
 push eax
 push _printstrstr
 call _printf
@@ -1728,7 +1672,7 @@ push c1@$$classname_str
 push float@$$classname_str
 call _PushStaticMethodName
 add esp, 12
-fld dword [Main@main@float_8]
+fld dword [Main@main$$float_8]
 sub esp, 4
 fstp dword[esp]
 ;static call start
@@ -1749,11 +1693,6 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'obj2' start
-mov eax, ebp ;Variable: obj2
-sub eax, 36 ;Variable: obj2
-;Get the value of variable or field 'obj2' end
-
 sub esp, 8 ;used as saving new's memory address and method deque
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1768,10 +1707,10 @@ push none@$$classname_str
 push dword [esp+12]
 call _PushNonNativeMethodName
 add esp, 12
-fld qword [Main@main@double_18]
+fld qword [Main@main$$double_18]
 sub esp, 8
 fstp qword[esp]
-fld qword [Main@main@double_17]
+fld qword [Main@main$$double_17]
 sub esp, 8
 fstp qword[esp]
 push dword [esp+20]
@@ -1813,7 +1752,7 @@ call _PopMethodName
 mov eax, [esp+4]
 add esp, 12
 ;general call end
-mov eax, Main@main@cstr_31
+mov eax, Main@main$$cstr_31
 push eax
 push _printstrstr
 call _printf
@@ -1833,10 +1772,10 @@ push double@$$classname_str
 push ecx
 call _PushNonNativeMethodName
 add esp, 12
-fld qword [Main@main@double_20]
+fld qword [Main@main$$double_20]
 sub esp, 8
 fstp qword[esp]
-fld qword [Main@main@double_19]
+fld qword [Main@main$$double_19]
 sub esp, 8
 fstp qword[esp]
 mov ecx, [esp+24] ;this address value
@@ -1859,7 +1798,7 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_32
+mov eax, Main@main$$cstr_32
 push eax
 push _printstrstr
 call _printf
@@ -1875,10 +1814,10 @@ push c2@$$classname_str
 push double@$$classname_str
 call _PushStaticMethodName
 add esp, 12
-fld qword [Main@main@double_22]
+fld qword [Main@main$$double_22]
 sub esp, 8
 fstp qword[esp]
-fld qword [Main@main@double_21]
+fld qword [Main@main$$double_21]
 sub esp, 8
 fstp qword[esp]
 ;static call start
@@ -1899,7 +1838,7 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-mov eax, Main@main@cstr_33
+mov eax, Main@main$$cstr_33
 push eax
 push _printstrstr
 call _printf
@@ -1915,7 +1854,7 @@ push c2@$$classname_str
 push double@$$classname_str
 call _PushStaticMethodName
 add esp, 12
-fld qword [Main@main@double_23]
+fld qword [Main@main$$double_23]
 sub esp, 8
 fstp qword[esp]
 ;static call start

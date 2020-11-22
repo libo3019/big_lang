@@ -82,36 +82,36 @@ none@$$classname_str db "none", 0
 null@$$classname_str db "null", 0
 string@$$classname_str db "string", 0
 ;All const string
-Main@main@cstr_1 db "#################1", 10, 0
-Main@main@cstr_10 db "try start1!", 10, 0
-Main@main@cstr_11 db "try3obj", 0
-Main@main@cstr_12 db "*****c5 exception is captured: ", 0
-Main@main@cstr_13 db "try2obj", 0
-Main@main@cstr_14 db "c3info", 0
-Main@main@cstr_15 db "c1exception info: ", 0
-Main@main@cstr_16 db "*************c3exception info: ", 0
-Main@main@cstr_17 db "try start3!", 10, 0
-Main@main@cstr_18 db "The try1's exception information: ", 0
-Main@main@cstr_19 db "finally is executed!", 10, 0
-Main@main@cstr_2 db "try3obj", 0
-Main@main@cstr_3 db "#################2", 10, 0
-Main@main@cstr_4 db "#################3", 10, 0
-Main@main@cstr_5 db "Obj5Info", 0
-Main@main@cstr_6 db "#################4", 10, 0
-Main@main@cstr_7 db "#################5", 10, 0
-Main@main@cstr_8 db "#################6", 10, 0
-Main@main@cstr_9 db "sys exception, msg: ", 0
-c1@getmsg@cstr_1 db "c1getmsg:", 0
-c1@getmsg@cstr_2 db "c1::getmsg", 0
-c3@c3@$S@cstr_1 db "c3::c3, msg = ", 0
-c3@c3@$S@cstr_2 db "c3::c3, info = ", 0
-c3@func1@cstr_1 db "a user exception", 0
-c3@output@cstr_1 db "c3::output start", 10, 0
-c3@output@cstr_2 db "c3::output, info=", 0
-c3@output@cstr_3 db "c3::output end", 10, 0
-c5@c5@$S@cstr_1 db "c5::c5 info=", 0
-c5@func1@cstr_1 db "c5::func1 info=", 0
-c5@func3@cstr_1 db "c5::func3 info=", 0
+Main@main$$cstr_1 db "#################1", 10, 0
+Main@main$$cstr_10 db "try start1!", 10, 0
+Main@main$$cstr_11 db "try3obj", 0
+Main@main$$cstr_12 db "*****c5 exception is captured: ", 0
+Main@main$$cstr_13 db "try2obj", 0
+Main@main$$cstr_14 db "c3info", 0
+Main@main$$cstr_15 db "c1exception info: ", 0
+Main@main$$cstr_16 db "*************c3exception info: ", 0
+Main@main$$cstr_17 db "try start3!", 10, 0
+Main@main$$cstr_18 db "The try1", 39, "s exception information: ", 0
+Main@main$$cstr_19 db "finally is executed!", 10, 0
+Main@main$$cstr_2 db "try3obj", 0
+Main@main$$cstr_3 db "#################2", 10, 0
+Main@main$$cstr_4 db "#################3", 10, 0
+Main@main$$cstr_5 db "Obj5Info", 0
+Main@main$$cstr_6 db "#################4", 10, 0
+Main@main$$cstr_7 db "#################5", 10, 0
+Main@main$$cstr_8 db "#################6", 10, 0
+Main@main$$cstr_9 db "sys exception, msg: ", 0
+c1@getmsg$$cstr_1 db "c1getmsg:", 0
+c1@getmsg$$cstr_2 db "c1::getmsg", 0
+c3@c3@$S$$cstr_1 db "c3::c3, msg = ", 0
+c3@c3@$S$$cstr_2 db "c3::c3, info = ", 0
+c3@func1$$cstr_1 db "a user exception", 0
+c3@output$$cstr_1 db "c3::output start", 10, 0
+c3@output$$cstr_2 db "c3::output, info=", 0
+c3@output$$cstr_3 db "c3::output end", 10, 0
+c5@c5@$S$$cstr_1 db "c5::c5 info=", 0
+c5@func1$$cstr_1 db "c5::func1 info=", 0
+c5@func3$$cstr_1 db "c5::func3 info=", 0
 ;All const double
 ;All const float
 ;All method signature
@@ -139,26 +139,26 @@ size@$$signature_str db "size", 0
 string@$$signature_str db "string", 0
 string@$S@$$signature_str db "string@$S", 0
 
-Main@@try_data_1:
-dd native_sys_exception@$$classdescriptor, -4, 4, Main@@try_start_1_catch_1
+Main@$$try_data_1:
+dd native_sys_exception@$$classdescriptor, -4, 4, Main@$$try_start_1_catch_1
 dd 0, 0, 0, 0
 
-Main@@try_data_2:
-dd native_sys_exception@$$classdescriptor, -4, 4, Main@@try_start_2_catch_1
+Main@$$try_data_2:
+dd native_sys_exception@$$classdescriptor, -4, 4, Main@$$try_start_2_catch_1
 dd 0, 0, 0, 0
 
-Main@@try_data_3:
-dd c1@$$classdescriptor, -16, 4, Main@@try_start_3_catch_1
-dd c3@$$classdescriptor, -16, 4, Main@@try_start_3_catch_2
+Main@$$try_data_3:
+dd c1@$$classdescriptor, -16, 4, Main@$$try_start_3_catch_1
+dd c3@$$classdescriptor, -16, 4, Main@$$try_start_3_catch_2
 dd 0, 0, 0, 0
 
-Main@@try_data_4:
-dd c3@$$classdescriptor, -24, 4, Main@@try_start_4_catch_1
+Main@$$try_data_4:
+dd c3@$$classdescriptor, -24, 4, Main@$$try_start_4_catch_1
 dd 0, 0, 0, 0
 
 section .bss
 ;The virtual table address of class string containing virtual methods
-string@$vtable resd 2
+string@$$vtable resd 2
 ;The descriptor table address of class Main
 Main@$$classdescriptor resd 2
 ;The descriptor table address of class boolean
@@ -200,8 +200,8 @@ sub esp, 16
 finit
 call _save_unhandled_exception_filter
 mov [ebp-4], eax
-call globalfunc@$construct_vtable ;call the method to construct all classes' virtual table
-call globalfunc@$construct_classdescriptors
+call globalfunc@$$construct_vtable ;call the method to construct all classes' virtual table
+call globalfunc@$$construct_classdescriptors
 call _GetMethodNameDeque
 mov [ebp-8], eax ;save the method deque
 push main@$$signature_str
@@ -212,7 +212,7 @@ add esp, 12
 call _Main@main
 push eax
 call _PopMethodName
-call globalfunc@$destroy_vtable ;call the method to destroy all classes' virtual table
+call globalfunc@$$destroy_vtable ;call the method to destroy all classes' virtual table
 push dword [ebp-4]
 call _restore_unhandled_exception_filter
 add esp, 4
@@ -223,7 +223,7 @@ mov esp, ebp
 pop ebp
 ret ;_main
 
-globalfunc@$construct_vtable: ;The method of constructing all classes' virtual table
+globalfunc@$$construct_vtable: ;The method of constructing all classes' virtual table
 push ebp
 mov ebp, esp
 ;construct the virtual table of class 'string' start.
@@ -233,14 +233,14 @@ add esp, 4
 ;class 'string', virtual method moving start
 mov dword [eax], _string@output
 ;class 'string', virtual method moving end
-mov [string@$vtable], eax ;the virtual table address of class 'string'
-mov dword [string@$vtable + 4], string@$$classname_str ;the virtual table address of class 'string'
+mov [string@$$vtable], eax ;the virtual table address of class 'string'
+mov dword [string@$$vtable + 4], string@$$classname_str ;the virtual table address of class 'string'
 ;construct the virtual table of class 'string' end.
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$construct_vtable
+ret ;globalfunc@$$construct_vtable
 
-globalfunc@$construct_classdescriptors: ;The method of constructing all classes' descriptor table
+globalfunc@$$construct_classdescriptors: ;The method of constructing all classes' descriptor table
 push ebp
 mov ebp, esp
 mov dword [Main@$$classdescriptor], Main@$$classname_str
@@ -278,18 +278,18 @@ mov dword [string@$$classdescriptor + 4], 0
 
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$construct_classdescriptors
+ret ;globalfunc@$$construct_classdescriptors
 
-globalfunc@$destroy_vtable: ;The method of destroying all classes' virtual table
+globalfunc@$$destroy_vtable: ;The method of destroying all classes' virtual table
 push ebp
 mov ebp, esp
 ;The virtual table address of class string containing virtual methods
-push dword [string@$vtable]
+push dword [string@$$vtable]
 call _free
 add esp, 4
 mov esp, ebp
 pop ebp
-ret ;globalfunc@$destroy_vtable
+ret ;globalfunc@$$destroy_vtable
 
 
 ;Method: _string@string
@@ -458,11 +458,6 @@ ret ;_string@length
 _c1@c1@$S:
 push ebp
 mov ebp, esp
-;Get the value of variable or field or type 'info' start
-mov eax, [ebp+8] ;This address
-;offset = 0, Field: info
-;Get the value of variable or field 'info' end
-
 ;Get the value of variable or field or type 'msg' start
 mov eax, ebp ;Parameter: msg
 add eax, 12 ;Parameter: msg
@@ -485,7 +480,7 @@ ret ;_c1@c1@$S
 _c1@getmsg:
 push ebp
 mov ebp, esp
-mov eax, c1@getmsg@cstr_1
+mov eax, c1@getmsg$$cstr_1
 push eax
 push _printstrstr
 call _printf
@@ -505,7 +500,7 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-mov eax, c1@getmsg@cstr_2
+mov eax, c1@getmsg$$cstr_2
 add esp, 0
 mov esp, ebp
 pop ebp
@@ -518,7 +513,7 @@ ret ;_c1@getmsg
 _c3@c3@$S:
 push ebp
 mov ebp, esp
-mov eax, c3@c3@$S@cstr_1
+mov eax, c3@c3@$S$$cstr_1
 push eax
 push _printstrstr
 call _printf
@@ -538,11 +533,6 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'info' start
-mov eax, [ebp+8] ;This address
-;offset = 0, Field: info
-;Get the value of variable or field 'info' end
-
 ;Get the value of variable or field or type 'msg' start
 mov eax, ebp ;Parameter: msg
 add eax, 12 ;Parameter: msg
@@ -557,7 +547,7 @@ mov eax, [ebp+8] ;This address
 pop ebx ;restore the right expression value
 mov ebx, [ebx] ;get the right value of the left value
 mov [eax], ebx ;assign the right to the left value address
-mov eax, c3@c3@$S@cstr_2
+mov eax, c3@c3@$S$$cstr_2
 push eax
 push _printstrstr
 call _printf
@@ -585,13 +575,13 @@ ret ;_c3@c3@$S
 _c3@output:
 push ebp
 mov ebp, esp
-mov eax, c3@output@cstr_1
+mov eax, c3@output$$cstr_1
 push eax
 push _printstrstr
 call _printf
 add esp, 8
 call _print_call_stack
-mov eax, c3@output@cstr_2
+mov eax, c3@output$$cstr_2
 push eax
 push _printstrstr
 call _printf
@@ -611,7 +601,7 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-mov eax, c3@output@cstr_3
+mov eax, c3@output$$cstr_3
 push eax
 push _printstrstr
 call _printf
@@ -657,7 +647,7 @@ push none@$$classname_str
 push dword [esp+12]
 call _PushNonNativeMethodName
 add esp, 12
-mov eax, c3@func1@cstr_1
+mov eax, c3@func1$$cstr_1
 push eax
 push dword [esp+8]
 call _c1@c1@$S
@@ -677,11 +667,6 @@ ret ;_c3@func1
 _c5@c5@$S:
 push ebp
 mov ebp, esp
-;Get the value of variable or field or type 'info' start
-mov eax, [ebp+8] ;This address
-;offset = 0, Field: info
-;Get the value of variable or field 'info' end
-
 ;Get the value of variable or field or type 'msg' start
 mov eax, ebp ;Parameter: msg
 add eax, 12 ;Parameter: msg
@@ -696,7 +681,7 @@ mov eax, [ebp+8] ;This address
 pop ebx ;restore the right expression value
 mov ebx, [ebx] ;get the right value of the left value
 mov [eax], ebx ;assign the right to the left value address
-mov eax, c5@c5@$S@cstr_1
+mov eax, c5@c5@$S$$cstr_1
 push eax
 push _printstrstr
 call _printf
@@ -724,7 +709,7 @@ ret ;_c5@c5@$S
 _c5@func1:
 push ebp
 mov ebp, esp
-mov eax, c5@func1@cstr_1
+mov eax, c5@func1$$cstr_1
 push eax
 push _printstrstr
 call _printf
@@ -783,7 +768,7 @@ ret ;_c5@func1
 _c5@func3:
 push ebp
 mov ebp, esp
-mov eax, c5@func3@cstr_1
+mov eax, c5@func3$$cstr_1
 push eax
 push _printstrstr
 call _printf
@@ -850,14 +835,14 @@ call _malloc
 add esp, 4
 
 mov [ebp-4] ,eax ;save TryRuntimeCtx address
-Main@@try_start_1:
+Main@$$try_start_1:
 ;Assign value to TryRuntimeCtx memory
 mov [eax+0], ebp
 mov [eax+4], esp
 mov [eax+8], esi
 mov [eax+12], edi
 mov [eax+16], ebx
-mov dword [eax+20], Main@@try_data_1
+mov dword [eax+20], Main@$$try_data_1
 mov dword [eax+24], 0
 mov dword [eax+28], 0
 
@@ -874,17 +859,12 @@ push dword [ebp-4] ;try runtime ctx
 push dword [ebp-8]; stack top
 call _c_stack_push
 add esp, 8
-;try 'Main@@try_start_1', block instructions start
-mov eax, Main@main@cstr_1
+;try 'Main@$$try_start_1', block instructions start
+mov eax, Main@main$$cstr_1
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'obj3' start
-mov eax, ebp ;Variable: obj3
-sub eax, 12 ;Variable: obj3
-;Get the value of variable or field 'obj3' end
-
 sub esp, 8 ;used as saving new's memory address and method deque
 call _GetMethodNameDeque
 mov [esp], eax
@@ -899,7 +879,7 @@ push none@$$classname_str
 push dword [esp+12]
 call _PushNonNativeMethodName
 add esp, 12
-mov eax, Main@main@cstr_2
+mov eax, Main@main$$cstr_2
 push eax
 push dword [esp+8]
 call _c3@c3@$S
@@ -915,7 +895,7 @@ sub eax, 12 ;Variable: obj3
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-mov eax, Main@main@cstr_3
+mov eax, Main@main$$cstr_3
 push eax
 push _printstrstr
 call _printf
@@ -945,16 +925,11 @@ call _PopMethodName
 mov eax, [esp+4]
 add esp, 12
 ;general call end
-mov eax, Main@main@cstr_4
+mov eax, Main@main$$cstr_4
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'obj5' start
-mov eax, ebp ;Variable: obj5
-sub eax, 16 ;Variable: obj5
-;Get the value of variable or field 'obj5' end
-
 sub esp, 8 ;used as saving new's memory address and method deque
 call _GetMethodNameDeque
 mov [esp], eax
@@ -969,7 +944,7 @@ push none@$$classname_str
 push dword [esp+12]
 call _PushNonNativeMethodName
 add esp, 12
-mov eax, Main@main@cstr_5
+mov eax, Main@main$$cstr_5
 push eax
 push dword [esp+8]
 call _c5@c5@$S
@@ -985,16 +960,11 @@ sub eax, 16 ;Variable: obj5
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-mov eax, Main@main@cstr_6
+mov eax, Main@main$$cstr_6
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'obj3' start
-mov eax, ebp ;Variable: obj3
-sub eax, 12 ;Variable: obj3
-;Get the value of variable or field 'obj3' end
-
 sub esp, 12 ;3 variables space
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1028,7 +998,7 @@ sub eax, 12 ;Variable: obj3
 
 pop ebx ;restore the right expression value
 mov [eax], ebx ;assign the right to the left value address
-mov eax, Main@main@cstr_7
+mov eax, Main@main$$cstr_7
 push eax
 push _printstrstr
 call _printf
@@ -1058,7 +1028,7 @@ call _PopMethodName
 mov eax, [esp+4]
 add esp, 12
 ;general call end
-mov eax, Main@main@cstr_8
+mov eax, Main@main$$cstr_8
 push eax
 push _printstrstr
 call _printf
@@ -1070,11 +1040,11 @@ add esp, 4
 push dword [ebp-4]
 call _free
 add esp, 4
-;try 'Main@@try_start_1', block instructions end
-jmp Main@@try_end_1 ;jum the try-end
-;try 'Main@@try_start_1' catch 'Main@@try_start_1_catch_1'start
-Main@@try_start_1_catch_1:
-mov eax, Main@main@cstr_9
+;try 'Main@$$try_start_1', block instructions end
+jmp Main@$$try_end_1 ;jum the try-end
+;try 'Main@$$try_start_1' catch 'Main@$$try_start_1_catch_1'start
+Main@$$try_start_1_catch_1:
+mov eax, Main@main$$cstr_9
 push eax
 push _printstrstr
 call _printf
@@ -1113,25 +1083,25 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-jmp Main@@try_end_1 ;jmp the try-end
-;try 'Main@@try_start_1' catch 'Main@@try_start_1_catch_1'end
-Main@@try_end_1:
+jmp Main@$$try_end_1 ;jmp the try-end
+;try 'Main@$$try_start_1' catch 'Main@$$try_start_1_catch_1'end
+Main@$$try_end_1:
 ;Allocate TryRuntimeCtx memory
 push 36
 call _malloc
 add esp, 4
 
 mov [ebp-4] ,eax ;save TryRuntimeCtx address
-Main@@try_start_2:
+Main@$$try_start_2:
 ;Assign value to TryRuntimeCtx memory
 mov [eax+0], ebp
 mov [eax+4], esp
 mov [eax+8], esi
 mov [eax+12], edi
 mov [eax+16], ebx
-mov dword [eax+20], Main@@try_data_2
+mov dword [eax+20], Main@$$try_data_2
 mov dword [eax+24], 0
-mov dword [eax+28], Main@@try_start_2_finally
+mov dword [eax+28], Main@$$try_start_2_finally
 
 call _GetMethodNameDeque
 push eax
@@ -1146,17 +1116,12 @@ push dword [ebp-4] ;try runtime ctx
 push dword [ebp-8]; stack top
 call _c_stack_push
 add esp, 8
-;try 'Main@@try_start_2', block instructions start
-mov eax, Main@main@cstr_10
+;try 'Main@$$try_start_2', block instructions start
+mov eax, Main@main$$cstr_10
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'n' start
-mov eax, ebp ;Variable: n
-sub eax, 12 ;Variable: n
-;Get the value of variable or field 'n' end
-
 mov eax, 1
 push eax ;save the right expression value
 ;Get the value of variable or field or type 'n' start
@@ -1172,14 +1137,14 @@ call _malloc
 add esp, 4
 
 mov [ebp-16] ,eax ;save TryRuntimeCtx address
-Main@@try_start_3:
+Main@$$try_start_3:
 ;Assign value to TryRuntimeCtx memory
 mov [eax+0], ebp
 mov [eax+4], esp
 mov [eax+8], esi
 mov [eax+12], edi
 mov [eax+16], ebx
-mov dword [eax+20], Main@@try_data_3
+mov dword [eax+20], Main@$$try_data_3
 mov dword [eax+24], 0
 mov dword [eax+28], 0
 
@@ -1196,21 +1161,21 @@ push dword [ebp-16] ;try runtime ctx
 push dword [ebp-20]; stack top
 call _c_stack_push
 add esp, 8
-;try 'Main@@try_start_3', block instructions start
+;try 'Main@$$try_start_3', block instructions start
 ;Allocate TryRuntimeCtx memory
 push 36
 call _malloc
 add esp, 4
 
 mov [ebp-24] ,eax ;save TryRuntimeCtx address
-Main@@try_start_4:
+Main@$$try_start_4:
 ;Assign value to TryRuntimeCtx memory
 mov [eax+0], ebp
 mov [eax+4], esp
 mov [eax+8], esi
 mov [eax+12], edi
 mov [eax+16], ebx
-mov dword [eax+20], Main@@try_data_4
+mov dword [eax+20], Main@$$try_data_4
 mov dword [eax+24], 0
 mov dword [eax+28], 0
 
@@ -1227,12 +1192,7 @@ push dword [ebp-24] ;try runtime ctx
 push dword [ebp-28]; stack top
 call _c_stack_push
 add esp, 8
-;try 'Main@@try_start_4', block instructions start
-;Get the value of variable or field or type 'obj' start
-mov eax, ebp ;Variable: obj
-sub eax, 32 ;Variable: obj
-;Get the value of variable or field 'obj' end
-
+;try 'Main@$$try_start_4', block instructions start
 sub esp, 8 ;used as saving new's memory address and method deque
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1247,7 +1207,7 @@ push none@$$classname_str
 push dword [esp+12]
 call _PushNonNativeMethodName
 add esp, 12
-mov eax, Main@main@cstr_11
+mov eax, Main@main$$cstr_11
 push eax
 push dword [esp+8]
 call _c5@c5@$S
@@ -1295,11 +1255,11 @@ add esp, 4
 push dword [ebp-24]
 call _free
 add esp, 4
-;try 'Main@@try_start_4', block instructions end
-jmp Main@@try_end_4 ;jum the try-end
-;try 'Main@@try_start_4' catch 'Main@@try_start_4_catch_1'start
-Main@@try_start_4_catch_1:
-mov eax, Main@main@cstr_12
+;try 'Main@$$try_start_4', block instructions end
+jmp Main@$$try_end_4 ;jum the try-end
+;try 'Main@$$try_start_4' catch 'Main@$$try_start_4_catch_1'start
+Main@$$try_start_4_catch_1:
+mov eax, Main@main$$cstr_12
 push eax
 push _printstrstr
 call _printf
@@ -1338,14 +1298,9 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-jmp Main@@try_end_4 ;jmp the try-end
-;try 'Main@@try_start_4' catch 'Main@@try_start_4_catch_1'end
-Main@@try_end_4:
-;Get the value of variable or field or type 'obj' start
-mov eax, ebp ;Variable: obj
-sub eax, 24 ;Variable: obj
-;Get the value of variable or field 'obj' end
-
+jmp Main@$$try_end_4 ;jmp the try-end
+;try 'Main@$$try_start_4' catch 'Main@$$try_start_4_catch_1'end
+Main@$$try_end_4:
 sub esp, 8 ;used as saving new's memory address and method deque
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1360,7 +1315,7 @@ push none@$$classname_str
 push dword [esp+12]
 call _PushNonNativeMethodName
 add esp, 12
-mov eax, Main@main@cstr_13
+mov eax, Main@main$$cstr_13
 push eax
 push dword [esp+8]
 call _c5@c5@$S
@@ -1410,11 +1365,6 @@ mov eax, 0
 call _exit
 add esp, 4
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;Get the value of variable or field or type 'c3obj' start
-mov eax, ebp ;Variable: c3obj
-sub eax, 28 ;Variable: c3obj
-;Get the value of variable or field 'c3obj' end
-
 sub esp, 8 ;used as saving new's memory address and method deque
 call _GetMethodNameDeque
 mov [esp], eax
@@ -1429,7 +1379,7 @@ push none@$$classname_str
 push dword [esp+12]
 call _PushNonNativeMethodName
 add esp, 12
-mov eax, Main@main@cstr_14
+mov eax, Main@main$$cstr_14
 push eax
 push dword [esp+8]
 call _c3@c3@$S
@@ -1477,11 +1427,11 @@ add esp, 4
 push dword [ebp-16]
 call _free
 add esp, 4
-;try 'Main@@try_start_3', block instructions end
-jmp Main@@try_end_3 ;jum the try-end
-;try 'Main@@try_start_3' catch 'Main@@try_start_3_catch_1'start
-Main@@try_start_3_catch_1:
-mov eax, Main@main@cstr_15
+;try 'Main@$$try_start_3', block instructions end
+jmp Main@$$try_end_3 ;jum the try-end
+;try 'Main@$$try_start_3' catch 'Main@$$try_start_3_catch_1'start
+Main@$$try_start_3_catch_1:
+mov eax, Main@main$$cstr_15
 push eax
 push _printstrstr
 call _printf
@@ -1520,11 +1470,11 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-jmp Main@@try_end_3 ;jmp the try-end
-;try 'Main@@try_start_3' catch 'Main@@try_start_3_catch_1'end
-;try 'Main@@try_start_3' catch 'Main@@try_start_3_catch_2'start
-Main@@try_start_3_catch_2:
-mov eax, Main@main@cstr_16
+jmp Main@$$try_end_3 ;jmp the try-end
+;try 'Main@$$try_start_3' catch 'Main@$$try_start_3_catch_1'end
+;try 'Main@$$try_start_3' catch 'Main@$$try_start_3_catch_2'start
+Main@$$try_start_3_catch_2:
+mov eax, Main@main$$cstr_16
 push eax
 push _printstrstr
 call _printf
@@ -1563,19 +1513,14 @@ push eax
 push _printcharstr
 call _printf
 add esp, 8
-jmp Main@@try_end_3 ;jmp the try-end
-;try 'Main@@try_start_3' catch 'Main@@try_start_3_catch_2'end
-Main@@try_end_3:
-mov eax, Main@main@cstr_17
+jmp Main@$$try_end_3 ;jmp the try-end
+;try 'Main@$$try_start_3' catch 'Main@$$try_start_3_catch_2'end
+Main@$$try_end_3:
+mov eax, Main@main$$cstr_17
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-;Get the value of variable or field or type 'n' start
-mov eax, ebp ;Variable: n
-sub eax, 12 ;Variable: n
-;Get the value of variable or field 'n' end
-
 ;Get the value of variable or field or type 'n' start
 mov eax, ebp ;Variable: n
 sub eax, 12 ;Variable: n
@@ -1603,11 +1548,11 @@ add esp, 4
 push dword [ebp-4]
 call _free
 add esp, 4
-;try 'Main@@try_start_2', block instructions end
-jmp Main@@try_start_2_finally ;jmp the finally
-;try 'Main@@try_start_2' catch 'Main@@try_start_2_catch_1'start
-Main@@try_start_2_catch_1:
-mov eax, Main@main@cstr_18
+;try 'Main@$$try_start_2', block instructions end
+jmp Main@$$try_start_2_finally ;jmp the finally
+;try 'Main@$$try_start_2' catch 'Main@$$try_start_2_catch_1'start
+Main@$$try_start_2_catch_1:
+mov eax, Main@main$$cstr_18
 push eax
 push _printstrstr
 call _printf
@@ -1660,15 +1605,15 @@ push eax
 push c9@$$classname_str
 call _throw32bit
 add esp, 8
-jmp Main@@try_start_2_finally ;jmp the finally
-;try 'Main@@try_start_2' catch 'Main@@try_start_2_catch_1'end
-Main@@try_start_2_finally:
-mov eax, Main@main@cstr_19
+jmp Main@$$try_start_2_finally ;jmp the finally
+;try 'Main@$$try_start_2' catch 'Main@$$try_start_2_catch_1'end
+Main@$$try_start_2_finally:
+mov eax, Main@main$$cstr_19
 push eax
 push _printstrstr
 call _printf
 add esp, 8
-Main@@try_end_2:
+Main@$$try_end_2:
 add esp, 32
 mov esp, ebp
 pop ebp
