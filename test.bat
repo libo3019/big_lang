@@ -16,6 +16,9 @@ del array_app1.lang.exe
 del winmain_app.lang.exe
 del static_fields.lang.exe
 del static_variables.lang.exe
+del ifdef.lang.exe
+del ifdef.lang1.exe
+del ifdef.lang2.exe
 
 big_lang_cc_main.exe -i virtual_func.lang -o virtual_func.lang.asm -c Main
 nasm -f win32 virtual_func.lang.asm
@@ -94,6 +97,18 @@ big_lang_cc_main.exe -i static_variables.lang -o static_variables.lang.asm -c Ma
 nasm -f win32 static_variables.lang.asm
 lld-link.exe /nologo /out:static_variables.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin static_variables.lang.obj  msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
 
+big_lang_cc_main.exe -i ifdef.lang -o ifdef.lang.asm -c Main
+nasm -f win32 ifdef.lang.asm
+lld-link.exe /nologo /out:ifdef.lang.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin ifdef.lang.obj  msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
+
+big_lang_cc_main.exe -D CASE1 -D C=31 -i ifdef.lang -o ifdef.lang1.asm -c Main
+nasm -f win32 ifdef.lang1.asm
+lld-link.exe /nologo /out:ifdef.lang1.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin ifdef.lang1.obj  msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
+
+big_lang_cc_main.exe -D CASE -i ifdef.lang -o ifdef.lang2.asm -c Main
+nasm -f win32 ifdef.lang2.asm
+lld-link.exe /nologo /out:ifdef.lang2.exe /libpath:D:\MyTasks\Compilers\bdwgc\vc32\Release /libpath:..\bin ifdef.lang2.obj  msvcrtd.lib legacy_stdio_definitions.lib user32.lib gcmt-dll.lib gc_malloc.lib lang_string_proxy.lib rtti_cmp.lib sys_exception_proxy.lib native_sys_exception32.lib lang_exception_stack.lib throw32bit.lib sys_exception_filter.lib c_stack.lib c_deque.lib jmpany.lib critical_section_proxy.lib native_array32.lib array_proxy.lib get_argc_argv.lib
+
 array_func1.lang.exe
 array_func.lang.exe p1 p2 p3
 array_app1.lang.exe
@@ -111,4 +126,7 @@ main_app.lang.exe p1 p2 p3
 winmain_app.lang.exe "p1 param" p2 p3
 static_fields.lang.exe
 static_variables.lang.exe
+ifdef.lang.exe
+ifdef.lang1.exe
+ifdef.lang2.exe
 thread_app.lang.exe

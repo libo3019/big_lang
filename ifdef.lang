@@ -1,0 +1,44 @@
+class Main {
+	#define INFO "hello big lang1\n"
+	#define STATEMENT printany "hello big lang2\n"
+	#define PRINT_STATEMENT(str) printany str
+	#define A 2
+	#define B 9
+	#define E 3
+     main() static : none {
+			
+     	    #ifdef CASE1
+				printany "case ifdef\n";
+			#elif defined(CASE)
+				printany "CASE\n";
+			#else
+				printany "case else\n";
+			#endif
+			
+			#if defined(CASE1)
+			printany "case if defined\n";
+			#else
+			printany "case else defined\n";
+			#endif
+			
+			#ifdef MACRO1
+			printany "MACRO1 ifdef\n";
+			#endif
+			
+			#if defined(MACRO1)
+			printany "MACRO1 #if defined(MACRO1)\n";
+			#elif C * (A +B) == 55
+			printany "C * (A +B) == 55\n";
+			#elif  E * (B + C) != 120
+			printany "E * (B * C) != 120\n";
+			#else
+			printany "120 MACRO1  #if defined(MACRO1)\n";
+			#endif
+			
+			
+			printany INFO;
+			STATEMENT;
+			PRINT_STATEMENT("Good language.\n");
+     }    
+
+}
