@@ -31,14 +31,13 @@ big_lang_cc is a a compiler for object-oriented language, it includes almost all
 30. #line preprocess
 31. macro without parameters.
 32. macro with parameters.
-33. __FILE__ macro.
-34. __LINE__ macro.
-35. __DATETIME__ macro.
-36. __DATE__ macro.
-37. __TIME__ macro.
-38. __AUTHOR__ macro.
-39. __AUTHOR__ macro.
-40. Add/sub/mul/div/mod/bit shift/bit and/bit or/bit xor/ and logic/or logic/not logic/bracket expression.
+33. "__FILE__"  macro.
+34. "__LINE__" macro.
+35. "__DATETIME__" macro.
+36. "__DATE__" macro.
+37. "__TIME__" macro.
+38. "__AUTHOR__" macro.
+39. Add/sub/mul/div/mod/bit shift/bit and/bit or/bit xor/ and logic/or logic/not logic/bracket expression.
 
 Running method:
 1. Install llvm for windows.<br>
