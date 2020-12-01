@@ -32,12 +32,12 @@ big_lang_cc is a a compiler for object-oriented language, it includes almost all
 31. #include preprocess.
 32. macro without parameters.
 33. macro with parameters.
-34. "__FILE__"  macro.
-35. "__LINE__" macro.
-36. "__DATETIME__" macro.
-37. "__DATE__" macro.
-38. "__TIME__" macro.
-39. "__AUTHOR__" macro.
+34. "\_\_FILE\_\_"  macro.
+35. "\_\_LINE\_\_" macro.
+36. "\_\_DATETIME\_\_" macro.
+37. "\_\_DATE\_\_" macro.
+38. "\_\_TIME\_\_" macro.
+39. "\_\_AUTHOR\_\_" macro.
 40. Add/sub/mul/div/mod/bit shift/bit and/bit or/bit xor/ and logic/or logic/not logic/bracket expression.
 
 Running method:
