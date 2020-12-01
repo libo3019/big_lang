@@ -2,6 +2,7 @@ class Main {
 	#define INFO "hello big lang1\n"
 	#define STATEMENT printany "hello big lang2\n"
 	#define PRINT_STATEMENT(str) printany str
+	#define PRINT_STATEMENT3(str1,str2,str3) printany str1,str2,str3
 	#define A 2
 	#define B 9
 	#define E 3
@@ -31,6 +32,8 @@ class Main {
 			printany "C * (A +B) == 55\n";
 			#elif  E * (B + C) != 120
 			printany "E * (B * C) != 120\n";
+			#elif B == 300
+			printany "B==300\n";
 			#else
 			printany "120 MACRO1  #if defined(MACRO1)\n";
 			#endif
@@ -38,7 +41,7 @@ class Main {
 			
 			printany INFO;
 			STATEMENT;
-			PRINT_STATEMENT("Good language.\n");
+			PRINT_STATEMENT3("Good language1.", "Good language2.", "Good language3.\n");
      }    
 
 }
