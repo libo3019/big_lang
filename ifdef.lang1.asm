@@ -83,7 +83,9 @@ Main@main$$cstr_2 db "case if defined", 10, 0
 Main@main$$cstr_3 db "120 MACRO1  #if defined(MACRO1)", 10, 0
 Main@main$$cstr_4 db "hello big lang1", 10, 0
 Main@main$$cstr_5 db "hello big lang2", 10, 0
-Main@main$$cstr_6 db "Good language.", 10, 0
+Main@main$$cstr_6 db "Good language1.", 0
+Main@main$$cstr_7 db "Good language2.", 0
+Main@main$$cstr_8 db "Good language3.", 10, 0
 ;All const double
 ;All const float
 ;All method signature
@@ -417,6 +419,16 @@ push _printstrstr
 call _printf
 add esp, 8
 mov eax, Main@main$$cstr_6
+push eax
+push _printstrstr
+call _printf
+add esp, 8
+mov eax, Main@main$$cstr_7
+push eax
+push _printstrstr
+call _printf
+add esp, 8
+mov eax, Main@main$$cstr_8
 push eax
 push _printstrstr
 call _printf

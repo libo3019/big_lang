@@ -6,6 +6,7 @@ class Main {
 	#define A 2
 	#define B 9
 	#define E 3
+	#define C 1
      main() static : none {
 			
      	    #ifdef CASE1
